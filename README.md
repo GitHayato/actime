@@ -8,7 +8,7 @@
 ### Association
 - has_many :messages
 - has_many :rooms
-- has_many :times
+- has_many :watches
 
 
 ## Messageテーブル
@@ -20,12 +20,12 @@
 ### Association
 - belongs_to :user
 - belongs_to :room
-- has_many :times
+- has_many :watches
 
-## Timeテーブル
+## Watchテーブル
 | Columns             | Type       | Options                    |
 | ------------------- | ---------- | -------------------------- |
-| time                | integer    | null: false                |
+| watch               | integer    | null: false                |
 | event               | string     | null: false                |
 | user_id             | references | foreign_key: true          |
 ### Association
