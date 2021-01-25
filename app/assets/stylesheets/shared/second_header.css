@@ -1,0 +1,41 @@
+.top-page-header {
+  height: 70px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+}
+
+.icon {
+  padding-top: 13px;
+  width: 150px;
+  height: 43.19px;
+  margin: 0 15px;
+}
+
+.user-content {
+  display: flex;
+  margin: 0 0 0 auto;
+}
+
+.username {
+  text-decoration: none;
+  font-size: 24px;
+  color: #000000;
+  margin: 20px 30px;
+}
+
+.log {
+  width: 130px;
+  height: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #6D61FA;
+  border-radius: 80px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px 50px 20px 0;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
