@@ -1,0 +1,14 @@
+.top-page-header {
+  height: 70px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.icon {
+  padding-top: 13px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 43.19px;
+}
+

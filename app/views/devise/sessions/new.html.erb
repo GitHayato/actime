@@ -1,0 +1,24 @@
+<%= render "shared/header.html.erb" %>
+<div class="sign-in">
+  <div class="user-session">
+    <h2>ログイン</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email, "メールアドレス", class: "label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "enter" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード", class: "label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "enter" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer.html.erb" %>
