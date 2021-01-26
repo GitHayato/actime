@@ -27,6 +27,7 @@
 | ------------------- | ---------- | -------------------------- |
 | watch               | integer    | null: false                |
 | event               | string     | null: false                |
+| distance            | string     | null: false                |
 | user_id             | references | foreign_key: true          |
 ### Association
 - belongs_to :user
