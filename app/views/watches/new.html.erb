@@ -1,0 +1,35 @@
+<%= render "shared/second_header.html.erb" %>
+
+<%# タイマーの時間表示 %>
+<div class="stop-watch">
+  <p id="time">00:00:00;00</p>
+</div>
+
+<%# STARTとSTOPのボタン %>
+<form class="buttons">
+  <input type="button" class="btn" id="start-rap" value="START">
+  <input type="button" class="btn" id="stop" value="STOP">
+</form>
+
+<div class="table">
+  <table>
+    <tr>
+      <th class="date">日付</th>
+      <th class="time">タイム</th>
+      <th class="name">名前</th>
+      <th class="event">種目</th>
+      <th class="distance">距離</th>
+    </tr>
+    <%# <% 10.each do, class: "a" %> %>
+      <tr>
+        <td>date</td>
+        <td>watch</td>
+        <td>user.username</td>
+        <td>event</td>
+        <td>distance</td>
+      </tr>
+    <%# <% end %> %>
+  </table>
+</div>
+
+<%= render "shared/footer.html.erb" %>
