@@ -61,6 +61,7 @@ function stopWatch() {
     if (rap.value == 'RESET') {
       rap.value = 'RAP';
       stopWatchInitial();
+      stoppingTime = 0;
       time.innerHTML = "00:00:00.000";
 
     // inputタグのvalue属性が"RAP"のときの挙動
