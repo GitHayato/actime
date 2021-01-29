@@ -33,16 +33,20 @@
   margin: 0 30px;
 }
 
-#start-rap {
+#start {
   background-color: #6D61FA;
 }
 
-#stop {
+#rap {
   background-color: #000000;
 }
 
 .btn:focus {
   outline: 0;
+}
+
+.inactive {
+  opacity: 0.3;
 }
 
 /* .btn:active {
