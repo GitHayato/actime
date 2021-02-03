@@ -1,13 +1,16 @@
 class WatchesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
   end
 
   def new
-    @watches = Watch.all
+    @watches = Watch.all.order(id: "DESC")
   end
 
   def create
-    post = Post.create
-    render json:{ post: post }
+    watch = Watch.create(params[:watch])
+    render json:{ watch: watch }
   end
+
 end
