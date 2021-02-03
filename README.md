@@ -26,8 +26,8 @@
 | Columns             | Type       | Options                    |
 | ------------------- | ---------- | -------------------------- |
 | watch               | integer    | null: false                |
-| event               | string     | null: false                |
-| distance            | string     | null: false                |
+| event               | string     |                            |
+| distance            | string     |                            |
 | user_id             | references | foreign_key: true          |
 ### Association
 - belongs_to :user
