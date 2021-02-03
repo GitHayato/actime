@@ -1,0 +1,50 @@
+<%= render "shared/second_header.html.erb" %>
+
+<%# タイマーの時間表示 %>
+<div class="stop-watch">
+  <p id="time">00:00:00.000</p>
+</div>
+
+<%# STARTとSTOPのボタン %>
+<%= form_with url: watches_path, class: "buttons" do |f| %>
+  <%= f.submit "START", class: "btn", id: "start" %>
+  <%= f.submit "RAP", class: "btn", id: "rap" %>
+<% end %>
+
+<div class="table">
+  <table>
+    <tr>
+      <th class="date">日付</th>
+      <th class="time">タイム</th>
+      <th class="name">名前</th>
+      <th class="event">種目</th>
+      <th class="distance">距離</th>
+    </tr>
+    <div id="time-table">
+    </div>
+
+    <% @watches.each do |watch| %>
+      <tr>
+        <div class="data" data-id = <%= content.id %>>
+          <td class="date">
+            <%= content.created_at.strftime('%Y/%m/%d') %>
+          </td>
+          <td class="time">
+            <%= content.watch %>
+          </td>
+          <td class="name">
+            グループ内のユーザー名一覧にしてそこから選択
+          </td>
+          <td class="event">
+            予め登録して選択
+          </td>
+          <td class="distance">
+            入力
+          </td> 
+        </div>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= render "shared/footer.html.erb" %>

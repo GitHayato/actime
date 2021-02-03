@@ -1,0 +1,94 @@
+.stop-watch {
+  width: 400px;
+  height: 130px;
+  background-color: #DDE1EC;
+  margin: 100px auto 80px;
+  display: flex;
+  align-items: center;
+}
+
+#time {
+  width: 350px;
+  height: 70px;
+  font-size: 48px;
+  background-color: #ffffff;
+  margin: auto;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  width: 300px;
+  height: 80px;
+  font-size: 36px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 60px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0 30px;
+}
+
+#start {
+  background-color: #6D61FA;
+}
+
+#rap {
+  background-color: #000000;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+/* .btn:active {
+  margin-bottom: 4px;
+  box-shadow: none;
+} */
+
+.table {
+  margin: 50px auto;
+  border-collapse: collapse;
+}
+
+table th {
+  font-size: 36px;
+  padding: 10px 0;
+  text-align: center;
+  border: solid 1px #000000;
+}
+
+table td {
+  font-size: 24px;
+  padding: 10px 0;
+  text-align: center;
+  border: solid 1px #000000;
+}
+
+.date {
+  width: 200px;
+}
+
+.time {
+  width: 350px;
+}
+
+.name {
+  width: 300px;
+}
+
+.event {
+  width: 200px;
+}
+
+.distance {
+  width: 200px;
+}
