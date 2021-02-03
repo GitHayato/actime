@@ -6,10 +6,10 @@
 </div>
 
 <%# STARTとSTOPのボタン %>
-<form class="buttons">
-  <input type="button" class="btn" id="start" value="START">
-  <input type="button" class="btn" id="rap" value="RAP">
-</form>
+<%= form_with url: watches_path, class: "buttons" do |f| %>
+  <%= f.submit "START", class: "btn", id: "start" %>
+  <%= f.submit "RAP", class: "btn", id: "rap" %>
+<% end %>
 
 <div class="table">
   <table>
@@ -20,15 +20,30 @@
       <th class="event">種目</th>
       <th class="distance">距離</th>
     </tr>
-    <%# <% 10.each do, class: "a" %> %>
+    <div id="time-table">
+    </div>
+
+    <% @watches.each do |watch| %>
       <tr>
-        <td>date</td>
-        <td>watch</td>
-        <td>user.username</td>
-        <td>event</td>
-        <td>distance</td>
+        <div class="data" data-id = <%= content.id %>>
+          <td class="date">
+            <%= content.created_at.strftime('%Y/%m/%d') %>
+          </td>
+          <td class="time">
+            <%= content.watch %>
+          </td>
+          <td class="name">
+            グループ内のユーザー名一覧にしてそこから選択
+          </td>
+          <td class="event">
+            予め登録して選択
+          </td>
+          <td class="distance">
+            入力
+          </td> 
+        </div>
       </tr>
-    <%# <% end %> %>
+    <% end %>
   </table>
 </div>
 
