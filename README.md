@@ -7,7 +7,7 @@
 | email               | string | null: false, unique: true  |
 ### Association
 - has_many :messages
-- has_many :rooms
+- has_many :threads
 - has_many :watches
 
 
@@ -15,11 +15,11 @@
 | Columns             | Type       | Options                    |
 | ------------------- | ---------- | -------------------------- |
 | content             | string     | null: false                |
-| room_id             | references | foreign_key: true          |
+| thread_id           | references | foreign_key: true          |
 | user_id             | references | foreign_key: true          |
 ### Association
 - belongs_to :user
-- belongs_to :room
+- belongs_to :thread
 - has_many :watches
 
 ## Watchテーブル
@@ -33,10 +33,10 @@
 - belongs_to :user
 - belongs_to :message
 
-## roomテーブル
+## threadテーブル
 | Columns             | Type       | Options                    |
 | ------------------- | ---------- | -------------------------- |
-| roomname            | string    | null: false                 |
+| thread_name         | string     | null: false                 |
 | user_id             | references | foreign_key: true          |
 ### Association
 - belongs_to :user
