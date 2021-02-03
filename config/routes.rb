@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   
   resources :watches, only: [:index, :new, :create]
   resources :threads, only: [:index]
+  resources :top_pages, only: [:index]
 end
