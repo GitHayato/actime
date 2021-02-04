@@ -1,0 +1,20 @@
+<%= render "shared/second_header.html.erb" %>
+
+<div class="create-form">
+  <h1 class='create-title'>スレッドを作成する</h1>
+  <%= form_with class: "thread-form", local: true do |f| %>
+    <div class="field">
+      <%= f.label :thread_name, "スレッド名", class: "label-name" %>
+      <%= f.text_field :thread_name, class: "field-box" %>
+    </div>
+    <div class="field">
+      <%= f.label :hoge, "招待する", class: "label-name" %>
+      <%= f.text_field :hoge, class: "field-box" %>
+    </div>
+    <div class="creation">
+      <%= f.submit "作成する", class: "create-btn" %>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer.html.erb" %>
