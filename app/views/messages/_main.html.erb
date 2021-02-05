@@ -1,0 +1,12 @@
+<div class="main-message">
+  <div class="menu-img">
+    <%= image_tag "hamburger_menu.png", class: "img-tag" %>
+  </div>
+</div>
+
+<div class="send-message">
+  <%= form_with class: 'send-form', local: true do |f| %>
+    <%= f.text_area :content, class: "send-input", placeholder: "type a message or time" %>
+    <%= f.submit '送信', class: "submit" %>
+  <% end %>
+</div>

@@ -49,3 +49,55 @@
   list-style-type: disc;
 }
 
+.main {
+  width: calc(100vw - 18vw);
+  height: calc(100vh - 120px);
+  background-color: #f7f7fe;
+}
+
+.main-message {
+  height: calc(100vh - 200px);
+}
+
+.menu-img {
+  text-align: right;
+}
+
+.img-tag {
+  width: 50px;
+  margin: 30px;
+}
+
+.send-message {
+  display: flex;
+}
+
+.send-form {
+  margin: 0 auto 30px;
+  display: flex;
+}
+
+
+
+.send-input {
+  width: 70vw;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px;
+  
+  resize: none;
+  /* 入力した高さによってjsで調整 */
+}
+
+.submit {
+  width: 5vw;
+  height: 55px;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #6D61FA;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
