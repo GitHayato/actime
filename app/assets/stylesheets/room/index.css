@@ -1,0 +1,21 @@
+.select-threads {
+  width: 600px;
+  height: 800px;
+  background-color: #DDE1EC;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: auto;
+}
+
+.h1-text {
+  font-size: 36px;
+  color: #4B4B4B;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.many-threads {
+  color: #4B4B4B;
+  font-size: 24px;
+  text-align: center;
+}
