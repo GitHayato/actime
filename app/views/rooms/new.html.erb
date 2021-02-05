@@ -2,7 +2,7 @@
 
 <div class="create-form">
   <h1 class='create-title'>スレッドを作成する</h1>
-  <%= form_with class: "thread-form", local: true do |f| %>
+  <%= form_with model: @room, class: "thread-form", local: true do |f| %>
     <div class="field">
       <%= f.label :thread_name, "スレッド名", class: "label-name" %>
       <%= f.text_field :thread_name, class: "field-box" %>
