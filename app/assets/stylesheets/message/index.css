@@ -1,0 +1,51 @@
+.wrap {
+  display: flex;
+}
+
+
+.left-side {
+  width: 18vw;
+  height: calc(100vh - 120px);
+  background-color: #DDE1EC;
+  font-size: 28px;
+}
+
+.create-threads {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.create-img {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.create-button {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+
+.index-threads {
+  margin-top: 30px;
+}
+
+.threads-flex {
+  display: flex;
+  margin-left: 20px;
+}
+
+.show-threads {
+  padding: 0;
+  color: #4b4b4b;
+}
+
+.thread-name {
+  color: #4b4b4b;
+  margin-top: 10px;
+  margin-left: 80px;
+  list-style-type: disc;
+}
+
