@@ -5,73 +5,21 @@
     <%= image_tag "hamburger_menu.png", class: "menu-img" %>
   </div>
 <div class="main-message">
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
+  <% @messages.each do |message| %>
+    <div class="message">
+      <div class="message-info">
+        <p class="info-user"><%= message.user.username %></p>
+        <p class="info-date"><%= message.created_at %></p>
+      </div>
+      <div class="message-content">
+        <p><%= message.content %></p>
+      </div>
     </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
-    </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
-    </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
-    </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
-    </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
-    </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
-  <div class="message">
-    <div class="message-info">
-      <p class="info-user">admin</p>
-      <p class="info-date">1/8(月)</p>
-    </div>
-    <div class="message-content">
-      <p>lorem ipsum</p>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="send-enter">
-  <%= form_with class: 'send-form', local: true do |f| %>
+  <%= form_with url: room_messages_path(@room.id), method: :POST, class: 'send-form', local: true do |f| %>
     <%= f.text_area :content, class: "send-input", placeholder: "type a message or time" %>
     <%= f.submit '送信', class: "submit" %>
   <% end %>
