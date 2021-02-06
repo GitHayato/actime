@@ -1,10 +1,76 @@
+  <div class="top-menu">
+    <div class="menu-roomname">
+      <%= @room.thread_name %>
+    </div>
+    <%= image_tag "hamburger_menu.png", class: "menu-img" %>
+  </div>
 <div class="main-message">
-  <div class="menu-img">
-    <%= image_tag "hamburger_menu.png", class: "img-tag" %>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
+  </div>
+  <div class="message">
+    <div class="message-info">
+      <p class="info-user">admin</p>
+      <p class="info-date">1/8(月)</p>
+    </div>
+    <div class="message-content">
+      <p>lorem ipsum</p>
+    </div>
   </div>
 </div>
 
-<div class="send-message">
+<div class="send-enter">
   <%= form_with class: 'send-form', local: true do |f| %>
     <%= f.text_area :content, class: "send-input", placeholder: "type a message or time" %>
     <%= f.submit '送信', class: "submit" %>
