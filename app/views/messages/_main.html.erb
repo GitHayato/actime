@@ -12,7 +12,7 @@
         <p class="info-date"><%= message.created_at %></p>
       </div>
       <div class="message-content">
-        <p><%= message.content %></p>
+        <%= safe_join(message.content.split("\n"), tag(:br)) %>
       </div>
     </div>
   <% end %>
