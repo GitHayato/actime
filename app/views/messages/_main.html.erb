@@ -9,7 +9,7 @@
     <div class="message">
       <div class="message-info">
         <p class="info-user"><%= message.user.username %></p>
-        <p class="info-date"><%= message.created_at %></p>
+        <p class="info-date"><%= l message.created_at %></p>
       </div>
       <div class="message-content">
         <%= safe_join(message.content.split("\n"), tag(:br)) %>
