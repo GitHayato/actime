@@ -12,8 +12,7 @@ class RoomsController < ApplicationController
     
     @room = Room.new(room_params)
     if @room.save
-      # パスの正しい設定
-      redirect_to top_pages_path
+      redirect_to room_messages_path(@room.id)
     else
       render :new
     end
