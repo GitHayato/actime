@@ -8,6 +8,7 @@
   height: calc(100vh - 120px);
   background-color: #DDE1EC;
   font-size: 28px;
+  overflow: scroll;
 }
 
 .create-threads {
@@ -46,7 +47,7 @@
   color: #4b4b4b;
   margin-top: 10px;
   margin-left: 80px;
-  list-style-type: disc;
+  text-decoration: none;
 }
 
 .main {
