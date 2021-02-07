@@ -7,9 +7,21 @@
 <div class="main-message">
   <% @messages.each do |message| %>
     <div class="message">
-      <div class="message-info">
-        <p class="info-user"><%= message.user.username %></p>
-        <p class="info-date"><%= l message.created_at %></p>
+      <div class="information">
+        <div class="message-info">
+          <p class="info-user"><%= message.user.username %></p>
+          <p class="info-date"><%= l message.created_at %></p>
+        </div>
+        <% if message.user.id == current_user.id %>
+          <ul class="navigation">
+            <li>
+              <%= image_tag "three_point.png", class: "menu-tag" %>
+              <ul>
+                <li><%= link_to "削除", room_message_path(@room.id, message.id), method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
       </div>
       <div class="message-content">
         <%= safe_join(message.content.split("\n"), tag(:br)) %>

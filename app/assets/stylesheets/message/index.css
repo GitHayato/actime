@@ -102,6 +102,11 @@
 .message-info {
   display: flex;
   color: #ffffff;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
   background-color: #6D61FA;
 }
 
@@ -114,6 +119,42 @@
   font-size: 14px;
   margin-top: 6px;
   margin-left: 20px;
+}
+
+.menu-tag {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.navigation {
+  display: flex;
+  text-align: right;
+}
+
+.navigation li {
+  list-style: none;
+  position: relative;
+}
+.navigation li a {
+  width: 40px;
+  color: #4b4b4b;
+  background-color: #f7f6f3;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.navigation li li {
+  height: 0;
+  overflow: hidden;
+}
+
+.navigation li:hover > ul > li {
+  overflow: visible;
 }
 
 .message-content {
