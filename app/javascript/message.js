@@ -15,6 +15,7 @@ function sendMessage() {
         return null;
       } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
         const message = XHR.response.post;
+        const user = XHR.response.user;
         const list = document.getElementById("list");
         const formText = document.getElementById("send-input");
         const createMoment = moment(message.created_at, 'YYYY-MM-DDTHH:mm:ssZ')
@@ -23,7 +24,7 @@ function sendMessage() {
           <div class="message">
             <div class="information">
               <div class="message-info">
-                <p class="info-user">${message.user_id}</p>
+                <p class="info-user">${user}</p>
                 <p class="info-date">${createTime}</p>
               </div>
               <ul class="navigation">

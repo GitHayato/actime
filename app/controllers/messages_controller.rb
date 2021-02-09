@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     message = Message.create(message_params)
-    render json:{ post: message }
+    render json:{ post: message, user: message.user.username }
   end
 
   def destroy
