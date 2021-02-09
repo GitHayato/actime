@@ -1,10 +1,10 @@
-  <div class="top-menu">
+  <div class="top-menu" id=<%@room.id%>>
     <div class="menu-roomname">
       <%= @room.thread_name %>
     </div>
     <%= image_tag "hamburger_menu.png", class: "menu-img" %>
   </div>
-<div class="main-message">
+<div id="main-message">
   <% @messages.each do |message| %>
     <div class="message">
       <div class="information">
@@ -28,11 +28,13 @@
       </div>
     </div>
   <% end %>
+  <div id="list">
+  </div>
 </div>
 
 <div class="send-enter">
-  <%= form_with url: room_messages_path(@room.id), method: :POST, class: 'send-form', local: true do |f| %>
-    <%= f.text_area :content, class: "send-input", placeholder: "type a message or time" %>
-    <%= f.submit '送信', class: "submit" %>
+  <%= form_with url: room_messages_path(@room.id), method: :post, id: "send-form", local: true do |f| %>
+    <%= f.text_area :content, id: "send-input", placeholder: "type a message or time" %>
+    <%= f.submit '送信', id: "submit" %>
   <% end %>
 </div>
