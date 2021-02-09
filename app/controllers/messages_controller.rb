@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def index
-    @message = Message.new
     # 自分の属するルームのみ表示
     @rooms = Room.all
     @room = Room.find(params[:room_id])
@@ -10,9 +9,7 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     message = Message.create(message_params)
-    if message.save
-      redirect_to room_messages_path(@room.id)
-    end
+    render json:{ post: message }
   end
 
   def destroy
