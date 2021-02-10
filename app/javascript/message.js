@@ -1,5 +1,21 @@
 const moment = require("moment");
 
+// HTMLエスケープ処理
+function htmlEscape(str) {
+  if (!str) return;
+  return str.replace(/[&<>"'`]/g, function(match) {
+    const escape = {
+      '<': '&lt;',
+      '>': '&gt;',
+      '&': '&amp;',
+      '"': '&quot;',
+      "'": '&#39;',
+      '`': '&#x60;'
+    };
+    return escape[match];
+  });
+}
+
 function sendMessage() {
   const submit = document.getElementById('submit');
   submit.addEventListener('click', (e) => {
@@ -17,6 +33,7 @@ function sendMessage() {
         return null;
       } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
         const message = XHR.response.post;
+        const escapeMessage = htmlEscape(message.content);
         const user = XHR.response.user;
         const list = document.getElementById("list");
         const formText = document.getElementById("send-input");
@@ -38,7 +55,7 @@ function sendMessage() {
               </ul>
             </div>
             <div class="message-content">
-              ${message.content}
+              ${escapeMessage}
             </div>
           </div>`;
         list.insertAdjacentHTML("afterend", HTML);
@@ -48,5 +65,6 @@ function sendMessage() {
     e.preventDefault();
   });
 }
+
 
 window.addEventListener('load', sendMessage)
