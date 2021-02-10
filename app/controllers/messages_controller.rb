@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     # 自分の属するルームのみ表示
     @rooms = Room.all
     @room = Room.find(params[:room_id])
-    @messages = @room.messages.includes(:user)
+    @messages = @room.messages.includes(:user).order(id: "DESC")
   end
 
   def create

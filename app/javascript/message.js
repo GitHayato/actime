@@ -10,7 +10,9 @@ function sendMessage() {
     XHR.responseType = "json";
     XHR.send(formData);
     XHR.onload = () => {
-      if (XHR.status != 200) {
+      if (formData.get("content") == "") {
+        alert("Please type a message")
+      } else if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {

@@ -5,6 +5,8 @@
     <%= image_tag "hamburger_menu.png", class: "menu-img" %>
   </div>
 <div id="main-message">
+  <div id="list">
+  </div>
   <% @messages.each do |message| %>
     <div class="message">
       <div class="information">
@@ -28,8 +30,6 @@
       </div>
     </div>
   <% end %>
-  <div id="list">
-  </div>
 </div>
 
 <div class="send-enter">
