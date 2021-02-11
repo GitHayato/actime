@@ -87,10 +87,21 @@
   margin-left: 20px;
 }
 
-.menu-img {
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
+.menu-lots {
+  font-size: 16px;
+  margin-top: 15px;
+  margin-right: 60px;
+}
+
+.room-delete {
+  text-decoration: none;
+  color: #4b4b4b;
+  margin-right: 15px;
+}
+
+.room-invite {
+  text-decoration: none;
+  color: #4b4b4b;
 }
 
 .message {

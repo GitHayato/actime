@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root to: "top_pages#index"
   resources :watches, only: [:index, :new, :create]
-  resources :rooms, only: [:index, :new, :create] do
+  resources :rooms, only: [:index, :new, :create, :destroy] do
     resources :messages, only:[:index, :create, :destroy]
   end
   resources :top_pages, only: [:index]
