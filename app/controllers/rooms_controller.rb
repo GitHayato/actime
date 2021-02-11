@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   def index
     # 要調整
-    @rooms = Room.ids
+    @rooms = Room.all
   end
 
   def new
