@@ -1,0 +1,43 @@
+<div class="top-menu" id=<%@room.id%>>
+  <div class="menu-roomname">
+    <%= @room.thread_name %>
+  </div>
+  <div class="menu-lots"> 
+    <%= link_to "削除", room_path(@room.id), method: :delete, class: "room-delete"%>
+    <%= link_to "招待する", root_path, class: "room-invite" %>
+  </div>
+</div>
+<div id="main-message">
+  <div id="list">
+  </div>
+  <% @messages.each do |message| %>
+    <div class="message">
+      <div class="information">
+        <div class="message-info">
+          <p class="info-user"><%= message.user.username %></p>
+          <p class="info-date"><%= l message.created_at %></p>
+        </div>
+        <% if message.user.id == current_user.id %>
+          <ul class="navigation">
+            <li>
+              <%= image_tag "three_point.png", class: "menu-tag" %>
+              <ul>
+                <li><%= link_to "削除", room_message_path(@room.id, message.id), method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="message-content">
+        <%= safe_join(message.content.split("\n"), tag(:br)) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="send-enter">
+  <%= form_with url: room_messages_path(@room.id), method: :post, id: "send-form", local: true do |f| %>
+    <%= f.text_area :content, id: "send-input", placeholder: "type a message or time" %>
+    <%= f.submit '送信', id: "submit" %>
+  <% end %>
+</div>

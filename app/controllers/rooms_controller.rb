@@ -1,16 +1,26 @@
 class RoomsController < ApplicationController
+  def index
+    # 要調整
+    @rooms = Room.all
+  end
+
   def new
     @room = Room.new
   end
 
   def create
-    
     @room = Room.new(room_params)
     if @room.save
-      # パスの正しい設定
-      redirect_to top_pages_path
+      redirect_to room_messages_path(@room.id)
     else
       render :new
+    end
+  end
+
+  def destroy
+    room = Room.find(params[:id])
+    if room.destroy
+      redirect_to rooms_path
     end
   end
 

@@ -1,0 +1,18 @@
+<%= render "shared/second_header.html.erb" %>
+
+<div class="select-threads">
+  <h1 class="h1-text">スレッド一覧</h1>
+  <div class="many-threads">
+    <% @rooms.each do |room| %>
+      <div>
+        <%= link_to room.thread_name, room_messages_path(room.id), class: "threads-path" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="create-thread">
+    <%= link_to "スレッドを作る", new_room_path, class: "create-new-thread" %>
+  </div>
+</div>
+
+
+<%= render "shared/footer.html.erb" %>
