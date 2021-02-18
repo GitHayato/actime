@@ -35,28 +35,30 @@ function stopWatch() {
   stopWatchInitial();
 
   function addRap() {
-    const XHR = new XMLHttpRequest();
     const time = document.getElementById("time").innerHTML;
+    const formData = new FormData();
+    formData.append("watch", time);
+    const XHR = new XMLHttpRequest();
     XHR.open("POST", "/watches", true);
-    XHR.responseType = "json"
+    XHR.responseType = "json";
+    XHR.send(formData);
     XHR.onload = () => {
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
+      } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
+        const content = XHR.response.watch;
+        const table = document.getElementById("time-table");
+        const HTML = `
+            <tr>
+              <div class="data" data-id=${content.id}>
+                <td class="date">${content.id}</td>
+                <td class="time">${content.watch}</td>
+              </div>
+            </tr>`;
+        table.insertAdjacentHTML("afterend", HTML);
       }
-      const content = XHR.response.watch;
-      console.log(content)
-      // const table = document.getElementById("time-table");
-      // const HTML = `
-      //     <tr>
-      //       <div class="data" data-id=${content.id}>
-      //         <td class="date">${content.id}</td>
-      //         <td class="time">${content.watch}</td>
-      //       </div>
-      //     </tr>`;
-      // table.insertAdjacentHTML("afterend", HTML);
     };
-    XHR.send(time);
   }
   
   // id="start"ボタンがクリックされたときの挙動
@@ -101,4 +103,4 @@ function stopWatch() {
   });
 }
 
-window.addEventListener('DOMContentLoaded', stopWatch);
+window.addEventListener('load', stopWatch)

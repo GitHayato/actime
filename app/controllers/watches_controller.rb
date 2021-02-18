@@ -9,8 +9,14 @@ class WatchesController < ApplicationController
   end
 
   def create
-    watch = Watch.create(params[:watch])
+    watch = Watch.create(watch_params)
     render json:{ watch: watch }
+  end
+
+  private
+  
+  def watch_params
+    params.permit(:watch)
   end
 
 end

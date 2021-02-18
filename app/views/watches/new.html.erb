@@ -25,21 +25,21 @@
 
     <% @watches.each do |watch| %>
       <tr>
-        <div class="data" data-id = <%= content.id %>>
+        <div class="data" data-id = <%= watch.id %>>
           <td class="date">
-            <%= content.created_at.strftime('%Y/%m/%d') %>
+            <%= watch.created_at.strftime('%Y/%m/%d') %>
           </td>
           <td class="time">
-            <%= content.watch %>
+            <%= watch.watch %>
           </td>
           <td class="name">
-            グループ内のユーザー名一覧にしてそこから選択
+            admin
           </td>
           <td class="event">
-            予め登録して選択
+            free style
           </td>
           <td class="distance">
-            入力
+            200m
           </td> 
         </div>
       </tr>
