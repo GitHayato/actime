@@ -5,6 +5,7 @@ class WatchesController < ApplicationController
   end
 
   def new
+    @room = Room.find(params[:room_id])
     @watches = Watch.all.order(id: "DESC")
   end
 

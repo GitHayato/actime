@@ -6,7 +6,7 @@
 </div>
 
 <%# STARTとSTOPのボタン %>
-<%= form_with url: watches_path, class: "buttons" do |f| %>
+<%= form_with url: room_watches_path(@room.id), class: "buttons" do |f| %>
   <%= f.submit "START", class: "btn", id: "start" %>
   <%= f.submit "RAP", class: "btn", id: "rap" %>
 <% end %>
