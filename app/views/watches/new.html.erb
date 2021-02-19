@@ -13,19 +13,18 @@
 
 <div class="table">
   <table>
-    <tr>
-      <th class="date">日付</th>
-      <th class="time">タイム</th>
-      <th class="name">名前</th>
-      <th class="event">種目</th>
-      <th class="distance">距離</th>
-    </tr>
-    <div id="time-table">
-    </div>
-
-    <% @watches.each do |watch| %>
+    <thead>
       <tr>
-        <div class="data" data-id = <%= watch.id %>>
+        <th class="date">日付</th>
+        <th class="time">タイム</th>
+        <th class="name">名前</th>
+        <th class="event">種目</th>
+        <th class="distance">距離</th>
+      </tr>
+    </thead>
+    <tbody id="time-table">
+      <% @watches.each do |watch| %>
+        <tr>
           <td class="date">
             <%= watch.created_at.strftime('%Y/%m/%d') %>
           </td>
@@ -41,9 +40,9 @@
           <td class="distance">
             200m
           </td> 
-        </div>
-      </tr>
-    <% end %>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
 

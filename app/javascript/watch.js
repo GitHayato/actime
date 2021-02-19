@@ -35,6 +35,7 @@ function stopWatch() {
   stopWatchInitial();
 
   function addRap() {
+    const moment = require("moment");
     const time = document.getElementById("time").innerHTML;
     const formData = new FormData();
     formData.append("watch", time);
@@ -49,14 +50,17 @@ function stopWatch() {
       } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
         const content = XHR.response.watch;
         const table = document.getElementById("time-table");
+        const createMoment = moment(content.created_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
+        const createTime = createMoment.format('YYYY/MM/DD')
         const HTML = `
-            <tr>
-              <div class="data" data-id=${content.id}>
-                <td class="date">${content.id}</td>
-                <td class="time">${content.watch}</td>
-              </div>
-            </tr>`;
-        table.insertAdjacentHTML("afterend", HTML);
+          <tr>
+            <td class="date">${createTime}</td>
+            <td class="time">${content.watch}</td>
+            <td class="name">admin</td>
+            <td class="event">free style</td>
+            <td class="distance">200m</td>
+          </tr>`;
+        table.insertAdjacentHTML("afterbegin", HTML);
       }
     };
   }
