@@ -55,7 +55,7 @@ function stopWatch() {
         const HTML = `
           <tr>
             <td class="date">${createTime}</td>
-            <td class="time">${content.watch}</td>
+            <td class="time">${content.watch}</td>
             <td class="name">admin</td>
             <td class="event">free style</td>
             <td class="distance">200m</td>
