@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(version: 2021_02_05_011404) do
     t.string "event"
     t.string "distance"
     t.bigint "user_id"
+    t.bigint "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_watches_on_room_id"
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
@@ -64,5 +66,6 @@ ActiveRecord::Schema.define(version: 2021_02_05_011404) do
   add_foreign_key "messages", "users"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
+  add_foreign_key "watches", "rooms"
   add_foreign_key "watches", "users"
 end
