@@ -14,6 +14,12 @@ class WatchesController < ApplicationController
     render json:{ watch: watch }
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
   
   def watch_params

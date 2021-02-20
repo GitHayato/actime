@@ -56,7 +56,7 @@ function stopWatch() {
         const createMoment = moment(content.created_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
         const createTime = createMoment.format('YYYY/MM/DD')
         const HTML = `
-          <tr>
+          <tr id=${content.id}>
             <td class="date">${createTime}</td>
             <td class="time">${content.watch}</td>
             <td class="name">admin</td>
