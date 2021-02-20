@@ -34,6 +34,7 @@ function stopWatch() {
   // この時点で呼び出すことで初期状態で呼び出されている状態になる
   stopWatchInitial();
 
+  // ラップを非同期で保存し一覧表示
   function addRap() {
     const moment = require("moment");
     const time = document.getElementById("time").innerHTML;
