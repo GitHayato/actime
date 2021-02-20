@@ -60,8 +60,8 @@ function stopWatch() {
             <td class="date">${createTime}</td>
             <td class="time">${content.watch}</td>
             <td class="name">admin</td>
-            <td class="event">free style</td>
-            <td class="distance">200m</td>
+            <td class="event"></td>
+            <td class="distance"></td>
           </tr>`;
         table.insertAdjacentHTML("afterbegin", HTML);
       }

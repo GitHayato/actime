@@ -92,3 +92,10 @@ table td {
 .distance {
   width: 200px;
 }
+
+.data-input {
+  width: 200px;
+  font-size: 24px;
+  text-align: center;
+  border: none;
+}

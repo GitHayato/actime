@@ -35,10 +35,14 @@
             admin
           </td>
           <td class="event">
-            free style
+            <%= form_with url: room_watches_path(@room.id), method: :post, class: "update-data" do |f| %>
+              <%= f.text_field :event, id: "event-input", class: "data-input" %>
+            <% end %>
           </td>
           <td class="distance">
-            200m
+            <%= form_with url: room_watches_path(@room.id), method: :post, class: "update-data" do |f| %>
+              <%= f.text_field :distance, id: "distance-input", class: "data-input" %>
+            <% end %>
           </td> 
         </tr>
       <% end %>
