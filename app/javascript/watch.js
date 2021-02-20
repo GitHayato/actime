@@ -40,7 +40,9 @@ function stopWatch() {
     const formData = new FormData();
     formData.append("watch", time);
     const XHR = new XMLHttpRequest();
-    XHR.open("POST", "/watches", true);
+    const url = location.pathname
+    const pathParameter = url.split("/")
+    XHR.open("POST", `/rooms/${pathParameter[2]}/watches`, true);
     XHR.responseType = "json";
     XHR.send(formData);
     XHR.onload = () => {

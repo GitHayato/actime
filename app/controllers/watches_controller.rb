@@ -17,7 +17,7 @@ class WatchesController < ApplicationController
   private
   
   def watch_params
-    params.permit(:watch)
+    params.permit(:watch, :room_id)
   end
 
 end
