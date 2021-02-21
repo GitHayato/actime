@@ -18,12 +18,15 @@ class WatchesController < ApplicationController
   end
 
   def update
+    watch = Watch.find(params[:id])
+    watch.update(watch_params)
+    render json:{ watch: watch }
   end
 
   private
   
   def watch_params
-    params.permit(:watch, :room_id)
+    params.permit(:watch, :room_id, :event, :distance)
   end
 
 end
