@@ -36,12 +36,12 @@
           </td>
           <td class="event">
             <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
-              <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event" %>
+              <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event", value: "#{watch.event}" %>
             <% end %>
           </td>
           <td class="distance">
             <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
-              <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance" %>
+              <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance", value: "#{watch.distance}" %>
             <% end %>
           </td> 
         </tr>
