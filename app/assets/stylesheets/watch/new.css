@@ -99,3 +99,17 @@ table td {
   text-align: center;
   border: none;
 }
+
+.with-time {  
+  width: 300px;
+  padding: 25px 0;
+  margin: 20px auto 70px;
+  border-radius: 40px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #6D61FA;
+  text-decoration: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
