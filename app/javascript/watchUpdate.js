@@ -1,8 +1,8 @@
+// 非同期で種目や距離を更新
 function updateAsynchronous(key, dataNow) {
   dataNow.addEventListener('change', () => {
     const formData = new FormData();
     const XHR = new XMLHttpRequest();
-    const moment = require("moment");
     formData.append(key, dataNow.value);
     const watchId = dataNow.closest("tr").id;
     const url = location.pathname;
@@ -16,16 +16,9 @@ function updateAsynchronous(key, dataNow) {
         return null;
       } else {
         const content = XHR.response.watch;
-        const createMoment = moment(content.updated_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
-        const createTime = createMoment.format('YYYY/MM/DD')
         const HTML = `
-          <tr id=${content.id}>
-            <td class="date">${createTime}</td>
-            <td class="time">${content.watch}</td>
-            <td class="name">admin</td>
-            <td class="event">${content.event}</td>
-            <td class="distance">${content.distance}</td>
-          </tr>`;
+            ${content.event}
+            ${content.distance}`;
         dataNow.insertAdjacentHTML("afterbegin", HTML);
       }
     }
