@@ -25,7 +25,7 @@ function updateAsynchronous(key, dataNow) {
   });
 }
 
-function updateEvent() {
+export function updateEvent() {
   const dataEvent = document.getElementsByClassName("data-event");
   let count = 0;
   for (let i = 0; i<=dataEvent.length-1; i++) {
@@ -35,7 +35,7 @@ function updateEvent() {
   }
 }
 
-function updateDistance() {
+export function updateDistance() {
   const dataDistance = document.getElementsByClassName("data-distance")
   let count = 0;
   for (let i = 0; i<=dataDistance.length-1; i++) {
