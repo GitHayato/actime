@@ -55,7 +55,7 @@
 } */
 
 .table {
-  margin: 50px auto;
+  margin: 50px auto 0;
   border-collapse: collapse;
 }
 
@@ -112,4 +112,42 @@ table td {
   background-color: #6D61FA;
   text-decoration: none;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pagination{
+  padding:1em 2em 3em;
+  display:flex;
+  justify-content:center;
+}
+
+span,.kaminari{
+  width:50px;
+  height:50px;
+  margin:2px;
+  line-height:50px;
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000000;
+  transition:.3s;
+}
+
+.page:hover, .first:hover, .prev:hover, .next:hover, .last:hover{
+  background:#6D61FA;
+  border-radius:100%;  
+}
+
+.page:hover .kaminari, .first:hover .kaminari, .prev:hover .kaminari, .next:hover .kaminari, .last:hover .kaminari {
+  color: #ffffff;
+}
+
+.current{
+  color: #ffffff;
+  background:#6D61FA;
+  border-radius:100%;
+}
+
+.gap{
+  background:none;
 }
