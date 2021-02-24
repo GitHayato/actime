@@ -55,7 +55,7 @@
 } */
 
 .table {
-  margin: 50px auto;
+  margin: 50px auto 0;
   border-collapse: collapse;
 }
 
@@ -91,4 +91,75 @@ table td {
 
 .distance {
   width: 200px;
+}
+
+.data-input {
+  width: 200px;
+  font-size: 24px;
+  text-align: center;
+  border: none;
+}
+
+.with-time {  
+  width: 300px;
+  padding: 25px 0;
+  margin: 20px auto 70px;
+  border-radius: 40px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #6D61FA;
+  text-decoration: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pagination{
+  padding:1em 2em 3em;
+  display:flex;
+  justify-content:center;
+}
+
+.kaminari{
+  width:50px;
+  height:50px;
+  margin:2px;
+  line-height:50px;
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000000;
+  transition:.3s;
+}
+
+.kaminari {
+  display: block;
+}
+
+.page:hover, .first:hover, .prev:hover, .next:hover, .last:hover{
+  background:#6D61FA;
+  border-radius:100%;  
+}
+
+.page:hover .kaminari, .first:hover .kaminari, .prev:hover .kaminari, .next:hover .kaminari, .last:hover .kaminari {
+  color: #ffffff;
+}
+
+.current{
+  width:50px;
+  height:50px;
+  margin:2px;
+  line-height:50px;
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  color: #ffffff;
+  background:#6D61FA;
+  border-radius:100%;
+}
+
+.gap{
+  background:none;
 }

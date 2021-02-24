@@ -29,6 +29,21 @@
   color: #4b4b4b;
 }
 
+.measure-time {
+  margin-top: 30px;
+  margin-left: 18px;
+}
+
+.stopwatch-img {
+  width: 25px;
+  height: 25px;
+}
+
+.measure-button {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+
 .index-threads {
   margin-top: 30px;
 }

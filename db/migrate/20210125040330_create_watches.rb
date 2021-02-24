@@ -5,6 +5,7 @@ class CreateWatches < ActiveRecord::Migration[6.0]
       t.string        :event
       t.string        :distance
       t.references    :user,     foreign_key: true
+      t.references    :room,     foreign_key: true
       t.timestamps
     end
   end

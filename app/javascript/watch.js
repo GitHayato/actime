@@ -1,3 +1,6 @@
+import {updateEvent} from './watchUpdate'
+import {updateDistance} from './watchUpdate'
+
 function stopWatch() {
   const time = document.getElementById("time");
   const start = document.getElementById("start");
@@ -34,29 +37,40 @@ function stopWatch() {
   // この時点で呼び出すことで初期状態で呼び出されている状態になる
   stopWatchInitial();
 
+  // ラップを非同期で保存し一覧表示
   function addRap() {
-    const XHR = new XMLHttpRequest();
+    const moment = require("moment");
     const time = document.getElementById("time").innerHTML;
-    XHR.open("POST", "/watches", true);
-    XHR.responseType = "json"
+    const formData = new FormData();
+    formData.append("watch", time);
+    const XHR = new XMLHttpRequest();
+    const url = location.pathname
+    const pathParameter = url.split("/")
+    XHR.open("POST", `/rooms/${pathParameter[2]}/watches`, true);
+    XHR.responseType = "json";
+    XHR.send(formData);
     XHR.onload = () => {
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
+      } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
+        const content = XHR.response.watch;
+        const table = document.getElementById("time-table");
+        const createMoment = moment(content.created_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
+        const createTime = createMoment.format('YYYY/MM/DD')
+        const HTML = `
+          <tr id=${content.id}>
+            <td class="date">${createTime}</td>
+            <td class="time">${content.watch}</td>
+            <td class="name">admin</td>
+            <td class="event"><input id="event-${content.id}" class="data-input data-event" type="text" name="event"></td>
+            <td class="distance"><input id="distance-${content.id}" class="data-input data-distance" type="text" name="distance"></td>
+          </tr>`;
+        table.insertAdjacentHTML("afterbegin", HTML);
+        updateEvent();
+        updateDistance();
       }
-      const content = XHR.response.watch;
-      console.log(content)
-      // const table = document.getElementById("time-table");
-      // const HTML = `
-      //     <tr>
-      //       <div class="data" data-id=${content.id}>
-      //         <td class="date">${content.id}</td>
-      //         <td class="time">${content.watch}</td>
-      //       </div>
-      //     </tr>`;
-      // table.insertAdjacentHTML("afterend", HTML);
     };
-    XHR.send(time);
   }
   
   // id="start"ボタンがクリックされたときの挙動
@@ -101,4 +115,4 @@ function stopWatch() {
   });
 }
 
-window.addEventListener('DOMContentLoaded', stopWatch);
+window.addEventListener('load', stopWatch)

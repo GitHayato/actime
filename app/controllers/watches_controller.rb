@@ -5,12 +5,28 @@ class WatchesController < ApplicationController
   end
 
   def new
-    @watches = Watch.all.order(id: "DESC")
+    @room = Room.find(params[:room_id])
+    @watches = Watch.where(room_id: params[:room_id]).order(id: "DESC").page(params[:page]).per(50)
   end
 
   def create
-    watch = Watch.create(params[:watch])
+    watch = Watch.create(watch_params)
     render json:{ watch: watch }
+  end
+
+  def edit
+  end
+
+  def update
+    watch = Watch.find(params[:id])
+    watch.update(watch_params)
+    render json:{ watch: watch }
+  end
+
+  private
+  
+  def watch_params
+    params.permit(:watch, :room_id, :event, :distance)
   end
 
 end

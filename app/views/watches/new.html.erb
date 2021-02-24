@@ -6,45 +6,51 @@
 </div>
 
 <%# STARTとSTOPのボタン %>
-<%= form_with url: watches_path, class: "buttons" do |f| %>
+<%= form_with url: room_watches_path(@room.id), class: "buttons" do |f| %>
   <%= f.submit "START", class: "btn", id: "start" %>
   <%= f.submit "RAP", class: "btn", id: "rap" %>
 <% end %>
 
 <div class="table">
   <table>
-    <tr>
-      <th class="date">日付</th>
-      <th class="time">タイム</th>
-      <th class="name">名前</th>
-      <th class="event">種目</th>
-      <th class="distance">距離</th>
-    </tr>
-    <div id="time-table">
-    </div>
-
-    <% @watches.each do |watch| %>
+    <thead>
       <tr>
-        <div class="data" data-id = <%= content.id %>>
+        <th class="date">日付</th>
+        <th class="time">タイム</th>
+        <th class="name">名前</th>
+        <th class="event">種目</th>
+        <th class="distance">距離</th>
+      </tr>
+    </thead>
+    <tbody id="time-table">
+      <% @watches.each do |watch| %>
+        <tr id=<%= watch.id %>>
           <td class="date">
-            <%= content.created_at.strftime('%Y/%m/%d') %>
+            <%= watch.created_at.strftime('%Y/%m/%d') %>
           </td>
           <td class="time">
-            <%= content.watch %>
+            <%= watch.watch %>
           </td>
           <td class="name">
-            グループ内のユーザー名一覧にしてそこから選択
+            admin
           </td>
           <td class="event">
-            予め登録して選択
+            <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
+              <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event", value: "#{watch.event}" %>
+            <% end %>
           </td>
           <td class="distance">
-            入力
+            <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
+              <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance", value: "#{watch.distance}" %>
+            <% end %>
           </td> 
-        </div>
-      </tr>
-    <% end %>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
+<%= paginate @watches %>
+
+<%= link_to "メッセージを送る", room_messages_path(@room.id), class: "with-time" %>
 
 <%= render "shared/footer.html.erb" %>
