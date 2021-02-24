@@ -23,25 +23,7 @@
       </tr>
     </thead>
     <tbody id="time-table">
-      <% if @watches == [] %>
-        <tr>
-          <td class="date">
-            ex.2021/1/1
-          </td>
-          <td class="time">
-            ex.00:00:00.000
-          </td>
-          <td class="name">
-            ex.Happy New Year
-          </td>
-          <td class="event">
-            ex.free style
-          </td>
-          <td class="distance">
-            ex.200m
-          </td> 
-        </tr>
-      <% else %>
+      <% if @watches %>
         <% @watches.each do |watch| %>
           <tr id=<%= watch.id %>>
             <td class="date">
@@ -69,7 +51,10 @@
     </tbody>
   </table>
 </div>
-<%= paginate @watches %>
+
+<% if @watches %>
+  <%= paginate @watches %>
+<% end %>
 
 <%= link_to "メッセージを送る", room_messages_path(@room.id), class: "with-time" %>
 
