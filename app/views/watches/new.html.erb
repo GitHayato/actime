@@ -23,28 +23,31 @@
       </tr>
     </thead>
     <tbody id="time-table">
-      <% @watches.each do |watch| %>
-        <tr id=<%= watch.id %>>
-          <td class="date">
-            <%= watch.created_at.strftime('%Y/%m/%d') %>
-          </td>
-          <td class="time">
-            <%= watch.watch %>
-          </td>
-          <td class="name">
-            admin
-          </td>
-          <td class="event">
-            <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
-              <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event", value: "#{watch.event}" %>
-            <% end %>
-          </td>
-          <td class="distance">
-            <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
-              <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance", value: "#{watch.distance}" %>
-            <% end %>
-          </td> 
-        </tr>
+      <% if @watches == [] %>
+      <% else %>
+        <% @watches.each do |watch| %>
+          <tr id=<%= watch.id %>>
+            <td class="date">
+              <%= watch.created_at.strftime('%Y/%m/%d') %>
+            </td>
+            <td class="time">
+              <%= watch.watch %>
+            </td>
+            <td class="name">
+              admin
+            </td>
+            <td class="event">
+              <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
+                <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event", value: "#{watch.event}" %>
+              <% end %>
+            </td>
+            <td class="distance">
+              <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
+                <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance", value: "#{watch.distance}" %>
+              <% end %>
+            </td> 
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
