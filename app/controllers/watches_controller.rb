@@ -6,9 +6,9 @@ class WatchesController < ApplicationController
 
   def new
     @room = Room.find(params[:room_id])
-    watches = Watch.where(room_id: params[:room_id]).exists?
-    if watches
-      @watches = Watch.where(room_id: params[:room_id]).order(id: "DESC").page(params[:page]).per(50)
+    @watches = Watch.where(room_id: params[:room_id]).order(id: "DESC").page(params[:page]).per(50)
+    if @watches
+      @watches
     end
   end
 
