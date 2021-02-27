@@ -15,10 +15,15 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Log in", class: "button" %>
+        <%= f.submit "ログイン", class: "button" %>
       </div>
     <% end %>
   </div>
+
+  <div class="jump-to-registration-path">
+    <%= link_to "アカウントを登録する", new_user_registration_path, class: "jump-registration" %>
+  </div>
+
 </div>
 
 <%= render "shared/footer.html.erb" %>

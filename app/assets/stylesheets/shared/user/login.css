@@ -54,3 +54,12 @@ h2 {
   background-color: #6d61fa;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.jump-to-registration-path {
+  text-align: center;
+}
+
+.jump-registration {
+  font-size: 20px;
+  color: #000000;
+}
