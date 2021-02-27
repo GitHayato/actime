@@ -4,7 +4,7 @@
   <div class="user-registration">
     <h2>新規登録</h2>
 
-    <%= form_with model: @user, url: registration_path(@user), local: true do |f| %>
+    <%= form_with model: @user, url: user_registration_path(@user), local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
@@ -32,6 +32,11 @@
       </div>
     <% end %>
   </div>
+  
+  <div class="jump-to-session-path">
+    <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "jump-session" %>
+  </div>
+  
 </div>
 
 <%= render "shared/footer.html.erb" %>

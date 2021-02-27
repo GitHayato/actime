@@ -9,7 +9,7 @@
   background-color: #dde1ec;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 60px;
-  margin: 100px auto;
+  margin: 55px auto 0;
 }
 
 h2 {
@@ -40,7 +40,7 @@ h2 {
 
 .actions {
   text-align: center;
-  margin: 60px;
+  margin: 60px 60px 0;
 }
 
 .button {
@@ -53,4 +53,14 @@ h2 {
   margin-bottom: 50px;
   background-color: #6d61fa;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.jump-to-session-path {
+  margin: 40px;
+  text-align: center;
+}
+
+.jump-session {
+  font-size: 20px;
+  color: #000000;
 }
