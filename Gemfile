@@ -58,3 +58,4 @@ gem 'pry-rails'
 
 gem 'rename'
 gem 'kaminari'
+gem 'faker'
