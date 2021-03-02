@@ -7,8 +7,8 @@ class User < ApplicationRecord
   EMAIL_REGEX = /@.+/.freeze
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
-  has_many :room_users
-  has_many :rooms, through: :room_users
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :watches, dependent: :destroy
 
