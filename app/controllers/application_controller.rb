@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 
+  def set_user
+    @user = User.find_by(public_uid: params[:id])
+  end
+
 end
