@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_040330) do
+ActiveRecord::Schema.define(version: 2021_03_02_035014) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_040330) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "public_uid", null: false
   end
 
   create_table "watches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
