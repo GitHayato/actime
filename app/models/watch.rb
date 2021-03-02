@@ -1,9 +1,7 @@
 class Watch < ApplicationRecord
 
-  with_options presence: true do
-    validates :watch
-    validates :room_id
-  end
+  validates :thread_name, presence: true
+
   belongs_to :room
-  belongs_to :user
+  belongs_to :user, optional: true
 end
