@@ -6,10 +6,11 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @users = User.where.not(id: current_user.id)
   end
 
   def create
-    @room = Room.new(room_params)
+    @room = Room.create(room_params)
     if @room.save
       redirect_to room_messages_path(@room.id)
     else
@@ -27,7 +28,6 @@ class RoomsController < ApplicationController
   private
   
   def room_params
-    # permitにユーザー招待枠の許可
-    params.require(:room).permit(:thread_name)
+    params.require(:room).permit(:thread_name, user_ids: [])
   end
 end

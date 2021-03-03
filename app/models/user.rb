@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   EMAIL_REGEX = /@.+/.freeze
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
   has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users
@@ -15,7 +14,6 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   validates_format_of :email, with: EMAIL_REGEX
-  validates_format_of :password, with: PASSWORD_REGEX
 
   generate_public_uid
 
