@@ -3,14 +3,14 @@
 <div class="create-form">
   <h1 class='create-title'>スレッドを作成する</h1>
   <%= form_with model: @room, class: "thread-form", local: true do |f| %>
-    <div class="field">
+    <div class="field-form-thread">
       <%= f.label :thread_name, "スレッド名", class: "label-name" %>
       <%= f.text_field :thread_name, class: "field-box" %>
     </div>
-    <div class="field">
+    <div class="field-form-invite">
       <%= f.label :user_ids, "招待する", class: "label-name" %>
       <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
-        <div>
+        <div class="users-list">
           <%= user.label { user.check_box + user.text } %>
         </div>
       <% end %>
