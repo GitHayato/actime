@@ -1,7 +1,11 @@
 class RoomsController < ApplicationController
   def index
-    # 要調整
-    @rooms = Room.all
+    current_user_rooms = RoomUser.where(user_id: current_user.id)
+    rooms = []
+    current_user_rooms.each do |room|
+      rooms << room.room_id
+    end
+    @rooms = Room.where(id: rooms)
   end
 
   def new
