@@ -13,7 +13,7 @@
   </div>
   <% @rooms.each do |room| %>
     <ul>
-      <li><a href="/rooms/<%=room.id%>/messages" class="thread-name"><%= room.thread_name %></a></li>
+      <li><a href="/rooms/<%=room.public_uid%>/messages" class="thread-name"><%= room.thread_name %></a></li>
     </ul>
   <% end %>
   

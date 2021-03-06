@@ -49,7 +49,7 @@ function sendMessage() {
               <ul class="navigation">
                 <li><img src="/three_point.png" class="menu-tag" resize="20*20">
                   <ul>
-                    <li><a href="/rooms/${message.room_id}/messages/${message.id}" data-method="delete">削除</a></li>
+                    <li><a href="${rootPath}/${message.id}" data-method="delete">削除</a></li>
                   </ul>
                 </li>
               </ul>

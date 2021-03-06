@@ -5,4 +5,10 @@ class Room < ApplicationRecord
   has_many :watches, dependent: :destroy
 
   validates :thread_name, presence: true
+
+  generate_public_uid
+
+  def to_param
+    public_uid
+  end
 end

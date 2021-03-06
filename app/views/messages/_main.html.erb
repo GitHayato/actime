@@ -3,7 +3,7 @@
     <%= @room.thread_name %>
   </div>
   <div class="menu-lots"> 
-    <%= link_to "削除", room_path(@room.id), method: :delete, class: "room-delete"%>
+    <%= link_to "削除", room_path(@room.public_uid), method: :delete, class: "room-delete"%>
     <%= link_to "招待する", root_path, class: "room-invite" %>
   </div>
 </div>
@@ -22,7 +22,7 @@
             <li>
               <%= image_tag "/three_point.png", class: "menu-tag" %>
               <ul>
-                <li><%= link_to "削除", room_message_path(@room.id, message.id), method: :delete %></li>
+                <li><%= link_to "削除", room_message_path(@room.public_uid, message.id), method: :delete %></li>
               </ul>
             </li>
           </ul>
@@ -36,7 +36,7 @@
 </div>
 
 <div class="send-enter">
-  <%= form_with url: room_messages_path(@room.id), method: :post, id: "send-form", local: true do |f| %>
+  <%= form_with url: room_messages_path(@room.public_uid), method: :post, id: "send-form", local: true do |f| %>
     <%= f.text_area :content, id: "send-input", placeholder: "type a message or time" %>
     <%= f.submit '送信', id: "submit" %>
   <% end %>

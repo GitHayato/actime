@@ -16,14 +16,14 @@ class RoomsController < ApplicationController
   def create
     @room = Room.create(room_params)
     if @room.save
-      redirect_to room_messages_path(@room.id)
+      redirect_to room_messages_path(@room.public_uid)
     else
       render :new
     end
   end
 
   def destroy
-    room = Room.find(params[:id])
+    room = Room.find_by(public_uid: params[:id])
     if room.destroy
       redirect_to rooms_path
     end
@@ -32,6 +32,6 @@ class RoomsController < ApplicationController
   private
   
   def room_params
-    params.require(:room).permit(:thread_name, user_ids: [])
+    params.require(:room).permit(:thread_name, :public_uid, user_ids: [])
   end
 end
