@@ -1,70 +1,50 @@
-.create-form {
+.update-form {
   background-color: #DDE1EC;
   width: 900px;
   margin: auto;
   border-radius: 20px;
 }
 
-.create-title {
+.thread-info {
   font-size: 42px;
   text-align: center;
   color: #4b4b4b;
   margin-top: 50px;
 }
 
-.thread-form {
-  margin-top: 20px;
-}
-
-.field-form-thread {
+.thread-created {
   margin-top: 60px;
   display: flex;
   align-items: center;
 }
 
-.field-form-invite {
-  margin: 60px 0 50px;
-}
-
-.label-name {
-  font-size: 36px;
-  color: #4b4b4b;
-  margin-right: 30px;
-  display: inline-block;
-  width: 30%;
-  text-align: right;
-  float: left;
-}
-
-.users-list {
-  width: 420px;
+.thread-created h3 {
   font-size: 30px;
   color: #4b4b4b;
-  margin-top: 10px;
-  margin-left: calc(30% + 30px);
+  margin-right: 30px;
+  width: 30%;
+  text-align: right;
 }
 
-.field-box {
+.thread-created p {
   width: 400px;
-  height: 60px;
-  border: none;
-  border-radius: 10px;
+  color: #4b4b4b;
   padding: 0 10px;
   font-size: 30px;
 }
 
-.creation {
+.update-thread-info {
   text-align: center;
 }
 
-.create-btn {
+.update-btn {
   width: 250px;
   height: 75px;
   color: #ffffff;
   font-size: 30px;
+  margin-bottom: 50px;
   border: none;
   border-radius: 80px;
-  margin-bottom: 50px;
   background-color: #6d61fa;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
