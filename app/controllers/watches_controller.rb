@@ -1,19 +1,20 @@
 class WatchesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :set_user, only: [:new, :create]
+  before_action :search_room, only: [:new, :create, :update]
 
   def index
   end
 
   def new
-    @room = Room.find(params[:room_id])
-    @watches = Watch.where(room_id: params[:room_id]).order(id: "DESC").page(params[:page]).per(50)
+    @watches = Watch.where(room_id: search_room.id).order(id: "DESC").page(params[:page]).per(50)
     if @watches
       @watches
     end
   end
 
   def create
-    watch = Watch.create(watch_params)
+    watch = Watch.create(watch: watch_params[:watch], room_id: search_room.id)
     render json:{ watch: watch }
   end
 
@@ -29,7 +30,14 @@ class WatchesController < ApplicationController
   private
   
   def watch_params
-    params.permit(:watch, :room_id, :event, :distance)
+    params.permit(:watch, :event, :distance, room_id: search_room.id)
   end
 
+  def set_user  
+    @room = Room.find_by(public_uid: params[:room_id])
+  end
+  
+  def search_room
+    search_room = Room.find_by(public_uid: params[:room_id])
+  end
 end

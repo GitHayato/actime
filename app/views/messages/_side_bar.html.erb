@@ -4,7 +4,7 @@
 </div>
 <div class="measure-time">
   <%= image_tag "stopwatch.png", alt: "タイムを測る", class: "stopwatch-img" %>
-  <%= link_to "タイムを測る", new_room_watch_path(@room.id), class: "measure-button" %>
+  <%= link_to "タイムを測る", new_room_watch_path(@room.public_uid), class: "measure-button" %>
 </div>
 <div class="index-threads">
   <div class="threads-flex">

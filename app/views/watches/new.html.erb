@@ -6,7 +6,7 @@
 </div>
 
 <%# STARTとSTOPのボタン %>
-<%= form_with url: room_watches_path(@room.id), class: "buttons" do |f| %>
+<%= form_with url: room_watches_path(@room.public_uid), class: "buttons" do |f| %>
   <%= f.submit "START", class: "btn", id: "start" %>
   <%= f.submit "RAP", class: "btn", id: "rap" %>
 <% end %>
@@ -36,12 +36,12 @@
               admin
             </td>
             <td class="event">
-              <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
+              <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch, class: "update-data" do |f| %>
                 <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event", value: "#{watch.event}" %>
               <% end %>
             </td>
             <td class="distance">
-              <%= form_with url: room_watch_path(@room.id, watch.id), method: :patch, class: "update-data" do |f| %>
+              <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch, class: "update-data" do |f| %>
                 <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance", value: "#{watch.distance}" %>
               <% end %>
             </td> 
@@ -56,6 +56,6 @@
   <%= paginate @watches %>
 <% end %>
 
-<%= link_to "メッセージを送る", room_messages_path(@room.id), class: "with-time" %>
+<%= link_to "メッセージを送る", room_messages_path(@room.public_uid), class: "with-time" %>
 
 <%= render "shared/footer.html.erb" %>
