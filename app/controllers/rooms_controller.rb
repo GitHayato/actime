@@ -1,24 +1,29 @@
 class RoomsController < ApplicationController
   def index
-    # 要調整
-    @rooms = Room.all
+    current_user_rooms = RoomUser.where(user_id: current_user.id)
+    rooms = []
+    current_user_rooms.each do |room|
+      rooms << room.room_id
+    end
+    @rooms = Room.where(id: rooms)
   end
 
   def new
     @room = Room.new
+    @users = User.where.not(id: current_user.id)
   end
 
   def create
-    @room = Room.new(room_params)
+    @room = Room.create(room_params)
     if @room.save
-      redirect_to room_messages_path(@room.id)
+      redirect_to room_messages_path(@room.public_uid)
     else
       render :new
     end
   end
 
   def destroy
-    room = Room.find(params[:id])
+    room = Room.find_by(public_uid: params[:id])
     if room.destroy
       redirect_to rooms_path
     end
@@ -27,7 +32,6 @@ class RoomsController < ApplicationController
   private
   
   def room_params
-    # permitにユーザー招待枠の許可
-    params.require(:room).permit(:thread_name)
+    params.require(:room).permit(:thread_name, :public_uid, user_ids: [])
   end
 end

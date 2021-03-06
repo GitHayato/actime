@@ -5,7 +5,7 @@
   <div class="many-threads">
     <% @rooms.each do |room| %>
       <div>
-        <%= link_to room.thread_name, room_messages_path(room.id), class: "threads-path" %>
+        <%= link_to room.thread_name, room_messages_path(room.public_uid), class: "threads-path" %>
       </div>
     <% end %>
   </div>
