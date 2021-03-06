@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   root to: "top_pages#index"
+  resources :users, only: [:show]
   resources :rooms, only: [:index, :new, :create, :destroy, :edit, :update] do
     resources :watches, only: [:index, :new, :create, :edit, :update]
     resources :messages, only:[:index, :create, :destroy]
