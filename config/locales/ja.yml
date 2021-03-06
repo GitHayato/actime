@@ -1,8 +1,4 @@
 ja:
-  time:
-    formats:
-      default: "%m/%d %H:%M"
-  
   views:
     pagination:
       first: "&laquo;"
