@@ -4,7 +4,7 @@
   </div>
   <div class="menu-lots"> 
     <%= link_to "削除", room_path(@room.public_uid), method: :delete, class: "room-delete"%>
-    <%= link_to "招待する", root_path, class: "room-invite" %>
+    <%= link_to "編集する", edit_room_path(@room.public_uid), class: "room-invite" %>
   </div>
 </div>
 <div id="main-message">

@@ -1,0 +1,29 @@
+<%= render "shared/second_header.html.erb" %>
+
+  <div class="update-form">
+    <h1 class='thread-info'>スレッド情報</h1>
+    <%= form_with model: @room, class: "thread-form", local: true do |f| %>
+      <div class="thread-created">
+        <h3>作成日</h3>
+        <p><%= l @room.created_at, format: :long %></p>
+      </div>
+      <div class="field-form-thread">
+        <%= f.label :thread_name, "スレッド名", class: "label-name" %>
+        <%= f.text_field :thread_name, class: "field-box" %>
+      </div>
+      <div class="field-form-invite">
+        <%= f.label :user_ids, "招待する", class: "label-name" %>
+        <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
+          <div class="users-list">
+            <%= user.label { user.check_box + user.text } %>
+          </div>
+        <% end %>
+        <%= hidden_field_tag 'room[user_ids][]', current_user.id %>
+      </div>
+      <div class="update-thread-info">
+        <%= f.submit "更新する", class: "update-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+<%= render "shared/footer.html.erb" %>
