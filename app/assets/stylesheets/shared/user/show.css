@@ -1,0 +1,66 @@
+.user-info {
+  width: 100%; 
+}
+
+.info-user {
+  width: 600px;
+  background-color: #dde1ec;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  margin: 55px auto 0;
+}
+
+.info-user h1 {
+  font-size: 30px;
+  color: #4b4b4b;
+  text-align: center;
+  padding: 50px 0 20px;
+}
+
+.user-identification-info {
+  display: flex;
+  margin-top: 40px;
+  font-size: 30px;
+  color: #4b4b4b;
+}
+
+.user-identification-info h3 {
+  width: 40%;
+  text-align: right;
+  float: left;
+  margin-right: 30px;
+}
+
+.follow-follower-lists {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  font-size: 25px;
+}
+
+.users-link {
+  color: #4b4b4b;
+  font-size: 24px;
+}
+
+.follow-follower {
+  margin: 0 10px;
+}
+
+
+.follow-button {
+  display: flex;
+  justify-content: center;
+}
+
+.follow-submit {
+  width: 200px;
+  height: 60px;
+  color: #ffffff;
+  font-size: 24px;
+  border: none;
+  border-radius: 80px;
+  margin-bottom: 50px;
+  background-color: #6d61fa;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
