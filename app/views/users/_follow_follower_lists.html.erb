@@ -1,0 +1,14 @@
+<div class="follow-or-follower-lists">
+  <h1><%= @comment %>一覧</h1>
+  <div class="follow-or-follower-users-list">
+    <% unless @users == [] %>
+      <% @users.each do |user| %>
+        <div class="following-lists">
+          <%= link_to user.username, user_path(user.public_uid), class: "users-path" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p><%= @comment %>はいません</p>
+    <% end %>
+  </div>
+</div>
