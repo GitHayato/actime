@@ -24,9 +24,11 @@
       <%= link_to "10人フォロワー", "/", class: "follow-follower users-link" %>
     </div>
 
-    <%= form_with url: "#", class: "follow-button" do |f| %>
-      <%= f.submit "フォローする", class: "follow-submit" %>
-    <% end %>
+    <%= render 'relationships/follow_button.html.erb', user: @user %>
+    <div class="flash-message">
+      <%= flash[:success] %>
+      <%= flash[:alert] %>
+    </div>
   </div>
 
 </div>
