@@ -1,7 +1,12 @@
 class MessagesController < ApplicationController
   before_action :set_user, only:[:index, :create, :destroy]
   def index
-    @rooms = Room.all
+    current_user_rooms = RoomUser.where(user_id: current_user.id)
+    rooms = []
+    current_user_rooms.each do |room|
+      rooms << room.room_id
+    end
+    @rooms = Room.where(id: rooms)
     @messages = @room.messages.includes(:user).order(id: "DESC")
   end
 
