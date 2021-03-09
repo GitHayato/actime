@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy, :following, :follower]
   def show
     @following = Relationship.where(user_id: @user.id).count
     @follower = Relationship.where(follow_id: @user.id).count
@@ -11,6 +11,18 @@ class UsersController < ApplicationController
     else
       render :show
     end
+  end
+
+  def following
+    followings = User.find(@user.id).following_ids
+    @users = User.where(id: followings)
+    @comment = "フォロー"
+  end
+
+  def follower
+    followers = User.find(@user.id).follower_ids
+    @users = User.where(id: followers)
+    @comment = "フォロワー"
   end
 
   private
