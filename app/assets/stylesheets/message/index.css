@@ -109,14 +109,12 @@
 }
 
 .room-delete {
-  text-decoration: none;
-  color: #4b4b4b;
+  width: 25px;
   margin-right: 15px;
 }
 
-.room-invite {
-  text-decoration: none;
-  color: #4b4b4b;
+.room-edit {
+  width: 25px;
 }
 
 .message {
