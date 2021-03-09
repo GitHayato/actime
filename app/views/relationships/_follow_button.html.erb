@@ -1,4 +1,8 @@
-<% unless current_user == user %>
+<% if current_user == user %>
+  <div class="follow-form">
+    <%= link_to "アカウント削除", user_path(@user.public_uid), method: :delete, class: "user-destroy" %>
+  </div>
+<% else %>
   <% if current_user.following?(user) %>
     <%= form_with model: current_user.relationships.find_by(follow_id: user.id), method: :delete, class: "follow-form",local: true do |f| %>
       <%= hidden_field_tag :follow_id, user.id %>
