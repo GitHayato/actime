@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
-  before_action :user_except_current_user, only: [:new, :edit]
+  before_action :following_user, only: [:new, :edit]
 
   def index
     current_user_rooms = RoomUser.where(user_id: current_user.id)
@@ -52,7 +52,8 @@ class RoomsController < ApplicationController
     @room = Room.find_by(public_uid: params[:id])
   end
 
-  def user_except_current_user
-    @users = User.where.not(id: current_user.id)
+  def following_user
+    followings = User.find(current_user.id).following_ids
+    @users = User.where(id: followings)
   end
 end
