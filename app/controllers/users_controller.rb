@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy]
   def show
+    @following = Relationship.where(user_id: @user.id).count
+    @follower = Relationship.where(follow_id: @user.id).count
   end
 
   def destroy

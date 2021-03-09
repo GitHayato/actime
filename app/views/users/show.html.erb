@@ -20,8 +20,8 @@
     </div>
 
     <div class="follow-follower-lists">
-      <%= link_to "10人フォロー", "/", class: "follow-follower users-link" %>
-      <%= link_to "10人フォロワー", "/", class: "follow-follower users-link" %>
+      <%= link_to "#{@following}フォロー", "/", class: "follow-follower users-link" %>
+      <%= link_to "#{@follower}フォロワー", "/", class: "follow-follower users-link" %>
     </div>
 
     <%= render 'relationships/follow_button.html.erb', user: @user %>
