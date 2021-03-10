@@ -1,8 +1,8 @@
-.user-info {
+.user-infomation {
   width: 100%; 
 }
 
-.info-user {
+.infomation-user {
   width: 600px;
   background-color: #dde1ec;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -10,7 +10,7 @@
   margin: 55px auto 0;
 }
 
-.info-user h1 {
+.infomation-user h1 {
   font-size: 30px;
   color: #4b4b4b;
   text-align: center;
