@@ -49,13 +49,8 @@
   opacity: 0.3;
 }
 
-/* .btn:active {
-  margin-bottom: 4px;
-  box-shadow: none;
-} */
-
 .table {
-  margin: 50px auto 0;
+  margin: 50px auto 20px;
   border-collapse: collapse;
 }
 
