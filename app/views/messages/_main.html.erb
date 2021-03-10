@@ -14,7 +14,7 @@
     <div class="message">
       <div class="information">
         <div class="message-info">
-          <p class="info-user"><%= message.user.username %></p>
+          <p class="info-user"><%= link_to message.user.username, user_path(message.user.public_uid), class: "info-username" %></p>
           <p class="info-date"><%= l message.created_at, format: :short %></p>
         </div>
         <% if message.user.id == current_user.id %>

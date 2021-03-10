@@ -139,6 +139,11 @@
   margin-left: 10px;
 }
 
+.info-username {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .info-date {
   font-size: 14px;
   margin-top: 6px;

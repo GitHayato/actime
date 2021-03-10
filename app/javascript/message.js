@@ -43,7 +43,7 @@ function sendMessage() {
           <div class="message">
             <div class="information">
               <div class="message-info">
-                <p class="info-user">${user}</p>
+                <p class="info-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
                 <p class="info-date">${createTime}</p>
               </div>
               <ul class="navigation">

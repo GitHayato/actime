@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.create(message_params)
-    render json:{ post: message, user: message.user.username }
+    render json:{ post: message, user: message.user }
   end
 
   def destroy
