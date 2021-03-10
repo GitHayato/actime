@@ -62,7 +62,9 @@ function stopWatch() {
           <tr id=${content.id}>
             <td class="date">${createTime}</td>
             <td class="time">${content.watch}</td>
-            <td class="name">admin</td>
+            <td class="name">
+              ページを更新してください
+            </td>
             <td class="event"><input id="event-${content.id}" class="data-input data-event" type="text" name="event"></td>
             <td class="distance"><input id="distance-${content.id}" class="data-input data-distance" type="text" name="distance"></td>
           </tr>`;

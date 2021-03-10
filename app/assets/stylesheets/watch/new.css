@@ -93,6 +93,12 @@ table td {
   width: 200px;
 }
 
+.data-username {
+  height: 30px;
+  font-size: 20px;
+  border: none;
+}
+
 .data-input {
   width: 200px;
   font-size: 24px;

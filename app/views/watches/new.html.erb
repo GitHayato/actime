@@ -34,7 +34,7 @@
             </td>
             <td class="name">
               <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch do |f| %>
-                <%= f.collection_select :user_id, @users, :id, :username, include_blank: true %>
+                <%= f.collection_select :user_id, @users, :id, :username, {prompt: true}, {class: "data-username"} %>
               <% end %>
             </td>
             <td class="event">
