@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @following = Relationship.where(user_id: @user.id).count
     @follower = Relationship.where(follow_id: @user.id).count
+    @watches = Watch.where(user_id: @user.id)
   end
 
   def destroy

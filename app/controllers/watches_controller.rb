@@ -3,9 +3,6 @@ class WatchesController < ApplicationController
   before_action :set_user, only: [:new, :create]
   before_action :search_room, only: [:new, :create, :update]
 
-  def index
-  end
-
   def new
     @watches = Watch.where(room_id: search_room.id).order(id: "DESC").page(params[:page]).per(50)
     if @watches

@@ -14,11 +14,6 @@
       <%= @user.username %>
     </div>
 
-    <div class="user-identification-info">
-      <h3>タイム</h3>
-      <%= link_to "ここをクリック", "/", class: "users-link" %>
-    </div>
-
     <div class="follow-follower-lists">
       <%= link_to "#{@following}フォロー", following_user_path(@user.public_uid), class: "follow-follower users-link" %>
       <%= link_to "#{@follower}フォロワー", follower_user_path(@user.public_uid), class: "follow-follower users-link" %>
@@ -31,6 +26,39 @@
     </div>
   </div>
 
+</div>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th class="date">日付</th>
+        <th class="time">タイム</th>
+        <th class="event">種目</th>
+        <th class="distance">距離</th>
+      </tr>
+    </thead>
+    <tbody id="time-table">
+      <% if @watches %>
+        <% @watches.each do |watch| %>
+          <tr id=<%= watch.id %>>
+            <td class="date">
+              <%= watch.created_at.strftime('%Y/%m/%d') %>
+            </td>
+            <td class="time">
+              <%= watch.watch %>
+            </td>
+            <td class="event">
+              <%= watch.event %>
+            </td>
+            <td class="distance">
+              <%= watch.event %>
+            </td> 
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= render 'shared/footer.html.erb' %>
