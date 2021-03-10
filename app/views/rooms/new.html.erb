@@ -9,10 +9,14 @@
     </div>
     <div class="field-form-invite">
       <%= f.label :user_ids, "招待する", class: "label-name" %>
-      <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
-        <div class="users-list">
-          <%= user.label { user.check_box + user.text } %>
-        </div>
+      <% unless @users == [] %>
+        <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
+          <div class="users-list">
+            <%= user.label { user.check_box + user.text } %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>ユーザーをフォローしてください</p>
       <% end %>
       <%= hidden_field_tag 'room[user_ids][]', current_user.id %>
     </div>
