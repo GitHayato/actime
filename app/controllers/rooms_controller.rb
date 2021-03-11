@@ -25,6 +25,9 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    room = Room.find_by(public_uid: params[:id])
+    @users_in_this_room = room.users
+    @follow_users = @users.where.not(id: @users_in_this_room.ids)
   end
 
   def update
