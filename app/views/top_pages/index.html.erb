@@ -3,8 +3,18 @@
 <div class="title">
   <h1>Welcome to Ac<span class="t">T</span>ime!</h1>
 </div>
+
+<%= flash[:search] %>
+
+<div class="search-users">
+  <%= form_with url: search_users_path, local: true, method: :get, class: "search-form" do |form| %>
+    <%= form.text_field :keyword, placeholder: "ユーザーを検索する", class: "search-input" %>
+    <%= form.submit "検索", class: "search-btn" %>
+  <% end %>
+</div>
+
 <div class="two-square">
-    <%= link_to("スレッドを作成する", new_room_path, class: "text") %>
+    <%= link_to("スレッドを作成", new_room_path, class: "text") %>
     <%= link_to("スレッドを選ぶ", rooms_path, class: "text") %>
 </div>
 
