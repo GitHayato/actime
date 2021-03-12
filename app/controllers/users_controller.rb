@@ -26,6 +26,14 @@ class UsersController < ApplicationController
     @comment = "フォロワー"
   end
 
+  def search
+    if params[:seach] != ""
+      @users = User.search(params[:keyword])
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def set_user

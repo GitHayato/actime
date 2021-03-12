@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       get 'following'
       get 'follower'
     end
+    collection do
+      get 'search'
+    end
   end
   resources :rooms, only: [:index, :new, :create, :destroy, :edit, :update] do
     resources :watches, only: [:new, :create, :edit, :update]
