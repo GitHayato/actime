@@ -27,9 +27,10 @@ class UsersController < ApplicationController
   end
 
   def search
-    if params[:seach] != ""
+    if params[:keyword] != ""
       @users = User.search(params[:keyword])
     else
+      flash[:search] = "※入力してください"
       redirect_to root_path
     end
   end
