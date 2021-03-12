@@ -13,12 +13,10 @@
       </div>
 
       <div class="field-form-invite">
-        <label class="label-name">ユーザー一覧</label>
-        <% @users_in_this_room.each do |user| %>
+        <%= f.label :user_ids, "ユーザー一覧", class: "label-name" %>
+        <%= f.collection_check_boxes :user_ids, @users_in_this_room, :id, :username, include_hidden: false do |user| %>
           <div class="users-list">
-            <label for="room_user_ids_<%=user.public_uid%>">
-              <span id="room_user_ids_<%=user.public_uid%>"><%=user.username%></span>
-             </label>
+            <%= user.label { user.check_box + user.text } %>
           </div>
         <% end %>
       </div>
@@ -33,9 +31,6 @@
           <% end %>
         <% else %>
           <p>ユーザーをフォローしてください</p>
-        <% end %>
-        <% @users_in_this_room.each do |user| %>
-          <%= hidden_field_tag 'room[user_ids][]', user.id %>
         <% end %>
       </div>
       <div class="update-thread-info">
