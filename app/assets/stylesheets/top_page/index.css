@@ -60,3 +60,49 @@
   text-decoration: none;
   color: #ffffff;
 }
+
+.actime{
+  height: calc(100vh - 120px);
+  background: url("/images/background.png")no-repeat;
+  background-size: 100%;
+}
+
+.about-actime {
+  width: 40vw;
+  margin: 35vh 0 0 60%;
+}
+
+.explanation h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.session-registration-btn {
+  margin-left: 5vw;
+}
+
+.top-sign-up {
+  width: 150px;
+  height: 50px;
+  color: #ffffff;
+  background-color: #6D61FA;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 40px 0 20px;
+}
+
+.up-in-btn {
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 80px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.top-sign-in {
+  width: 150px;
+  height: 40px;
+  color: #000000;
+  border: 2px solid rgb(0, 0, 0);
+}

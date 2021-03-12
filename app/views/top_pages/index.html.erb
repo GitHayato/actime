@@ -19,6 +19,19 @@
   </div>
 <% else %>
   <%= render "shared/header.html.erb" %>
+
+  <div class="actime">
+    <div class="about-actime">
+      <div class="explanation">
+        <h1>アスリートのための</h1>
+        <h1>ストップウォッチアプリ</h1>
+      </div>
+      <div class="session-registration-btn">
+        <%= link_to "新規登録", new_user_registration_path, class: "top-sign-up up-in-btn" %>
+        <%= link_to "ログイン", new_user_session_path, class: "top-sign-in up-in-btn" %>
+      </div>
+    </div>
+  </div>
   
 <% end %>
 
