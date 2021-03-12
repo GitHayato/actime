@@ -20,7 +20,7 @@
         <% if message.user.id == current_user.id %>
           <ul class="navigation">
             <li>
-              <%= image_tag "/three_point.png", class: "menu-tag" %>
+              <%= image_tag "/images/three_point.png", class: "menu-tag" %>
               <ul>
                 <li><%= link_to "削除", room_message_path(@room.public_uid, message.id), method: :delete %></li>
               </ul>
