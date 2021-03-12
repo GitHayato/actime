@@ -1,0 +1,21 @@
+<%= render 'shared/second_header.html.erb' %>
+
+<div class="select-users">
+  <h1 class="h1-text">ユーザー一覧</h1>
+  <div class="many-users">
+    <% unless @users == [] %>
+      <% @users.each do |user| %>
+        <div class="result-user">
+          <span class="user-id">ID: <%= user.public_uid %></span>
+          <%= link_to user.username, user_path(user.public_uid), class: "each-user" %>
+          <span class="user-count"><%= "フォロー/フォロワー: #{user.followings.count}/#{user.followers.count}" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="result-user">ユーザーはいません</p>
+    <% end %>
+  </div>
+  <%= link_to "トップページに戻る", root_path, class: "jump-to-top" %>
+</div>
+
+<%= render 'shared/footer.html.erb' %>
