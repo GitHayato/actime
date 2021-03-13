@@ -2,66 +2,47 @@
   display: flex;
 }
 
-
 .left-side {
   width: 18vw;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 80px);
   background-color: #DDE1EC;
-  font-size: 20px;
   overflow-y: scroll;
 }
 
-.create-threads {
+.sidebar-threads {
   display: flex;
-  margin-top: 50px;
+  align-items: center;
+  margin-top: 30px;
   margin-left: 20px;
 }
 
-.create-img {
+.sidebar-img {
   width: 20px;
   height: 20px;
-  margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
-.create-button {
+.sidebar-button {
+  font-size: 16px;
   text-decoration: none;
   color: #4b4b4b;
 }
 
-.measure-time {
-  margin-top: 30px;
-  margin-left: 18px;
-}
-
-.stopwatch-img {
-  width: 25px;
-  height: 25px;
-}
-
-.measure-button {
+.sidebar-threads h3 {
+  font-size: 16px;
   text-decoration: none;
   color: #4b4b4b;
 }
 
-.index-threads {
-  margin-top: 30px;
-}
-
-.threads-flex {
-  display: flex;
-  margin-left: 20px;
-}
-
-.show-threads {
-  padding: 0;
-  color: #4b4b4b;
+.threads-ul {
+  margin-top: 10px;
 }
 
 .thread-name {
+  font-size: 16px;
   color: #4b4b4b;
   margin-top: 10px;
-  margin-left: 50px;
+  margin-left: 60px;
   text-decoration: none;
 }
 
