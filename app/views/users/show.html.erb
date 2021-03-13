@@ -19,7 +19,7 @@
       <%= link_to "#{@follower}フォロワー", follower_user_path(@user.public_uid), class: "follow-follower users-link" %>
     </div>
 
-    <%= render 'relationships/follow_button.html.erb', user: @user %>
+    <%= render 'relationships/follow_button.html.erb' %>
     <div class="flash-message">
       <%= flash[:success] %>
       <%= flash[:alert] %>
