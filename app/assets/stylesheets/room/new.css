@@ -1,12 +1,12 @@
 .create-form {
   background-color: #DDE1EC;
-  width: 900px;
+  width: 500px;
   margin: auto;
   border-radius: 20px;
 }
 
 .create-title {
-  font-size: 42px;
+  font-size: 24px;
   text-align: center;
   color: #4b4b4b;
   margin-top: 50px;
@@ -17,40 +17,39 @@
 }
 
 .field-form-thread {
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
 }
 
 .field-form-invite {
-  margin: 60px 0 50px;
+  margin: 30px 0;
 }
 
 .label-name {
-  font-size: 36px;
+  font-size: 16px;
   color: #4b4b4b;
   margin-right: 30px;
   display: inline-block;
-  width: 30%;
+  width: 35%;
   text-align: right;
   float: left;
 }
 
 .users-list {
-  width: 420px;
-  font-size: 30px;
+  font-size: 16px;
   color: #4b4b4b;
   margin-top: 10px;
-  margin-left: calc(30% + 30px);
+  margin-left: calc(35% + 30px);
 }
 
 .field-box {
-  width: 400px;
-  height: 60px;
+  width: 200px;
+  height: 35px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0 10px;
-  font-size: 30px;
+  font-size: 16px;
 }
 
 .creation {
@@ -58,10 +57,10 @@
 }
 
 .create-btn {
-  width: 250px;
-  height: 75px;
+  width: 120px;
+  height: 40px;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 16px;
   border: none;
   border-radius: 80px;
   margin-bottom: 50px;

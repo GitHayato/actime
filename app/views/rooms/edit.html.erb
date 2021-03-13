@@ -5,7 +5,7 @@
     <%= form_with model: @room, class: "thread-form", local: true do |f| %>
       <div class="thread-created">
         <h3>作成日</h3>
-        <p><%= l @room.created_at, format: :long %></p>
+        <p><%= l @room.created_at, format: :long, class: "field-box" %></p>
       </div>
       <div class="field-form-thread">
         <%= f.label :thread_name, "スレッド名", class: "label-name" %>

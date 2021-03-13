@@ -1,13 +1,13 @@
 .top-page-header {
-  height: 70px;
+  height: 50px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   display: flex;
 }
 
 .icon {
-  padding-top: 13px;
-  width: 150px;
-  height: 43.19px;
+  padding-top: 8px;
+  width: 130px;
+  height: 37.44px;
   margin: 0 15px;
 }
 
@@ -18,21 +18,21 @@
 
 .username {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   color: #000000;
   margin: 20px 30px;
 }
 
 .log {
-  width: 130px;
-  height: 50px;
+  width: 100px;
+  height: 38px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
   background-color: #6D61FA;
   border-radius: 80px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 10px 50px 20px 0;
+  margin: 8px 50px 20px 0;
   text-align: center;
   justify-content: center;
   display: flex;

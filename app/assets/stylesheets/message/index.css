@@ -2,77 +2,58 @@
   display: flex;
 }
 
-
 .left-side {
   width: 18vw;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 80px);
   background-color: #DDE1EC;
-  font-size: 20px;
   overflow-y: scroll;
 }
 
-.create-threads {
+.sidebar-threads {
   display: flex;
-  margin-top: 50px;
+  align-items: center;
+  margin-top: 30px;
   margin-left: 20px;
 }
 
-.create-img {
+.sidebar-img {
   width: 20px;
   height: 20px;
-  margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
-.create-button {
+.sidebar-button {
+  font-size: 16px;
   text-decoration: none;
   color: #4b4b4b;
 }
 
-.measure-time {
-  margin-top: 30px;
-  margin-left: 18px;
-}
-
-.stopwatch-img {
-  width: 25px;
-  height: 25px;
-}
-
-.measure-button {
+.sidebar-threads h3 {
+  font-size: 16px;
   text-decoration: none;
   color: #4b4b4b;
 }
 
-.index-threads {
-  margin-top: 30px;
-}
-
-.threads-flex {
-  display: flex;
-  margin-left: 20px;
-}
-
-.show-threads {
-  padding: 0;
-  color: #4b4b4b;
+.threads-ul {
+  margin-top: 10px;
 }
 
 .thread-name {
+  font-size: 16px;
   color: #4b4b4b;
   margin-top: 10px;
-  margin-left: 50px;
+  margin-left: 60px;
   text-decoration: none;
 }
 
 .main {
   width: calc(100vw - 18vw);
-  height: calc(100vh - 120px);
+  height: calc(100vh - 80px);
   background-color: #f7f7fe;
 }
 
 #main-message {
-  height: calc(100vh - 250px);
+  height: calc(100vh - 210px);
   overflow-y: scroll;
 }
 
@@ -98,23 +79,22 @@
 }
 
 .menu-roomname {
-  font-size: 30px;
+  font-size: 24px;
   margin-left: 20px;
 }
 
 .menu-lots {
-  font-size: 16px;
   margin-top: 15px;
   margin-right: 60px;
 }
 
 .room-delete {
-  width: 25px;
-  margin-right: 15px;
+  width: 20px;
 }
 
 .room-edit {
-  width: 25px;
+  width: 20px;
+  margin-right: 10px;
 }
 
 .message {
@@ -135,7 +115,7 @@
 }
 
 .info-user {
-  font-size: 20px;
+  font-size: 16px;
   margin-left: 10px;
 }
 
@@ -146,7 +126,7 @@
 
 .info-date {
   font-size: 14px;
-  margin-top: 6px;
+  margin-top: 2px;
   margin-left: 20px;
 }
 
@@ -187,7 +167,7 @@
 }
 
 .message-content {
-  font-size: 20px;
+  font-size: 16px;
   background-color: #DDE1EC;
   padding: 5px 7px;
 }
@@ -204,21 +184,20 @@
 
 #send-input {
   width: 70vw;
-  height: 40px;
-  font-size: 18px;
+  height: 30px;
+  font-size: 16px;
   padding: 5px;
   resize: none;
-  /* 入力した高さによってjsで調整 */
 }
 
 #submit {
   width: 5vw;
-  height: 55px;
+  height: 45px;
   border: none;
   border-radius: 10px;
   margin-left: 10px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
   background-color: #6D61FA;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

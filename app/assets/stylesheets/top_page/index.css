@@ -3,14 +3,15 @@
 }
 
 .title {
-  font-size: 72px;
+  font-size: 50px;
   text-align: center;
-  margin: 120px auto 0;
+  margin: 100px auto 0;
 }
 
 .search-flash {
   width: 495px;
   margin: 5px auto;
+  font-size: 14px;
   color: #ff0000;
 }
 
@@ -25,16 +26,16 @@
 
 .search-input {
   width: 400px;
-  height: 40px;
+  height: 30px;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 16px;
   padding: 0 5px;
 }
 
 .search-btn {
   width: 70px;
   border: none;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   color: #ffffff;
   background-color: #6D61FA;
@@ -47,8 +48,8 @@
 }
 
 .text {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background-color: #6D61FA;
   border-radius: 20px;
   margin: 0 100px;
@@ -56,13 +57,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
+  font-size: 24px;
   text-decoration: none;
   color: #ffffff;
 }
 
 .actime{
-  height: calc(100vh - 120px);
+  height: calc(100vh - 80px);
   background: url("/images/background.png")no-repeat;
   background-size: 100%;
 }
@@ -93,7 +94,7 @@
 
 .up-in-btn {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 80px;
   justify-content: center;
   display: flex;
@@ -101,8 +102,9 @@
 }
 
 .top-sign-in {
-  width: 150px;
+  width: 140px;
   height: 40px;
   color: #000000;
   border: 2px solid rgb(0, 0, 0);
+  margin-left: 5px;
 }

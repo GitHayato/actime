@@ -1,14 +1,8 @@
 <header class='top-page-header'>
   <%= link_to image_tag("AcTime logo.png", class:"icon"), "/" %>
 
-  <% if user_signed_in? %>
-    <div class="user-content">
-      <%= link_to(current_user.username+"さん", user_path(current_user.public_uid), class: "username") %>
-      <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "log") %>
-    </div>
-  <% else %>
-    <div class="user-content">
-      <%= link_to("ログイン", new_user_session_path, class: "log") %>
-    </div>
-  <% end %>
+  <div class="user-content">
+    <%= link_to(current_user.username+"さん", user_path(current_user.public_uid), class: "username") %>
+    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "log") %>
+  </div>
 </header>
