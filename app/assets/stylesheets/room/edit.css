@@ -1,36 +1,31 @@
 .update-form {
   background-color: #DDE1EC;
-  width: 900px;
+  width: 500px;
   margin: auto;
   border-radius: 20px;
 }
 
 .thread-info {
-  font-size: 42px;
+  font-size: 24px;
   text-align: center;
   color: #4b4b4b;
   margin-top: 50px;
 }
 
 .thread-created {
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .thread-created h3 {
-  font-size: 30px;
+  font-size: 16px;
   color: #4b4b4b;
   margin-right: 30px;
-  width: 30%;
+  display: inline-block;
+  width: 35%;
   text-align: right;
-}
-
-.thread-created p {
-  width: 400px;
-  color: #4b4b4b;
-  padding: 0 10px;
-  font-size: 30px;
+  float: left;
 }
 
 .update-thread-info {
@@ -38,10 +33,10 @@
 }
 
 .update-btn {
-  width: 250px;
-  height: 75px;
+  width: 120px;
+  height: 40px;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 16px;
   margin-bottom: 50px;
   border: none;
   border-radius: 80px;
