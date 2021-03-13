@@ -3,6 +3,7 @@
   <div class="update-form">
     <h1 class='thread-info'>スレッド情報</h1>
     <%= form_with model: @room, class: "thread-form", local: true do |f| %>
+      <%= render 'shared/error_messages.html.erb', model: f.object %>
       <div class="thread-created">
         <h3>作成日</h3>
         <p><%= l @room.created_at, format: :long, class: "field-box" %></p>
