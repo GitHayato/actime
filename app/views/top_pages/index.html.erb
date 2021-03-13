@@ -1,11 +1,38 @@
-<%= render "shared/second_header.html.erb" %>
+<% if user_signed_in? %>
+  <%= render "shared/second_header.html.erb" %>
 
-<div class="title">
-  <h1>Welcome to Ac<span class="t">T</span>ime!</h1>
-</div>
-<div class="two-square">
-    <%= link_to("スレッドを作成する", new_room_path, class: "text") %>
-    <%= link_to("スレッドを選ぶ", rooms_path, class: "text") %>
-</div>
+  <div class="title">
+    <h1>Welcome to Ac<span class="t">T</span>ime!</h1>
+  </div>
+
+  <div class="search-users">
+    <%= form_with url: search_users_path, local: true, method: :get, class: "search-form" do |form| %>
+      <%= form.text_field :keyword, placeholder: "ユーザーを検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+    <h3 class="search-flash"><%= flash[:search] %></h3>
+  </div>
+
+  <div class="two-square">
+      <%= link_to("スレッドを作成", new_room_path, class: "text") %>
+      <%= link_to("スレッドを選ぶ", rooms_path, class: "text") %>
+  </div>
+<% else %>
+  <%= render "shared/header.html.erb" %>
+
+  <div class="actime">
+    <div class="about-actime">
+      <div class="explanation">
+        <h1>アスリートのための</h1>
+        <h1>ストップウォッチアプリ</h1>
+      </div>
+      <div class="session-registration-btn">
+        <%= link_to "新規登録", new_user_registration_path, class: "top-sign-up up-in-btn" %>
+        <%= link_to "ログイン", new_user_session_path, class: "top-sign-in up-in-btn" %>
+      </div>
+    </div>
+  </div>
+  
+<% end %>
 
 <%= render "shared/footer.html.erb" %>

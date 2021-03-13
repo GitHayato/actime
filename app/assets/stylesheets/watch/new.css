@@ -49,13 +49,8 @@
   opacity: 0.3;
 }
 
-/* .btn:active {
-  margin-bottom: 4px;
-  box-shadow: none;
-} */
-
 .table {
-  margin: 50px auto 0;
+  margin: 50px auto 20px;
   border-collapse: collapse;
 }
 
@@ -91,6 +86,12 @@ table td {
 
 .distance {
   width: 200px;
+}
+
+.data-username {
+  height: 30px;
+  font-size: 20px;
+  border: none;
 }
 
 .data-input {

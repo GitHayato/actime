@@ -11,14 +11,27 @@
         <%= f.label :thread_name, "スレッド名", class: "label-name" %>
         <%= f.text_field :thread_name, class: "field-box" %>
       </div>
+
       <div class="field-form-invite">
-        <%= f.label :user_ids, "招待する", class: "label-name" %>
-        <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
+        <%= f.label :user_ids, "ユーザー一覧", class: "label-name" %>
+        <%= f.collection_check_boxes :user_ids, @users_in_this_room, :id, :username, include_hidden: false do |user| %>
           <div class="users-list">
             <%= user.label { user.check_box + user.text } %>
           </div>
         <% end %>
-        <%= hidden_field_tag 'room[user_ids][]', current_user.id %>
+      </div>
+
+      <div class="field-form-invite">
+        <%= f.label :user_ids, "招待する", class: "label-name" %>
+        <% unless @follow_users == [] %>
+          <%= f.collection_check_boxes :user_ids, @follow_users, :id, :username, include_hidden: false do |user| %>
+            <div class="users-list">
+              <%= user.label { user.check_box + user.text } %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>ユーザーをフォローしてください</p>
+        <% end %>
       </div>
       <div class="update-thread-info">
         <%= f.submit "更新する", class: "update-btn" %>

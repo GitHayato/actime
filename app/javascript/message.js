@@ -43,11 +43,11 @@ function sendMessage() {
           <div class="message">
             <div class="information">
               <div class="message-info">
-                <p class="info-user">${user}</p>
+                <p class="info-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
                 <p class="info-date">${createTime}</p>
               </div>
               <ul class="navigation">
-                <li><img src="/three_point.png" class="menu-tag" resize="20*20">
+                <li><img src="/images/three_point.png" class="menu-tag" resize="20*20">
                   <ul>
                     <li><a href="${rootPath}/${message.id}" data-method="delete">削除</a></li>
                   </ul>

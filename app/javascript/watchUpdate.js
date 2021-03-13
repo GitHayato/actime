@@ -25,6 +25,16 @@ function updateAsynchronous(key, dataNow) {
   });
 }
 
+function updateUsername() {
+  const dataUsername = document.getElementsByClassName("data-username")
+  let count = 0;
+  for (let i = 0; i<=dataUsername.length-1; i++) {
+    const dataUsernameNow = dataUsername[count];
+    updateAsynchronous("user_id", dataUsernameNow);
+    count++;
+  }
+}
+
 export function updateEvent() {
   const dataEvent = document.getElementsByClassName("data-event");
   let count = 0;
@@ -45,5 +55,6 @@ export function updateDistance() {
   }
 } 
 
+window.addEventListener('load', updateUsername)
 window.addEventListener('load', updateEvent)
 window.addEventListener('load', updateDistance)

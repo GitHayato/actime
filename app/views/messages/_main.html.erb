@@ -3,8 +3,8 @@
     <%= @room.thread_name %>
   </div>
   <div class="menu-lots"> 
-    <%= link_to "削除", room_path(@room.public_uid), method: :delete, class: "room-delete"%>
-    <%= link_to "編集する", edit_room_path(@room.public_uid), class: "room-invite" %>
+    <%= link_to image_tag("delete", class: "room-delete"), room_path(@room.public_uid), method: :delete %>
+    <%= link_to image_tag("edit", class: "room-edit"), edit_room_path(@room.public_uid) %>
   </div>
 </div>
 <div id="main-message">
@@ -14,13 +14,13 @@
     <div class="message">
       <div class="information">
         <div class="message-info">
-          <p class="info-user"><%= message.user.username %></p>
+          <p class="info-user"><%= link_to message.user.username, user_path(message.user.public_uid), class: "info-username" %></p>
           <p class="info-date"><%= l message.created_at, format: :short %></p>
         </div>
         <% if message.user.id == current_user.id %>
           <ul class="navigation">
             <li>
-              <%= image_tag "/three_point.png", class: "menu-tag" %>
+              <%= image_tag "/images/three_point.png", class: "menu-tag" %>
               <ul>
                 <li><%= link_to "削除", room_message_path(@room.public_uid, message.id), method: :delete %></li>
               </ul>

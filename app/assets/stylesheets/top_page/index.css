@@ -5,7 +5,40 @@
 .title {
   font-size: 72px;
   text-align: center;
-  margin: 120px;
+  margin: 120px auto 0;
+}
+
+.search-flash {
+  width: 495px;
+  margin: 5px auto;
+  color: #ff0000;
+}
+
+.search-users {
+  margin: 45px 0;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 400px;
+  height: 40px;
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.search-btn {
+  width: 70px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #6D61FA;
+  cursor: pointer;
 }
 
 .two-square {
@@ -26,4 +59,50 @@
   font-size: 36px;
   text-decoration: none;
   color: #ffffff;
+}
+
+.actime{
+  height: calc(100vh - 120px);
+  background: url("/images/background.png")no-repeat;
+  background-size: 100%;
+}
+
+.about-actime {
+  width: 40vw;
+  margin: 35vh 0 0 60%;
+}
+
+.explanation h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.session-registration-btn {
+  margin-left: 5vw;
+}
+
+.top-sign-up {
+  width: 150px;
+  height: 50px;
+  color: #ffffff;
+  background-color: #6D61FA;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 40px 0 20px;
+}
+
+.up-in-btn {
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 80px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.top-sign-in {
+  width: 150px;
+  height: 40px;
+  color: #000000;
+  border: 2px solid rgb(0, 0, 0);
 }

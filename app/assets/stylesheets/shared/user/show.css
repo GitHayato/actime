@@ -1,0 +1,88 @@
+.user-infomation {
+  width: 100%; 
+}
+
+.infomation-user {
+  width: 600px;
+  background-color: #dde1ec;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  margin: 55px auto 0;
+}
+
+.infomation-user h1 {
+  font-size: 30px;
+  color: #4b4b4b;
+  text-align: center;
+  padding: 50px 0 20px;
+}
+
+.user-identification-info {
+  display: flex;
+  margin-top: 40px;
+  font-size: 30px;
+  color: #4b4b4b;
+}
+
+.user-identification-info h3 {
+  width: 40%;
+  text-align: right;
+  float: left;
+  margin-right: 30px;
+}
+
+.follow-follower-lists {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  font-size: 25px;
+}
+
+.users-link {
+  color: #4b4b4b;
+  font-size: 24px;
+}
+
+.follow-follower {
+  margin: 0 10px 20px;
+}
+
+
+.follow-form {
+  display: flex;
+  justify-content: center;
+}
+
+.follow-btn {
+  width: 200px;
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  color: #ffffff;
+  border-radius: 80px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-danger {
+  background-color: #DC3445;
+}
+
+.btn-primary {
+  background-color: #6d61fa;
+}
+
+.flash-message {
+  height: 50px;
+  text-align: center;
+}
+
+.user-destroy {
+  padding: 15px 10px;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #DC3445;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
