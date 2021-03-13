@@ -3,8 +3,8 @@
     <%= @room.thread_name %>
   </div>
   <div class="menu-lots"> 
-    <%= link_to image_tag("delete", class: "room-delete"), room_path(@room.public_uid), method: :delete %>
-    <%= link_to image_tag("edit", class: "room-edit"), edit_room_path(@room.public_uid) %>
+    <%= link_to image_tag("delete.png", class: "room-delete"), room_path(@room.public_uid), method: :delete %>
+    <%= link_to image_tag("edit.png", class: "room-edit"), edit_room_path(@room.public_uid) %>
   </div>
 </div>
 <div id="main-message">
