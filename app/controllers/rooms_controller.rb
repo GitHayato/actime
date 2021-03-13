@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:edit, :update]
-  before_action :following_user, only: [:new, :edit]
+  before_action :following_user, only: [:new, :create, :edit, :update]
 
   def index
     current_user_rooms = RoomUser.where(user_id: current_user.id)
@@ -26,12 +26,14 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    room = Room.find_by(public_uid: params[:id])
-    @users_in_this_room = room.users
+    @users_in_this_room = @room.users
     @follow_users = @users.where.not(id: @users_in_this_room.ids)
+    @room = Room.find_by(public_uid: params[:id])
   end
-
+  
   def update
+    @users_in_this_room = @room.users
+    @follow_users = @users.where.not(id: @users_in_this_room.ids)
     if @room.update(room_params)
       redirect_to room_messages_path(@room.public_uid)
     else
