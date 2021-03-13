@@ -4,7 +4,7 @@ import {updateDistance} from './watchUpdate'
 function stopWatch() {
   const time = document.getElementById("time");
   const start = document.getElementById("start");
-  const rap = document.getElementById("rap");
+  const lap = document.getElementById("lap");
   const japanStandardTime = 32400000
   
   let timerId;
@@ -25,20 +25,20 @@ function stopWatch() {
   
   // 即時関数を定義して初期状態で呼び出し
   function stopWatchInitial() {
-    // id="rap"ボタンののHTMLからinactiveというclassを除く
-    rap.classList.add("inactive");
+    // id="lap"ボタンののHTMLからinactiveというclassを除く
+    lap.classList.add("inactive");
   };
   
   function stopWatchRun() {
-    // id="rap"のHTMLにinactiveというclassをつける
-    rap.classList.remove("inactive");
+    // id="lap"のHTMLにinactiveというclassをつける
+    lap.classList.remove("inactive");
   };
   
   // この時点で呼び出すことで初期状態で呼び出されている状態になる
   stopWatchInitial();
 
   // ラップを非同期で保存し一覧表示
-  function addRap() {
+  function addlap() {
     const moment = require("moment");
     const time = document.getElementById("time").innerHTML;
     const formData = new FormData();
@@ -81,7 +81,7 @@ function stopWatch() {
     if (start.value == 'START') {
       // ボタンの表示変更
       start.value = 'STOP';
-      rap.value = 'RAP';
+      lap.value = 'LAP';
       stopWatchRun(); 
       startTime = new Date();
       nowTime();
@@ -90,28 +90,28 @@ function stopWatch() {
     // inputタグのvalue属性が"STOP"のときの挙動
     } else if (start.value == 'STOP') {
       start.value = 'START';
-      rap.value = 'RESET';
+      lap.value = 'RESET';
       clearTimeout(timerId)
       stoppingTime += Date.now() - startTime;
       e.preventDefault();
     }
   });
   
-  // id="rap"のボタンがクリックされたときの挙動
-  rap.addEventListener('click', (e) => {
+  // id="lap"のボタンがクリックされたときの挙動
+  lap.addEventListener('click', (e) => {
     // inputタグのvalue属性が"RESET"のときの挙動
-    if (rap.value == 'RESET') {
-      rap.value = 'RAP';
+    if (lap.value == 'RESET') {
+      lap.value = 'LAP';
       stopWatchInitial();
       stoppingTime = 0;
       time.innerHTML = "00:00:00.000";
       e.preventDefault();
 
-    // inputタグのvalue属性が"RAP"のときの挙動
-    } else if (rap.classList.contains("inactive")) {
+    // inputタグのvalue属性が"lap"のときの挙動
+    } else if (lap.classList.contains("inactive")) {
       return null;
-    } else if (rap.value == 'RAP') {
-      addRap();
+    } else if (lap.value == 'LAP') {
+      addlap();
       e.preventDefault();
     }
   });
