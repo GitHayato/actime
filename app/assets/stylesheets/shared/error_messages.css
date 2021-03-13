@@ -1,0 +1,12 @@
+/* deviseエラー画面 */
+#error_explanation h2 {
+  font-size: 16px;
+  color: #ff0000;
+  text-align: center;
+}
+
+#error_explanation ul li {
+  font-size: 16px;
+  color: #ff0000;
+  margin-left: 20px;
+}
