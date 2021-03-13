@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:show, :destroy, :following, :follower]
   def show
     @following = Relationship.where(user_id: @user.id).count

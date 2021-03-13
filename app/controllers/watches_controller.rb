@@ -1,4 +1,5 @@
 class WatchesController < ApplicationController
+  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
   before_action :set_user, only: [:new, :create]
   before_action :search_room, only: [:new, :create, :update]

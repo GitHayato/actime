@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:edit, :update]
   before_action :following_user, only: [:new, :edit]
 

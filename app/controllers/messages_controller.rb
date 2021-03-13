@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only:[:index, :create, :destroy]
   def index
     current_user_rooms = RoomUser.where(user_id: current_user.id)
