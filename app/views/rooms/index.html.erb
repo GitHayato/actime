@@ -4,7 +4,7 @@
   <h1 class="h1-text">スレッド一覧</h1>
   <div class="many-threads">
     <% @rooms.each do |room| %>
-      <div>
+      <div class="threads-name">
         <%= link_to room.thread_name, room_messages_path(room.public_uid), class: "threads-path" %>
       </div>
     <% end %>
