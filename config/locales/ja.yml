@@ -9,6 +9,18 @@ ja:
 
 
   activerecord:
+    attributes:
+      user:
+        username: ユーザー名
+        email: メールアドレス
+      room:
+        thread_name: スレッド名
+      message:
+        content: 内容
+      watch:
+        watch: タイム
+        event: 種目
+        distance: 距離
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
