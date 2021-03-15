@@ -11,5 +11,12 @@ RSpec.describe Room, type: :model do
         expect(@room).to be_valid
       end
     end
+    context 'スレッドを作成できない' do
+      it 'スレッド名がないとき' do
+        @room.thread_name = ''
+        @room.valid?
+        expect(@room.errors.full_messages).to include "スレッド名を入力してください"
+      end
+    end
   end
 end
