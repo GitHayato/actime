@@ -23,5 +23,17 @@ RSpec.describe Watch, type: :model do
         expect(@watch).to be_valid
       end
     end
+    context 'タイムが保存できない' do
+      it 'watchないとき' do
+        @watch.watch = ''
+        @watch.valid?
+        expect(@watch.errors.full_messages).to include "タイムを入力してください"
+      end
+      it 'room_idがないとき' do
+        @watch.room_id = ''
+        @watch.valid?
+        expect(@watch.errors.full_messages).to include "Roomを入力してください"
+      end
+    end
   end
 end
