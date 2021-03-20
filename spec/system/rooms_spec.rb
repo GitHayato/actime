@@ -31,4 +31,25 @@ RSpec.describe "スレッド", type: :system do
       expect(page).to have_content("#{@room.thread_name}")
     end
   end
+
+  context "スレッドを作成できないとき" do
+    it "スレッド名を入力しなければスレッドを作成できず、スレッド作成画面に戻る" do
+      # ログインする
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # スレッドを作成が画面にあることを確認する
+      expect(page).to have_content("スレッドを作成")
+      # スレッド作成画面に遷移
+      click_link "スレッドを作成"
+      # 情報を入力する
+      fill_in "スレッド名", with: ""
+      # 作成ボタンを押す
+      find('input[name="commit"]').click
+      # スレッド作成画面に戻る
+      expect(current_path).to eq(rooms_path)
+    end
+  end
 end
