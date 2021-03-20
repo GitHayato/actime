@@ -38,7 +38,7 @@ function stopWatch() {
   stopWatchInitial();
 
   // ラップを非同期で保存し一覧表示
-  function addlap() {
+  function addLap() {
     const moment = require("moment");
     const time = document.getElementById("time").innerHTML;
     const formData = new FormData();
@@ -111,7 +111,7 @@ function stopWatch() {
     } else if (lap.classList.contains("inactive")) {
       return null;
     } else if (lap.value == 'LAP') {
-      addlap();
+      addLap();
       e.preventDefault();
     }
   });

@@ -35,21 +35,17 @@
             <td class="name">
               <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch do |f| %>
                 <% if watch.user_id %>
-                  <%= f.collection_select :user_id, @users, :id, :username, {prompt: "#{watch.user.username}"}, {class: "data-username"} %>
+                  <%= f.collection_select :user_id, @users.where.not(id: watch.user.id), :id, :username, {prompt: "#{watch.user.username}"}, {class: "data-username"} %>
                 <% else %>
                   <%= f.collection_select :user_id, @users, :id, :username, {prompt: true}, {class: "data-username"} %>
                 <% end %>
               <% end %>
             </td>
             <td class="event">
-              <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch, class: "update-data" do |f| %>
-                <%= f.text_field :event, id: "event-#{watch.id}", class: "data-input data-event", value: "#{watch.event}" %>
-              <% end %>
+              <%= text_field_tag :event, "#{watch.event}", id: "event-#{watch.id}", class: "data-input data-event" %>
             </td>
             <td class="distance">
-              <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch, class: "update-data" do |f| %>
-                <%= f.text_field :distance, id: "distance-#{watch.id}", class: "data-input data-distance", value: "#{watch.distance}" %>
-              <% end %>
+              <%= text_field_tag :distance, "#{watch.distance}", id: "event-#{watch.id}", class: "data-input data-distance" %>
             </td> 
           </tr>
         <% end %>
