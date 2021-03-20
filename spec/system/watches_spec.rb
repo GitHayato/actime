@@ -92,4 +92,80 @@ RSpec.describe "ストップウォッチ", type: :system do
       expect(page).to have_field "distance", with: "#{@watch.distance}"
     end
   end
+
+  context "タイムが保存されない時" do
+    it "STARTを押さずにLAPを押す" do
+      # ログイン
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # スレッドを選ぶをクリック
+      click_link "スレッドを選ぶ"
+      # スレッド名をクリック
+      click_link "#{@room.thread_name}"
+      # タイムを測るリンククリック
+      click_link "タイムを測る"
+      # LAPを押してもモデルのカウントが上がらない
+      expect {
+        click_button "LAP"
+        sleep 0.3
+      }.to change{Watch.count}.by(0)
+    end
+
+    it "種目を入力した後どこもクリックせずにページをリロード" do
+      # ログイン
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # スレッドを選ぶをクリック
+      click_link "スレッドを選ぶ"
+      # スレッド名をクリック
+      click_link "#{@room.thread_name}"
+      # タイムを測るリンククリック
+      click_link "タイムを測る"
+      # STARTをクリックを押して１秒待つ
+      click_button "START"
+      sleep 1.0
+      # LAPをクリック
+      click_button "LAP"
+      # STOPを押した後、種目をクリックして入力
+      click_button "STOP"
+      find('input[name="event"]').click
+      fill_in "event", with: "#{@watch.event}"
+      # ページをリロードして種目が入力されていないことを確認
+      visit current_path
+      expect(page).to have_no_field "event", with: "#{@watch.event}"
+    end
+
+    it "距離を入力した後どこもクリックせずにページをリロード" do
+      # ログイン
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # スレッドを選ぶをクリック
+      click_link "スレッドを選ぶ"
+      # スレッド名をクリック
+      click_link "#{@room.thread_name}"
+      # タイムを測るリンククリック
+      click_link "タイムを測る"
+      # STARTをクリックを押して１秒待つ
+      click_button "START"
+      sleep 1.0
+      # LAPをクリック
+      click_button "LAP"
+      # STOPを押した後、距離をクリックして入力
+      click_button "STOP"
+      find('input[name="distance"]').click
+      fill_in "distance", with: "#{@watch.distance}"
+      # ページをリロードして距離が入力されていないことを確認
+      visit current_path
+      expect(page).to have_no_field "distance", with: "#{@watch.distance}"
+    end
+  end
 end
