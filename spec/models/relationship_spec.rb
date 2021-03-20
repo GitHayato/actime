@@ -11,5 +11,18 @@ RSpec.describe Relationship, type: :model do
         expect(@relationship).to be_valid
       end
     end
+
+    context 'フォロー及びフォロー解除ができない' do
+      it 'user_idがない' do
+        @relationship.user_id = ""
+        @relationship.valid?
+        expect(@relationship.errors.full_messages).to include "Userを入力してください"
+      end
+      it 'follow_idがない' do
+        @relationship.follow_id = ""
+        @relationship.valid?
+        expect(@relationship.errors.full_messages).to include "Followを入力してください"
+      end
+    end
   end
 end
