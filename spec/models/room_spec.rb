@@ -4,7 +4,7 @@ RSpec.describe Room, type: :model do
   before do
     @room = FactoryBot.build(:room)
   end
-  describe 'スレッド情報'　do
+  describe 'スレッド情報' do
     context 'スレッドを作成できる' do
       it 'スレッド名があるとき' do
         @room
