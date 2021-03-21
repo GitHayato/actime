@@ -33,4 +33,24 @@ RSpec.describe "Messages", type: :system do
       expect(page).to have_content("#{@message.content}")
     end
   end
+
+  context "メッセージを送信できない時" do
+    it "メッセージを入力せずに送信ボタンを押すとアラートが出て送信できない" do
+      # ログインする
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # スレッドを選択をクリック
+      click_link "スレッドを選ぶ"
+      # スレッドを選択
+      click_link "#{@room.thread_name}"
+      # 送信ボタンをクリックするとアラートが出るのでOKを押す
+      find('input[name="commit"]').click
+      page.accept_confirm("Please type a message")
+      # メッセージが無いことを確認
+      expect(page).to have_no_content("#{@message.content}")
+    end
+  end
 end
