@@ -4,6 +4,6 @@ FactoryBot.define do
     email                  {Faker::Internet.email}
     password               {Faker::Internet.password(min_length: 8)}
     password_confirmation  {password}
-    public_uid             {'1234abcd'}
+    public_uid             {Faker::Number.hexadecimal(digits: 8)}
   end
 end
