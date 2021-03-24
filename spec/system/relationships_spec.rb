@@ -59,4 +59,21 @@ RSpec.describe "Relationships", type: :system do
       expect(page).to have_button("フォローする")
     end
   end
+
+  context "フォロー情報が保存されないとき" do
+    it "自分自身はフォローできない" do
+      # user1 でログインする
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user1.email
+      fill_in "パスワード", with: @user1.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # 自身のユーザー名をクリック
+      click_link "#{@user1.username}"
+      # フォローするボタンが無いことを確認  
+      expect(page).to have_no_button("フォローする")
+      # 代わりにアカウント削除ボタンが有ることを確認
+      expect(page).to have_link("アカウント削除")
+    end
+  end
 end
