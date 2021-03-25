@@ -2,13 +2,15 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only:[:index, :create, :destroy]
   def index
-    current_user_rooms = RoomUser.where(user_id: current_user.id)
-    rooms = []
-    current_user_rooms.each do |room|
-      rooms << room.room_id
-    end
-    @rooms = Room.where(id: rooms)
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
     @messages = @room.messages.includes(:user).order(id: "DESC")
+    
+    current_room = Room.find_by(public_uid: params[:room_id])
+    current_room_users = current_room.users.ids
+    unless current_room_users.include?(current_user.id)
+      redirect_to rooms_path
+    end
   end
 
   def create
