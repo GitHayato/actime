@@ -4,12 +4,8 @@ class RoomsController < ApplicationController
   before_action :following_user, only: [:new, :create, :edit, :update]
 
   def index
-    current_user_rooms = RoomUser.where(user_id: current_user.id)
-    rooms = []
-    current_user_rooms.each do |room|
-      rooms << room.room_id
-    end
-    @rooms = Room.where(id: rooms)
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
   end
 
   def new
