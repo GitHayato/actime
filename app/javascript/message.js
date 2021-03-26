@@ -16,6 +16,11 @@ function htmlEscape(str) {
   });
 }
 
+// 改行処理
+function replaceBr(str) {
+  return str.replace(/\r\n/g, "<br />").replace(/(\n|\r)/g, "<br />");
+}
+
 function sendMessage() {
   const submit = document.getElementById('submit');
   submit.addEventListener('click', (e) => {
@@ -34,6 +39,7 @@ function sendMessage() {
       } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
         const message = XHR.response.post;
         const escapeMessage = htmlEscape(message.content);
+        const replaceHtml = replaceBr(escapeMessage);
         const user = XHR.response.user;
         const list = document.getElementById("list");
         const formText = document.getElementById("send-input");
@@ -55,7 +61,7 @@ function sendMessage() {
               </ul>
             </div>
             <div class="message-content">
-              ${escapeMessage}
+              ${replaceHtml}
             </div>
           </div>`;
         list.insertAdjacentHTML("afterend", HTML);
