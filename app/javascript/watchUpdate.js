@@ -10,18 +10,6 @@ function updateAsynchronous(key, dataNow) {
     XHR.open("PATCH", `/rooms/${pathParameter[2]}/watches/${watchId}`, true);
     XHR.responseType = "json";
     XHR.send(formData);
-    XHR.onload = () => {
-      if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
-        return null;
-      } else {
-        const content = XHR.response.watch;
-        const HTML = `
-            ${content.event}
-            ${content.distance}`;
-        dataNow.insertAdjacentHTML("afterbegin", HTML);
-      }
-    }
   });
 }
 
@@ -40,7 +28,7 @@ export function updateEvent() {
   let count = 0;
   for (let i = 0; i<=dataEvent.length-1; i++) {
     const dataEventNow = dataEvent[count];
-    updateAsynchronous("event", dataEventNow);
+    updateAsynchronous("event_id", dataEventNow);
     count++;
   }
 }
@@ -50,7 +38,7 @@ export function updateDistance() {
   let count = 0;
   for (let i = 0; i<=dataDistance.length-1; i++) {
     const dataDistanceNow = dataDistance[count];
-    updateAsynchronous("distance", dataDistanceNow);
+    updateAsynchronous("distance_id", dataDistanceNow);
     count++;
   }
 } 
