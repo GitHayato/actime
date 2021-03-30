@@ -10,26 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_052845) do
+ActiveRecord::Schema.define(version: 2021_03_30_040330) do
 
   create_table "distances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "distance", null: false
     t.bigint "room_id"
-    t.bigint "watch_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_distances_on_room_id"
-    t.index ["watch_id"], name: "index_distances_on_watch_id"
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "event", null: false
     t.bigint "room_id"
-    t.bigint "watch_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_events_on_room_id"
-    t.index ["watch_id"], name: "index_events_on_watch_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,22 +80,26 @@ ActiveRecord::Schema.define(version: 2021_03_29_052845) do
     t.string "watch", null: false
     t.bigint "user_id"
     t.bigint "room_id"
+    t.bigint "event_id"
+    t.bigint "distance_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["distance_id"], name: "index_watches_on_distance_id"
+    t.index ["event_id"], name: "index_watches_on_event_id"
     t.index ["room_id"], name: "index_watches_on_room_id"
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
   add_foreign_key "distances", "rooms"
-  add_foreign_key "distances", "watches"
   add_foreign_key "events", "rooms"
-  add_foreign_key "events", "watches"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
+  add_foreign_key "watches", "distances"
+  add_foreign_key "watches", "events"
   add_foreign_key "watches", "rooms"
   add_foreign_key "watches", "users"
 end
