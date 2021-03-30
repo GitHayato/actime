@@ -9,6 +9,8 @@ class DistancesController < ApplicationController
     end
   end
 
+  private
+
   def distance_params
     params.permit(:distance).merge(room_id: @room.id)
   end
