@@ -1,5 +1,5 @@
 class Distance < ApplicationRecord
-  belongs_to :watch, optional: true
+  has_one :watch
 
   validates :distance, presence: true
 end

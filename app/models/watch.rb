@@ -4,6 +4,6 @@ class Watch < ApplicationRecord
 
   belongs_to :room
   belongs_to :user, optional: true
-  has_one    :distance
-  has_one    :event
+  belongs_to :event, optional: true
+  belongs_to :distance, optional: true
 end

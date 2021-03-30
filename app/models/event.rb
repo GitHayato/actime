@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :watch, optional: true
+  has_one :watch
 
   validates :event, presence: true
 end
