@@ -18,7 +18,10 @@ class WatchesController < ApplicationController
 
   def create
     watch = Watch.create(watch: watch_params[:watch], room_id: @room.id)
-    render json:{ watch: watch }
+    users = User.where(id: @room.user_ids)
+    events = Event.where(room_id: @room.id)
+    distances = Distance.where(room_id: @room.id)
+    render json:{ watch: watch, users: users, events: events, distances: distances }
   end
 
   def edit

@@ -1,5 +1,4 @@
-import {updateEvent} from './watchUpdate'
-import {updateDistance} from './watchUpdate'
+import {updateDetails} from './watchUpdate'
 
 function stopWatch() {
   const time = document.getElementById("time");
@@ -55,6 +54,9 @@ function stopWatch() {
         return null;
       } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
         const content = XHR.response.watch;
+        const users = XHR.response.users;
+        const events = XHR.response.events;
+        const distances = XHR.response.distances;
         const table = document.getElementById("time-table");
         const createMoment = moment(content.created_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
         const createTime = createMoment.format('YYYY/MM/DD')
@@ -63,16 +65,38 @@ function stopWatch() {
             <td class="date">${createTime}</td>
             <td class="time">${content.watch}</td>
             <td class="name">
-              ページを更新してください
+              <select class="data-pulldown data-username" name="user_id" id="user_id">
+                <option value>-----</option>
+                ${dataLoop(users, "username")}
+              </select>
             </td>
-            <td class="event"><input id="event-${content.id}" class="data-input data-event" type="text" name="event"></td>
-            <td class="distance"><input id="distance-${content.id}" class="data-input data-distance" type="text" name="distance"></td>
+            <td class="event">
+              <select class="data-pulldown data-event" name="event_id" id="event_id">
+                <option value>-----</option>
+                ${dataLoop(events, "event")}
+              </select>
+            </td>
+            <td class="distance">
+              <select class="data-pulldown data-distance" name="distance_id" id="distance_id">
+                <option value>-----</option>
+                ${dataLoop(distances, "distance")}
+              </select>
+            </td>
           </tr>`;
         table.insertAdjacentHTML("afterbegin", HTML);
-        updateEvent();
-        updateDistance();
+        updateDetails("data-username", "user_id");
+        updateDetails("data-event", "event_id");
+        updateDetails("data-distance", "distance_id");
       }
     };
+  }
+
+  function dataLoop(data, params) {
+    const dataHtml = [];
+    data.forEach((element) => {
+      dataHtml.push(`<option value="${element['id']}">${element[params]}</option>`);
+    });
+    return dataHtml.join('\n')
   }
   
   // id="start"ボタンがクリックされたときの挙動
