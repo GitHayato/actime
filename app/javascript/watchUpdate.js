@@ -23,4 +23,12 @@ export function updateDetails(className, id) {
   }
 }
 
-window.addEventListener('load', updateDetails)
+window.addEventListener('load', function() {
+  updateDetails("data-username", "user_id")
+});
+window.addEventListener('load', function() {
+  updateDetails("data-event", "event_id")
+});
+window.addEventListener('load', function() {
+  updateDetails("data-distance", "distance_id")
+});
