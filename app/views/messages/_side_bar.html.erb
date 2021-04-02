@@ -7,6 +7,10 @@
   <%= link_to "タイムを測る", new_room_watch_path(@room.public_uid), class: "sidebar-button" %>
 </div>
 <div class="sidebar-threads">
+  <%= image_tag "time_registration.png", alt: "タイムを登録する", class: "sidebar-img" %>
+  <%= link_to "タイムを登録する", room_watches_path(@room.public_uid), class: "sidebar-button" %>
+</div>
+<div class="sidebar-threads">
   <%= image_tag "toggle.png", alt: "スレッド一覧", class: "sidebar-img" %>
   <h3>スレッド一覧</h3>
 </div>

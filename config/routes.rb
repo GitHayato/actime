@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :rooms, only: [:index, :new, :create, :destroy, :edit, :update] do
-    resources :watches, only: [:new, :create, :edit, :update]
+    resources :watches, only: [:index, :new, :create, :edit, :update]
     resources :messages, only:[:index, :create, :destroy]
     resources :distances, only: [:create]
     resources :events, only: [:create]

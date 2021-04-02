@@ -1,0 +1,52 @@
+.overall {
+  width: 100%;
+}
+
+.time-flash {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.time-flash-notice {
+  color: #40c414;
+}
+
+.time-flash-alert {
+  color: #DC3445;
+}
+
+.time-registration {
+  width: 500px;
+  background-color: #dde1ec;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  margin: 55px auto 0;
+}
+
+.registration-field {
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  padding: 0 10px;
+}
+
+.time-field {
+  width: 280px;
+  margin-right: 50px;
+}
+
+.pulldown-registration {
+  width: 200px;
+  margin-right: 130px;
+}
+
+.jump-to-new-watch-path {
+  text-align: center;
+}
+
+.jump-new-watch {
+  font-size: 16px;
+  color: #000000;
+  margin: 10px;
+}
