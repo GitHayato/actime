@@ -1,5 +1,4 @@
-import {updateEvent} from './watchUpdate'
-import {updateDistance} from './watchUpdate'
+import {addLap} from './addLap'
 
 function stopWatch() {
   const time = document.getElementById("time");
@@ -35,45 +34,7 @@ function stopWatch() {
   };
   
   // この時点で呼び出すことで初期状態で呼び出されている状態になる
-  stopWatchInitial();
-
-  // ラップを非同期で保存し一覧表示
-  function addLap() {
-    const moment = require("moment");
-    const time = document.getElementById("time").innerHTML;
-    const formData = new FormData();
-    formData.append("watch", time);
-    const XHR = new XMLHttpRequest();
-    const url = location.pathname
-    const pathParameter = url.split("/")
-    XHR.open("POST", `/rooms/${pathParameter[2]}/watches`, true);
-    XHR.responseType = "json";
-    XHR.send(formData);
-    XHR.onload = () => {
-      if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
-        return null;
-      } else if (XHR.readyState === XHR.DONE && XHR.status === 200) {
-        const content = XHR.response.watch;
-        const table = document.getElementById("time-table");
-        const createMoment = moment(content.created_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
-        const createTime = createMoment.format('YYYY/MM/DD')
-        const HTML = `
-          <tr id=${content.id}>
-            <td class="date">${createTime}</td>
-            <td class="time">${content.watch}</td>
-            <td class="name">
-              ページを更新してください
-            </td>
-            <td class="event"><input id="event-${content.id}" class="data-input data-event" type="text" name="event"></td>
-            <td class="distance"><input id="distance-${content.id}" class="data-input data-distance" type="text" name="distance"></td>
-          </tr>`;
-        table.insertAdjacentHTML("afterbegin", HTML);
-        updateEvent();
-        updateDistance();
-      }
-    };
-  }
+  stopWatchInitial()
   
   // id="start"ボタンがクリックされたときの挙動
   start.addEventListener('click', (e) => {

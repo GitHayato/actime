@@ -69,7 +69,7 @@ table td {
 
 .date {
   width: 150px;
-  height: 30px;
+  height: 24px;
 }
 
 .time {
@@ -88,18 +88,12 @@ table td {
   width: 150px;
 }
 
-.data-username {
+.data-pulldown {
+  max-width: 148px;
   height: 30px;
   font-size: 16px;
   border: none;
-}
-
-.data-input {
-  width: 150px;
-  height: 31px;
   font-size: 16px;
-  text-align: center;
-  border: none;
 }
 
 .with-time {  

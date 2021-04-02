@@ -32,21 +32,29 @@
             <td class="time">
               <%= watch.watch %>
             </td>
-            <td class="name">
-              <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch do |f| %>
+            <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch do |f| %>
+              <td class="name">
                 <% if watch.user_id %>
-                  <%= f.collection_select :user_id, @users.where.not(id: watch.user.id), :id, :username, {prompt: "#{watch.user.username}"}, {class: "data-username"} %>
+                  <%= f.collection_select :user_id, @users.where.not(id: watch.user.id), :id, :username, {prompt: "#{watch.user.username}"}, {class: "data-pulldown data-username"} %>
                 <% else %>
-                  <%= f.collection_select :user_id, @users, :id, :username, {prompt: true}, {class: "data-username"} %>
+                  <%= f.collection_select :user_id, @users, :id, :username, {prompt: "-----"}, {class: "data-pulldown data-username"} %>
                 <% end %>
-              <% end %>
-            </td>
-            <td class="event">
-              <%= text_field_tag :event, "#{watch.event}", id: "event-#{watch.id}", class: "data-input data-event" %>
-            </td>
-            <td class="distance">
-              <%= text_field_tag :distance, "#{watch.distance}", id: "event-#{watch.id}", class: "data-input data-distance" %>
-            </td> 
+              </td>
+              <td class="event">
+                <% if watch.event_id %>
+                  <%= f.collection_select :event_id, @events.where.not(id: watch.event.id), :id, :event, {prompt: "#{watch.event.event}"}, {class: "data-pulldown data-event"} %>
+                <% else %>
+                  <%= f.collection_select :event_id, @events, :id, :event, {prompt: "-----"}, {class: "data-pulldown data-event"} %>
+                <% end %>
+              </td>
+              <td class="distance">
+                <% if watch.distance_id %>
+                  <%= f.collection_select :distance_id, @distances.where.not(id: watch.distance.id), :id, :distance, {prompt: "#{watch.distance.distance}"}, {class: "data-pulldown data-distance"} %>
+                <% else %>
+                  <%= f.collection_select :distance_id, @distances, :id, :distance, {prompt: "-----"}, {class: "data-pulldown data-distance"} %>
+                <% end %>
+              </td> 
+            <% end %>
           </tr>
         <% end %>
       <% end %>
@@ -56,6 +64,16 @@
 
 <% if @watches %>
   <%= paginate @watches %>
+<% end %>
+
+<%= form_with url: room_events_path(@room.public_uid), id: "event-form" do |f| %>
+  <%= f.text_field :event, id: "event-input" %>
+  <%= f.submit "種目登録", id: "event-registration" %>
+<% end %>
+
+<%= form_with url: room_distances_path(@room.public_uid), id: "distance-form" do |f| %>
+  <%= f.text_field :distance, id: "distance-input" %>
+  <%= f.submit "距離登録", id: "distance-registration" %>
 <% end %>
 
 <%= link_to "メッセージを送る", room_messages_path(@room.public_uid), class: "with-time" %>

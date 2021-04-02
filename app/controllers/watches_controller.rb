@@ -6,6 +6,8 @@ class WatchesController < ApplicationController
   def new
     @watches = Watch.includes(:user).where(room_id: @room.id).order(id: "DESC").page(params[:page]).per(50)
     @users = User.where(id: @room.user_ids)
+    @events = Event.where(room_id: @room.id)
+    @distances = Distance.where(room_id: @room.id)
 
     current_room = Room.find_by(public_uid: params[:room_id])
     current_room_users = current_room.users.ids
@@ -16,7 +18,10 @@ class WatchesController < ApplicationController
 
   def create
     watch = Watch.create(watch: watch_params[:watch], room_id: @room.id)
-    render json:{ watch: watch }
+    users = User.where(id: @room.user_ids)
+    events = Event.where(room_id: @room.id)
+    distances = Distance.where(room_id: @room.id)
+    render json:{ watch: watch, users: users, events: events, distances: distances }
   end
 
   def edit
@@ -31,7 +36,7 @@ class WatchesController < ApplicationController
   private
   
   def watch_params
-    params.permit(:watch, :event, :distance, :user_id, room_id: @room.id)
+    params.permit(:watch, :event_id, :distance_id, :user_id, room_id: @room.id)
   end
 
   def set_room

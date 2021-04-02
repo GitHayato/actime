@@ -1,4 +1,4 @@
-// 非同期で種目や距離を更新
+// 非同期で名前や種目、距離を更新
 function updateAsynchronous(key, dataNow) {
   dataNow.addEventListener('change', () => {
     const formData = new FormData();
@@ -10,51 +10,25 @@ function updateAsynchronous(key, dataNow) {
     XHR.open("PATCH", `/rooms/${pathParameter[2]}/watches/${watchId}`, true);
     XHR.responseType = "json";
     XHR.send(formData);
-    XHR.onload = () => {
-      if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
-        return null;
-      } else {
-        const content = XHR.response.watch;
-        const HTML = `
-            ${content.event}
-            ${content.distance}`;
-        dataNow.insertAdjacentHTML("afterbegin", HTML);
-      }
-    }
   });
 }
 
-function updateUsername() {
-  const dataUsername = document.getElementsByClassName("data-username")
+export function updateDetails(className, id) {
+  const data = document.getElementsByClassName(className)
   let count = 0;
-  for (let i = 0; i<=dataUsername.length-1; i++) {
-    const dataUsernameNow = dataUsername[count];
-    updateAsynchronous("user_id", dataUsernameNow);
+  for (let i = 0; i<=data.length-1; i++) {
+    const dataNow = data[count];
+    updateAsynchronous(id, dataNow);
     count++;
   }
 }
 
-export function updateEvent() {
-  const dataEvent = document.getElementsByClassName("data-event");
-  let count = 0;
-  for (let i = 0; i<=dataEvent.length-1; i++) {
-    const dataEventNow = dataEvent[count];
-    updateAsynchronous("event", dataEventNow);
-    count++;
-  }
-}
-
-export function updateDistance() {
-  const dataDistance = document.getElementsByClassName("data-distance")
-  let count = 0;
-  for (let i = 0; i<=dataDistance.length-1; i++) {
-    const dataDistanceNow = dataDistance[count];
-    updateAsynchronous("distance", dataDistanceNow);
-    count++;
-  }
-} 
-
-window.addEventListener('load', updateUsername)
-window.addEventListener('load', updateEvent)
-window.addEventListener('load', updateDistance)
+window.addEventListener('load', function() {
+  updateDetails("data-username", "user_id")
+});
+window.addEventListener('load', function() {
+  updateDetails("data-event", "event_id")
+});
+window.addEventListener('load', function() {
+  updateDetails("data-distance", "distance_id")
+});

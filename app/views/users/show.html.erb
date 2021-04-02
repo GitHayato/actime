@@ -49,10 +49,14 @@
               <%= watch.watch %>
             </td>
             <td class="event">
-              <%= watch.event %>
+              <% if watch.event_id %>
+                <%= watch.event.event %>
+              <% end %>
             </td>
             <td class="distance">
-              <%= watch.distance %>
+              <% if watch.distance_id %>
+                <%= watch.distance.distance %>
+              <% end %>
             </td> 
           </tr>
         <% end %>
