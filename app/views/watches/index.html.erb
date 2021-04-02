@@ -1,0 +1,48 @@
+<%= render "shared/second_header.html.erb" %>
+
+<div class="overall">
+  <div class="user-registration">
+    <h2>タイム新規登録</h2>
+    <% if notice %>
+      <div class="time-flash-notice time-flash">
+        <%= notice %>
+      </div>
+    <% else %>
+      <div class="time-flash-alert time-flash">
+        <%= alert %>
+      </div>
+    <% end %>
+    <%= form_with url: room_watches_path(@room.public_uid), method: :post, local: true do |f| %>
+
+      <div class="field">
+        <%= f.label :watch, "タイム", class: "label" %>
+        <%= f.text_field :watch, placeholder: "00:00:00.000 形式で入力してください", class: "time-field registration-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :user_id, "ユーザー名", class: "label "%>
+        <%= f.collection_select :user_id, @users, :id, :username, {prompt: "-----"}, {class: "pulldown-registration registration-field"} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :event_id, "種目", class: "label" %>
+        <%= f.collection_select :event_id, @events, :id, :event, {prompt: "-----"}, {class: "pulldown-registration registration-field"} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :distance_id, "距離", class: "label" %>
+        <%= f.collection_select :distance_id, @distances, :id, :distance, {prompt: "-----"}, {class: "pulldown-registration registration-field"} %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="jump-to-new-watch-path">
+    <%= link_to "メッセージを送る", room_messages_path(@room.public_uid), class: "jump-new-watch" %>
+    <%= link_to "タイムを測る", new_room_watch_path(@room.public_uid), class: "jump-new-watch" %>
+  </div>
+</div>
+
+<%= render "shared/footer.html.erb" %>
