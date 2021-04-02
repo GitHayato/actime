@@ -3,6 +3,10 @@ class WatchesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_room, only: [:new, :create, :update]
 
+  def index
+    
+  end
+
   def new
     @watches = Watch.includes(:user).where(room_id: @room.id).order(id: "DESC").page(params[:page]).per(50)
     @users = User.where(id: @room.user_ids)
