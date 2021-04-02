@@ -5,7 +5,7 @@ class WatchesController < ApplicationController
   before_action :common_data, only: [:index, :new, :create]
 
   def index
-    
+
   end
 
   def new
@@ -19,8 +19,18 @@ class WatchesController < ApplicationController
   end
 
   def create
-    watch = Watch.create(watch: watch_params[:watch], room_id: @room.id)
-    render json:{ watch: watch, users: @users, events: @events, distances: @distances }
+    watch = Watch.create(watch_params)
+    if params[:event_id]
+      if watch.save
+        flash[:notice] = "正常に登録されました"
+        redirect_to room_watches_path(@room.public_uid)
+      else
+        flash[:alert] = "正しい情報を入力して下さい"
+        render :index
+      end
+    else
+      render json:{ watch: watch, users: @users, events: @events, distances: @distances }
+    end
   end
 
   def edit
@@ -35,7 +45,7 @@ class WatchesController < ApplicationController
   private
   
   def watch_params
-    params.permit(:watch, :event_id, :distance_id, :user_id, room_id: @room.id)
+    params.permit(:watch, :event_id, :distance_id, :user_id).merge(room_id: @room.id)
   end
 
   def set_room
