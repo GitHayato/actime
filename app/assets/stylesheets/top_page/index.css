@@ -16,29 +16,34 @@
 }
 
 .search-users {
-  margin: 45px 0;
+  margin: 20px 0;
 }
 
 .search-form {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
 .search-input {
-  width: 400px;
-  height: 30px;
+  width: 338px;
+  height: 33px;
   margin-right: 10px;
   font-size: 16px;
   padding: 0 5px;
+  border: 1px solid #EAEAEA ;
+  border-radius: 5px;
 }
 
 .search-btn {
-  width: 70px;
+  width: 20px;
+  height: 20px;
+  padding: 8px 25px;
   border: none;
   font-size: 16px;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #6D61FA;
+  background-color: #4A3094;
   cursor: pointer;
 }
 
