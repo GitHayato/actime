@@ -11,13 +11,15 @@
     <% end %>
   </div>
 
-  <div class="title">
-    <h1>Welcome to Ac<span class="t">T</span>ime!</h1>
-  </div>
-
-  <div class="two-square">
+  <div class="toppage-wrapper">
+    <div class="toppage-left-side">
+      <h1>Welcome to AcTime</h1>
       <%= link_to("スレッドを作成", new_room_path, class: "text") %>
-      <%= link_to("スレッドを選ぶ", rooms_path, class: "text") %>
+    </div>
+
+    <div class="toppage-right-side">
+      スレッド一覧
+    </div>
   </div>
 <% else %>
   <%= render "shared/header.html.erb" %>
