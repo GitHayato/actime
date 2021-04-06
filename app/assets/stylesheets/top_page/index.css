@@ -45,9 +45,23 @@
 
 .toppage-left-side {
   width: 50%;
-  font-size: 48px;
   text-align: center;
-  margin: 100px auto 0;
+  margin: 100px 0 0;
+}
+
+.toppage-left-side h1 {
+  font-size: 36px;
+  margin-bottom: 80px;
+}
+
+.left-create-thread {
+  width: 270px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #4A3094;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 .toppage-right-side {
