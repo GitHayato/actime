@@ -39,6 +39,10 @@
   cursor: pointer;
 }
 
+.search-btn:hover {
+  background-color: #A653C2;
+}
+
 .toppage-wrapper {
   display: flex;
 }
@@ -62,6 +66,10 @@
   background-color: #4A3094;
   border-radius: 5px;
   padding: 20px;
+}
+
+.left-create-thread:hover {
+  background-color: #A653C2;
 }
 
 .toppage-right-side {
@@ -95,15 +103,17 @@
   text-decoration: none;
   margin: 10px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  align-content: space-around;
 }
 
 .thread-name-card {
-  width: 208px;
+  width: 198px;
   border: 1px solid #EAEAEA;
   border-radius: 5px;
   text-align: center;
-  padding: 10px 0;
+  padding: 10px 5px;
 }
 
 .thread-name-card h3 {
