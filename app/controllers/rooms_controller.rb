@@ -3,11 +3,6 @@ class RoomsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
   before_action :following_user, only: [:new, :create, :edit, :update]
 
-  def index
-    room_ids = current_user.rooms.ids
-    @rooms = Room.where(id: room_ids)
-  end
-
   def new
     @room = Room.new
   end
