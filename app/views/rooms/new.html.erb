@@ -1,30 +1,37 @@
 <%= render "shared/second_header.html.erb" %>
 
-<div class="create-form">
-  <h1 class='create-title'>スレッドを作成する</h1>
-  <%= form_with model: @room, class: "thread-form", local: true do |f| %>
-    <%= render 'shared/error_messages.html.erb', model: f.object %>
-    <div class="field-form-thread">
-      <%= f.label :thread_name, "スレッド名", class: "label-name" %>
-      <%= f.text_field :thread_name, class: "field-box" %>
-    </div>
-    <div class="field-form-invite">
-      <%= f.label :user_ids, "招待する", class: "label-name" %>
-      <% unless @users == [] %>
-        <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
-          <div class="users-list">
-            <%= user.label { user.check_box + user.text } %>
-          </div>
-        <% end %>
-      <% else %>
-        <p>ユーザーをフォローしてください</p>
+<div class="wrap">
+  <div class="left-side">
+    <%= render "shared/side_bar.html.erb" %>
+  </div>
+  <div class="main">
+    <div class="create-form">
+      <h1 class='create-title'>スレッドを作成する</h1>
+      <%= form_with model: @thread, class: "thread-form", local: true do |f| %>
+        <%= render 'shared/error_messages.html.erb', model: f.object %>
+        <div class="field-form-thread">
+          <%= f.label :thread_name, "スレッド名", class: "label-name" %>
+          <%= f.text_field :thread_name, class: "field-box" %>
+        </div>
+        <div class="field-form-invite">
+          <%= f.label :user_ids, "招待する", class: "label-name" %>
+          <% unless @users == [] %>
+            <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
+              <div class="users-list">
+                <%= user.label { user.check_box + user.text } %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>ユーザーをフォローしてください</p>
+          <% end %>
+          <%= hidden_field_tag 'room[user_ids][]', current_user.id %>
+        </div>
+        <div class="creation">
+          <%= f.submit "作成する", class: "create-btn" %>
+        </div>
       <% end %>
-      <%= hidden_field_tag 'room[user_ids][]', current_user.id %>
     </div>
-    <div class="creation">
-      <%= f.submit "作成する", class: "create-btn" %>
-    </div>
-  <% end %>
+  </div>
 </div>
 
 <%= render "shared/footer.html.erb" %>

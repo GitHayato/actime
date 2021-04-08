@@ -1,10 +1,12 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:new, :edit, :update]
   before_action :following_user, only: [:new, :create, :edit, :update]
 
   def new
-    @room = Room.new
+    @thread = Room.new
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
   end
 
   def create
