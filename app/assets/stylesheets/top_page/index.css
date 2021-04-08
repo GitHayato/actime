@@ -132,6 +132,24 @@
   color: #FFFFFF;
 }
 
+#more {
+  border-radius: 5px;
+  color: #FFFFFF;
+  background-color: #4A3094;
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+#more:hover {
+  background-color: #A653C2;
+}
+
+.invisible {
+  display: none;
+}
+
 /* ログアウトユーザーに表示 */
 
 .actime{
