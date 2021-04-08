@@ -3,58 +3,66 @@
 }
 
 .left-side {
-  width: 18vw;
-  height: calc(100vh - 80px);
-  background-color: #DDE1EC;
+  width: 30vw;
+  height: calc(100vh - 100px);
   overflow-y: scroll;
+  margin-top: 20px;
 }
 
 .sidebar-threads {
   display: flex;
   align-items: center;
-  margin-top: 30px;
-  margin-left: 20px;
+  margin-bottom: 30px;
+  margin-left: 50px;
 }
 
 .sidebar-img {
   width: 20px;
   height: 20px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .sidebar-button {
   font-size: 16px;
   text-decoration: none;
-  color: #4b4b4b;
+  color: #000000;
 }
 
-.sidebar-threads h3 {
-  font-size: 16px;
-  text-decoration: none;
-  color: #4b4b4b;
+.threads-index {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
 }
 
 .threads-ul {
   margin-top: 10px;
+  margin-left: 80px;
+}
+
+.threads-ul li {
+  margin-top: 10px;
+  width: 240px;
 }
 
 .thread-name {
   font-size: 16px;
-  color: #4b4b4b;
-  margin-top: 10px;
-  margin-left: 60px;
+  color: #000000;
+  padding: 2px;
   text-decoration: none;
 }
 
+.threads-ul li:hover {
+  background-color: #EEEEEE;
+}
+
 .main {
-  width: calc(100vw - 18vw);
+  width: calc(100vw - 30vw);
   height: calc(100vh - 80px);
-  background-color: #f7f7fe;
 }
 
 #main-message {
   height: calc(100vh - 210px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 ::-webkit-scrollbar{
