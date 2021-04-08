@@ -11,6 +11,7 @@ require("../watch")
 require("../message")
 require("../watchUpdate")
 require("../registerDetails")
+require("../moreRoom")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
