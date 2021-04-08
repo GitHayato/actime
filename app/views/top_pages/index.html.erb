@@ -1,21 +1,44 @@
 <% if user_signed_in? %>
   <%= render "shared/second_header.html.erb" %>
 
-  <div class="title">
-    <h1>Welcome to Ac<span class="t">T</span>ime!</h1>
-  </div>
-
   <div class="search-users">
-    <%= form_with url: search_users_path, local: true, method: :get, class: "search-form" do |form| %>
-      <%= form.text_field :keyword, placeholder: "ユーザーを検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
+    <%= form_with url: search_users_path, local: true, method: :get, class: "search-form" do |f| %>
+      <%= f.text_field :keyword, placeholder: "ユーザーを検索する", class: "search-input" %>
+      <%= image_submit_tag("search.png", class: "search-btn") %>
     <% end %>
-    <h3 class="search-flash"><%= flash[:search] %></h3>
+    <% if flash[:search] %>
+      <h3 class="search-flash"><%= flash[:search] %></h3>
+    <% end %>
   </div>
 
-  <div class="two-square">
-      <%= link_to("スレッドを作成", new_room_path, class: "text") %>
-      <%= link_to("スレッドを選ぶ", rooms_path, class: "text") %>
+  <div class="toppage-wrapper">
+    <div class="toppage-left-side">
+      <h1>Welcome to AcTime</h1>
+      <%= link_to("スレッドを作成", new_room_path, class: "left-create-thread") %>
+    </div>
+
+    <div class="toppage-right-side">
+      <div class="thread-index">
+        <h1>スレッド一覧</h1>
+        <div class="thread-card">
+          <% @rooms.each do |room| %>
+            <%= link_to room_messages_path(room.public_uid), class: "card-content" do %>
+              <div class="thread-name-card">
+                <h3>
+                  <%= room.thread_name %>
+                </h3>
+                <p>
+                  メンバー: <%= room.users.count %>
+                </p>
+              </div>
+            <% end %>
+          <% end %>
+          <% if @rooms.count >= 10 %>
+            <div id="more">もっと見る</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 <% else %>
   <%= render "shared/header.html.erb" %>

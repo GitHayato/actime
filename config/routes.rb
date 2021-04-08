@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :rooms, only: [:index, :new, :create, :destroy, :edit, :update] do
+  resources :rooms, only: [:new, :create, :destroy, :edit, :update] do
     resources :watches, only: [:index, :new, :create, :edit, :update]
     resources :messages, only:[:index, :create, :destroy]
     resources :distances, only: [:create]
