@@ -70,12 +70,11 @@
 }
 
 .main {
-  width: calc(100vw - 30vw);
-  height: calc(100vh - 80px);
+  width: 50vw;
 }
 
 #main-message {
-  height: calc(100vh - 210px);
+  height: calc(100vh - 200px);
   overflow-y: auto;
 }
 
@@ -96,18 +95,17 @@
 .top-menu {
   display: flex;
   margin-top: 15px;
-  background-color: #f7f6f3;
   justify-content: space-between;
 }
 
 .menu-roomname {
   font-size: 24px;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .menu-lots {
-  margin-top: 15px;
-  margin-right: 60px;
+  margin-top: 5px;
+  margin-right: 10px;
 }
 
 .room-delete {
@@ -120,36 +118,32 @@
 }
 
 .message {
-  width: calc(100vw - 23vw);
   margin-top: 15px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .message-info {
   display: flex;
-  color: #ffffff;
 }
 
 .information {
   display: flex;
   justify-content: space-between;
-  background-color: #6D61FA;
 }
 
 .info-user {
-  font-size: 16px;
-  margin-left: 10px;
+  font-size: 12px;
 }
 
 .info-username {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
 }
 
 .info-date {
-  font-size: 14px;
-  margin-top: 2px;
-  margin-left: 20px;
+  font-size: 10px;
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
 
 .menu-tag {
@@ -188,15 +182,28 @@
   overflow: visible;
 }
 
+.message-contents {
+  display: flex;
+}
+
 .message-content {
+  max-width: 39vw;
   font-size: 16px;
-  background-color: #DDE1EC;
   padding: 5px 7px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+}
+
+.message-date {
+  display: flex;
+  align-items: flex-end;
 }
 
 .send-enter {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 #send-form {
@@ -205,22 +212,22 @@
 }
 
 #send-input {
-  width: 70vw;
-  height: 30px;
+  width: 40vw;
+  height: 25px;
   font-size: 16px;
   padding: 5px;
-  resize: none;
+  resize: vertical;
 }
 
 #submit {
-  width: 5vw;
-  height: 45px;
+  width: 70px;
+  height: 35px;
   border: none;
   border-radius: 10px;
   margin-left: 10px;
   text-decoration: none;
   font-size: 16px;
   color: #ffffff;
-  background-color: #6D61FA;
+  background-color: #4A3094;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
