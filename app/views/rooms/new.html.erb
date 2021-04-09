@@ -16,11 +16,13 @@
         <div class="field-form-invite">
           <%= f.label :user_ids, "招待する", class: "label-name" %>
           <% unless @users == [] %>
-            <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
-              <div class="users-list">
-                <%= user.label { user.check_box + user.text } %>
-              </div>
-            <% end %>
+            <div class="users-lists">
+              <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
+                <span class="users-list">
+                  <%= user.label { user.check_box + user.text } %>
+                </span>
+              <% end %>
+            </div>
           <% else %>
             <p>ユーザーをフォローしてください</p>
           <% end %>
