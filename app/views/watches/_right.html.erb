@@ -1,0 +1,9 @@
+<%= form_with url: room_events_path(@room.public_uid), id: "event-form" do |f| %>
+  <%= f.text_field :event, id: "event-input" %>
+  <%= f.submit "種目登録", id: "event-registration" %>
+<% end %>
+
+<%= form_with url: room_distances_path(@room.public_uid), id: "distance-form" do |f| %>
+  <%= f.text_field :distance, id: "distance-input" %>
+  <%= f.submit "距離登録", id: "distance-registration" %>
+<% end %>
