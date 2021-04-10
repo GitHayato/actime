@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
     @messages = @room.messages.includes(:user).order(id: "DESC")
     
     current_room = Room.find_by(public_uid: params[:room_id])
-    current_room_users = current_room.users.ids
-    unless current_room_users.include?(current_user.id)
+    @current_room_users = current_room.users
+    unless @current_room_users.ids.include?(current_user.id)
       redirect_to rooms_path
     end
   end
