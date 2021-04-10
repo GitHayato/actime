@@ -16,4 +16,5 @@
   <div class="right-messages-path">
     <p><%= link_to "スレッドに戻る→", room_messages_path(@room.public_uid), class: "to-messages-path" %></p>
   </div>
+  <%= link_to "csvで出力する",new_room_watch_path(format: :csv) %>
 </div>
