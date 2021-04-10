@@ -3,11 +3,10 @@
 }
 
 .user-session {
-  width: 500px;
-  background-color: #dde1ec;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 60px;
-  margin: 55px auto 0;
+  width: 450px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 55px auto  0;
 }
 
 .user-session h2 {
