@@ -3,18 +3,14 @@ class WatchesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_room, only: [:index, :new, :create, :update]
   before_action :common_data, only: [:index, :new, :create]
+  before_action :side_menu, only: [:indexm ,new]
   require 'csv'
 
   def index
-
   end
 
   def new
     @watches = Watch.includes(:user).where(room_id: @room.id).order(id: "DESC").page(params[:page]).per(50)
-    room_ids = current_user.rooms.ids
-    @rooms = Room.where(id: room_ids)
-    current_room = Room.find_by(public_uid: params[:room_id])
-    @current_room_users = current_room.users
     unless @current_room_users.ids.include?(current_user.id)
       redirect_to rooms_path
     end
@@ -65,6 +61,13 @@ class WatchesController < ApplicationController
     @users = User.where(id: @room.user_ids)
     @events = Event.where(room_id: @room.id)
     @distances = Distance.where(room_id: @room.id)
+  end
+
+  def side_menu
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
+    current_room = Room.find_by(public_uid: params[:room_id])
+    @current_room_users = current_room.users
   end
   
   def export_time_csv(watches)
