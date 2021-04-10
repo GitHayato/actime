@@ -50,7 +50,7 @@
 }
 
 .table {
-  margin: 50px auto 20px;
+  margin: 50px 10px 20px 0;
   border-collapse: collapse;
 }
 
@@ -130,8 +130,8 @@ table td {
 }
 
 .page:hover, .first:hover, .prev:hover, .next:hover, .last:hover{
-  background:#6D61FA;
-  border-radius:100%;  
+  background-color: #4A3094;
+  border-radius: 100%;  
 }
 
 .page:hover .kaminari, .first:hover .kaminari, .prev:hover .kaminari, .next:hover .kaminari, .last:hover .kaminari {
@@ -148,10 +148,56 @@ table td {
   font-weight:bold;
   text-decoration:none;
   color: #ffffff;
-  background:#6D61FA;
+  background-color: #4A3094;
   border-radius:100%;
 }
 
 .gap{
   background:none;
+}
+
+.right-side-wrapper {
+  margin-left: 20px;
+  border-top: 1px solid #EAEAEA; 
+}
+
+.right-each-registration {
+  margin: 20px 0;
+}
+
+.right-each-registration h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.right-each-registration p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.registration-input {
+  width: 100px;
+  height: 20px;
+  margin-right: 10px;
+  font-size: 12px;
+  padding: 0 5px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+}
+
+.registration-button {
+  width: 50px;
+  color: #FFFFFF;
+  background-color: #4A3094;
+  border: none;
+  border-radius: 5px;
+}
+
+.right-messages-path {
+  border-top: 1px solid #EAEAEA;
+}
+
+.to-messages-path {
+  color: #000000; 
+  padding-top: 40px;
 }
