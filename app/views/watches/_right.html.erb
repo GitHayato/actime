@@ -1,9 +1,19 @@
-<%= form_with url: room_events_path(@room.public_uid), id: "event-form" do |f| %>
-  <%= f.text_field :event, id: "event-input" %>
-  <%= f.submit "種目登録", id: "event-registration" %>
-<% end %>
-
-<%= form_with url: room_distances_path(@room.public_uid), id: "distance-form" do |f| %>
-  <%= f.text_field :distance, id: "distance-input" %>
-  <%= f.submit "距離登録", id: "distance-registration" %>
-<% end %>
+<%= render "messages/right.html.erb" %>
+<div class="right-side-wrapper">
+  <div class="right-each-registration">
+    <h1>各種登録</h1>
+    <p>種目登録</p>
+    <%= form_with url: room_events_path(@room.public_uid), id: "event-form" do |f| %>
+      <%= f.text_field :event, id: "event-input", class: "registration-input" %>
+      <%= f.submit "登録", id: "event-registration", class: "registration-button" %>
+    <% end %>
+    <p>距離登録</p>
+    <%= form_with url: room_distances_path(@room.public_uid), id: "distance-form" do |f| %>
+      <%= f.text_field :distance, id: "distance-input", class: "registration-input" %>
+      <%= f.submit "登録", id: "distance-registration", class: "registration-button" %>
+    <% end %>
+  </div>
+  <div class="right-messages-path">
+    <p><%= link_to "スレッドに戻る→", room_messages_path(@room.public_uid), class: "to-messages-path" %></p>
+  </div>
+</div>
