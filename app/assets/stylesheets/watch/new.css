@@ -193,11 +193,16 @@ table td {
   border-radius: 5px;
 }
 
-.right-messages-path {
+.right-anywhere-path {
   border-top: 1px solid #EAEAEA;
 }
 
 .to-messages-path {
   color: #000000; 
   padding-top: 40px;
+}
+
+.export-csv {
+  color: #000000;
+  padding       -top: 10px;
 }

@@ -21,7 +21,8 @@ class WatchesController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do |csv|
-        export_time_csv(@watches)
+        watches = Watch.where(room_id: @room.id).order(id: "DESC")
+        export_time_csv(watches)
       end
     end
   end

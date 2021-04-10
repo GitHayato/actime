@@ -13,8 +13,8 @@
       <%= f.submit "登録", id: "distance-registration", class: "registration-button" %>
     <% end %>
   </div>
-  <div class="right-messages-path">
+  <div class="right-anywhere-path">
     <p><%= link_to "スレッドに戻る→", room_messages_path(@room.public_uid), class: "to-messages-path" %></p>
+    <p><%= link_to "csvで出力する→", new_room_watch_path(format: :csv), class: "export-csv" %></p>
   </div>
-  <%= link_to "csvで出力する",new_room_watch_path(format: :csv) %>
 </div>
