@@ -33,7 +33,7 @@
         <tbody id="time-table">
           <% if @watches %>
             <% @watches.each do |watch| %>
-              <tr watch-id=<%= watch.id %>>
+              <tr id=<%= watch.id %>>
                 <td class="date">
                   <%= watch.created_at.strftime('%Y/%m/%d') %>
                 </td>
