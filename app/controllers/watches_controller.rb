@@ -3,6 +3,7 @@ class WatchesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_room, only: [:index, :new, :create, :update]
   before_action :common_data, only: [:index, :new, :create]
+  require 'csv'
 
   def index
 
@@ -16,6 +17,12 @@ class WatchesController < ApplicationController
     @current_room_users = current_room.users
     unless @current_room_users.ids.include?(current_user.id)
       redirect_to rooms_path
+    end
+    respond_to do |format|
+      format.html
+      format.csv do |csv|
+        export_time_csv(@watches)
+      end
     end
   end
 
@@ -57,5 +64,23 @@ class WatchesController < ApplicationController
     @users = User.where(id: @room.user_ids)
     @events = Event.where(room_id: @room.id)
     @distances = Distance.where(room_id: @room.id)
+  end
+  
+  def export_time_csv(watches)
+    csv_data = CSV.generate do |csv|
+      column_names = %w(日付 タイム 名前 種目 距離)
+      csv << column_names
+      watches.each do |watch|
+        column_values = [
+          watch.created_at,
+          watch.watch,
+          watch.user.username,
+          watch.event.event,
+          watch.distance.distance
+        ]
+        csv << column_values
+      end
+    end
+    send_data(csv_data, filename: "タイム一覧.csv")
   end
 end
