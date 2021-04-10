@@ -10,10 +10,11 @@ class WatchesController < ApplicationController
 
   def new
     @watches = Watch.includes(:user).where(room_id: @room.id).order(id: "DESC").page(params[:page]).per(50)
-
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
     current_room = Room.find_by(public_uid: params[:room_id])
-    current_room_users = current_room.users.ids
-    unless current_room_users.include?(current_user.id)
+    @current_room_users = current_room.users
+    unless @current_room_users.ids.include?(current_user.id)
       redirect_to rooms_path
     end
   end

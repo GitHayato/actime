@@ -1,19 +1,12 @@
 .stop-watch {
-  width: 400px;
-  height: 130px;
-  background-color: #DDE1EC;
-  margin: 100px auto 40px;
+  margin: 50px auto;
   display: flex;
   align-items: center;
 }
 
 #time {
-  width: 350px;
-  height: 70px;
-  font-size: 48px;
-  background-color: #ffffff;
+  font-size: 36px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .buttons {
@@ -22,23 +15,30 @@
 }
 
 .btn {
-  width: 200px;
-  height: 60px;
-  font-size: 24px;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
   color: #ffffff;
   text-decoration: none;
   border: none;
-  border-radius: 150px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0 30px;
+  border-radius: 10px;
+  margin: 0 40px;
 }
 
 #start {
-  background-color: #6D61FA;
+  background-color: #4A3094;
+}
+
+#start:hover {
+  background: #A653C2;
 }
 
 #lap {
   background-color: #000000;
+}
+
+#lap:hover {
+  opacity: 0.3;
 }
 
 .btn:focus {
@@ -50,64 +50,60 @@
 }
 
 .table {
-  margin: 50px auto 20px;
+  margin: 50px 10px 20px 0;
   border-collapse: collapse;
 }
 
 table th {
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px 0;
   text-align: center;
-  border: solid 1px #000000;
+  color: #FFFFFF;
+  background-color: #4A3094;
 }
 
 table td {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
-  border: solid 1px #000000;
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
 }
 
 .date {
-  width: 150px;
-  height: 24px;
+  width: 120px;
 }
 
 .time {
-  width: 200px;
+  width: 160px;
 }
 
 .name {
-  width: 200px;
+  width: 150px;
 }
 
 .event {
-  width: 150px;
+  width: 140px;
 }
 
 .distance {
-  width: 150px;
+  width: 140px;
+}
+
+.table-edit {
+  width: 40px;
 }
 
 .data-pulldown {
-  max-width: 148px;
-  height: 30px;
-  font-size: 16px;
+  max-width: 138px;
+  height: 32px;
+  font-size: 14px;
   border: none;
-  font-size: 16px;
 }
 
-.with-time {  
-  width: 175px;
-  padding: 20px 0;
-  margin: 20px auto 70px;
-  border-radius: 40px;
-  font-size: 16px;
-  text-align: center;
-  align-items: center;
-  color: #ffffff;
-  background-color: #6D61FA;
-  text-decoration: none;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+#watch-edit {
+  width: 15px;
+  filter: invert(50%);
+  vertical-align: middle;
 }
 
 .pagination{
@@ -134,8 +130,8 @@ table td {
 }
 
 .page:hover, .first:hover, .prev:hover, .next:hover, .last:hover{
-  background:#6D61FA;
-  border-radius:100%;  
+  background-color: #4A3094;
+  border-radius: 100%;  
 }
 
 .page:hover .kaminari, .first:hover .kaminari, .prev:hover .kaminari, .next:hover .kaminari, .last:hover .kaminari {
@@ -152,10 +148,56 @@ table td {
   font-weight:bold;
   text-decoration:none;
   color: #ffffff;
-  background:#6D61FA;
+  background-color: #4A3094;
   border-radius:100%;
 }
 
 .gap{
   background:none;
+}
+
+.right-side-wrapper {
+  margin-left: 20px;
+  border-top: 1px solid #EAEAEA; 
+}
+
+.right-each-registration {
+  margin: 20px 0;
+}
+
+.right-each-registration h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.right-each-registration p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.registration-input {
+  width: 100px;
+  height: 20px;
+  margin-right: 10px;
+  font-size: 12px;
+  padding: 0 5px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+}
+
+.registration-button {
+  width: 50px;
+  color: #FFFFFF;
+  background-color: #4A3094;
+  border: none;
+  border-radius: 5px;
+}
+
+.right-messages-path {
+  border-top: 1px solid #EAEAEA;
+}
+
+.to-messages-path {
+  color: #000000; 
+  padding-top: 40px;
 }

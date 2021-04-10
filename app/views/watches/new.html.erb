@@ -1,81 +1,88 @@
 <%= render "shared/second_header.html.erb" %>
 
-<%# タイマーの時間表示 %>
-<div class="stop-watch">
-  <p id="time">00:00:00.000</p>
-</div>
 
-<%# STARTとSTOPのボタン %>
-<%= form_with url: room_watches_path(@room.public_uid), class: "buttons" do |f| %>
-  <%= f.submit "START", class: "btn", id: "start" %>
-  <%= f.submit "LAP", class: "btn", id: "lap" %>
-<% end %>
+<div class="wrap">
+  <div class="left-side">
+    <%= render "shared/side_bar.html.erb" %>
+  </div>
 
-<div class="table">
-  <table>
-    <thead>
-      <tr>
-        <th class="date">日付</th>
-        <th class="time">タイム</th>
-        <th class="name">名前</th>
-        <th class="event">種目</th>
-        <th class="distance">距離</th>
-      </tr>
-    </thead>
-    <tbody id="time-table">
-      <% if @watches %>
-        <% @watches.each do |watch| %>
-          <tr id=<%= watch.id %>>
-            <td class="date">
-              <%= watch.created_at.strftime('%Y/%m/%d') %>
-            </td>
-            <td class="time">
-              <%= watch.watch %>
-            </td>
-            <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch do |f| %>
-              <td class="name">
-                <% if watch.user_id %>
-                  <%= f.collection_select :user_id, @users.where.not(id: watch.user.id), :id, :username, {prompt: "#{watch.user.username}"}, {class: "data-pulldown data-username"} %>
-                <% else %>
-                  <%= f.collection_select :user_id, @users, :id, :username, {prompt: "-----"}, {class: "data-pulldown data-username"} %>
-                <% end %>
-              </td>
-              <td class="event">
-                <% if watch.event_id %>
-                  <%= f.collection_select :event_id, @events.where.not(id: watch.event.id), :id, :event, {prompt: "#{watch.event.event}"}, {class: "data-pulldown data-event"} %>
-                <% else %>
-                  <%= f.collection_select :event_id, @events, :id, :event, {prompt: "-----"}, {class: "data-pulldown data-event"} %>
-                <% end %>
-              </td>
-              <td class="distance">
-                <% if watch.distance_id %>
-                  <%= f.collection_select :distance_id, @distances.where.not(id: watch.distance.id), :id, :distance, {prompt: "#{watch.distance.distance}"}, {class: "data-pulldown data-distance"} %>
-                <% else %>
-                  <%= f.collection_select :distance_id, @distances, :id, :distance, {prompt: "-----"}, {class: "data-pulldown data-distance"} %>
-                <% end %>
-              </td> 
-            <% end %>
+  <div class="main">
+    <%# タイマーの時間表示 %>
+    <div class="stop-watch">
+      <p id="time">00:00:00.000</p>
+    </div>
+
+    <%# STARTとSTOPのボタン %>
+    <%= form_with url: room_watches_path(@room.public_uid), class: "buttons" do |f| %>
+      <%= f.submit "START", class: "btn", id: "start" %>
+      <%= f.submit "LAP", class: "btn", id: "lap" %>
+    <% end %>
+
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th class="date">日付</th>
+            <th class="time">タイム</th>
+            <th class="name">名前</th>
+            <th class="event">種目</th>
+            <th class="distance">距離</th>
+            <th class="table-edit"></th>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+        </thead>
+        <tbody id="time-table">
+          <% if @watches %>
+            <% @watches.each do |watch| %>
+              <tr watch-id=<%= watch.id %>>
+                <td class="date">
+                  <%= watch.created_at.strftime('%Y/%m/%d') %>
+                </td>
+                <td class="time">
+                  <%= watch.watch %>
+                </td>
+                <%= form_with url: room_watch_path(@room.public_uid, watch.id), method: :patch do |f| %>
+                  <td class="name">
+                    <% if watch.user_id %>
+                      <%= f.collection_select :user_id, @users.where.not(id: watch.user.id), :id, :username, {prompt: "#{watch.user.username}"}, {class: "data-pulldown data-username"} %>
+                    <% else %>
+                      <%= f.collection_select :user_id, @users, :id, :username, {prompt: "-----"}, {class: "data-pulldown data-username"} %>
+                    <% end %>
+                  </td>
+                  <td class="event">
+                    <% if watch.event_id %>
+                      <%= f.collection_select :event_id, @events.where.not(id: watch.event.id), :id, :event, {prompt: "#{watch.event.event}"}, {class: "data-pulldown data-event"} %>
+                    <% else %>
+                      <%= f.collection_select :event_id, @events, :id, :event, {prompt: "-----"}, {class: "data-pulldown data-event"} %>
+                    <% end %>
+                  </td>
+                  <td class="distance">
+                    <% if watch.distance_id %>
+                      <%= f.collection_select :distance_id, @distances.where.not(id: watch.distance.id), :id, :distance, {prompt: "#{watch.distance.distance}"}, {class: "data-pulldown data-distance"} %>
+                    <% else %>
+                      <%= f.collection_select :distance_id, @distances, :id, :distance, {prompt: "-----"}, {class: "data-pulldown data-distance"} %>
+                    <% end %>
+                  </td> 
+                <% end %>
+                <td class="table-edit">
+                  <%= image_tag "/images/three_point.png", id: "watch-edit" %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <% if @watches %>
+      <%= paginate @watches %>
+    <% end %>
+  </div>
+  
+  <div class="right-side">
+    <%= render "right.html.erb" %>
+  </div>
 </div>
 
-<% if @watches %>
-  <%= paginate @watches %>
-<% end %>
 
-<%= form_with url: room_events_path(@room.public_uid), id: "event-form" do |f| %>
-  <%= f.text_field :event, id: "event-input" %>
-  <%= f.submit "種目登録", id: "event-registration" %>
-<% end %>
-
-<%= form_with url: room_distances_path(@room.public_uid), id: "distance-form" do |f| %>
-  <%= f.text_field :distance, id: "distance-input" %>
-  <%= f.submit "距離登録", id: "distance-registration" %>
-<% end %>
-
-<%= link_to "メッセージを送る", room_messages_path(@room.public_uid), class: "with-time" %>
 
 <%= render "shared/footer.html.erb" %>

@@ -25,7 +25,7 @@ export function addLap() {
       const createMoment = moment(content.created_at, 'YYYY-MM-DD-T-HH:mm:ssZ')
       const createTime = createMoment.format('YYYY/MM/DD')
       const HTML = `
-        <tr id=${content.id}>
+        <tr watch-id=${content.id}>
           <td class="date">${createTime}</td>
           <td class="time">${content.watch}</td>
           <td class="name">
@@ -45,6 +45,9 @@ export function addLap() {
               <option value>-----</option>
               ${dataLoop(distances, "distance")}
             </select>
+          </td>
+          <td class="table-edit">
+            <img src="/images/three_point.png" id="watch-edit">
           </td>
         </tr>`;
       table.insertAdjacentHTML("afterbegin", HTML);

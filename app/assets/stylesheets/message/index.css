@@ -233,6 +233,7 @@
 
 .right-side {
   width: 20vw;
+  border-left: 1px solid #EAEAEA;
 }
 
 .users-index {
