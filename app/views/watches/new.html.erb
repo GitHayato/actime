@@ -27,12 +27,13 @@
             <th class="name">名前</th>
             <th class="event">種目</th>
             <th class="distance">距離</th>
+            <th class="table-edit"></th>
           </tr>
         </thead>
         <tbody id="time-table">
           <% if @watches %>
             <% @watches.each do |watch| %>
-              <tr id=<%= watch.id %>>
+              <tr watch-id=<%= watch.id %>>
                 <td class="date">
                   <%= watch.created_at.strftime('%Y/%m/%d') %>
                 </td>
@@ -62,6 +63,9 @@
                     <% end %>
                   </td> 
                 <% end %>
+                <td class="table-edit">
+                  <%= image_tag "/images/three_point.png", id: "watch-edit" %>
+                </td>
               </tr>
             <% end %>
           <% end %>

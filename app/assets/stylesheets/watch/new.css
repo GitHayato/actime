@@ -55,59 +55,55 @@
 }
 
 table th {
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px 0;
   text-align: center;
-  border: solid 1px #000000;
+  color: #FFFFFF;
+  background-color: #4A3094;
 }
 
 table td {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
-  border: solid 1px #000000;
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
 }
 
 .date {
-  width: 150px;
-  height: 24px;
+  width: 120px;
 }
 
 .time {
-  width: 200px;
+  width: 160px;
 }
 
 .name {
-  width: 200px;
+  width: 150px;
 }
 
 .event {
-  width: 150px;
+  width: 140px;
 }
 
 .distance {
-  width: 150px;
+  width: 140px;
+}
+
+.table-edit {
+  width: 40px;
 }
 
 .data-pulldown {
-  max-width: 148px;
-  height: 30px;
-  font-size: 16px;
+  max-width: 138px;
+  height: 32px;
+  font-size: 14px;
   border: none;
-  font-size: 16px;
 }
 
-.with-time {  
-  width: 175px;
-  padding: 20px 0;
-  margin: 20px auto 70px;
-  border-radius: 40px;
-  font-size: 16px;
-  text-align: center;
-  align-items: center;
-  color: #ffffff;
-  background-color: #6D61FA;
-  text-decoration: none;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+#watch-edit {
+  width: 15px;
+  filter: invert(50%);
+  vertical-align: middle;
 }
 
 .pagination{
