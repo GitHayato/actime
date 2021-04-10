@@ -1,19 +1,12 @@
 .stop-watch {
-  width: 400px;
-  height: 130px;
-  background-color: #DDE1EC;
-  margin: 100px auto 40px;
+  margin: 50px auto;
   display: flex;
   align-items: center;
 }
 
 #time {
-  width: 350px;
-  height: 70px;
-  font-size: 48px;
-  background-color: #ffffff;
+  font-size: 36px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .buttons {
@@ -22,23 +15,30 @@
 }
 
 .btn {
-  width: 200px;
-  height: 60px;
-  font-size: 24px;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
   color: #ffffff;
   text-decoration: none;
   border: none;
-  border-radius: 150px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0 30px;
+  border-radius: 10px;
+  margin: 0 40px;
 }
 
 #start {
-  background-color: #6D61FA;
+  background-color: #4A3094;
+}
+
+#start:hover {
+  background: #A653C2;
 }
 
 #lap {
   background-color: #000000;
+}
+
+#lap:hover {
+  opacity: 0.3;
 }
 
 .btn:focus {
