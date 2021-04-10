@@ -229,5 +229,29 @@
   font-size: 16px;
   color: #ffffff;
   background-color: #4A3094;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.right-side {
+  width: 20vw;
+}
+
+.users-index {
+  margin: 15px 20px;
+}
+
+.users-index h1 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.each-user-index {
+  margin: 5px 10px 0;
+}
+
+.each-user-index:hover {
+  background-color: #EEEEEE;
+}
+
+.users-index p {
+  margin-left: 50px;
 }

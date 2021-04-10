@@ -30,7 +30,8 @@
 .each-user {
   width: 30%;
   font-size: 16px;
-  color: #4b4b4b;
+  color: #000000;
+  text-decoration: none;
 }
 
 .user-count {
