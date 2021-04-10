@@ -4,7 +4,6 @@
   </div>
   <div class="menu-lots"> 
     <%= link_to image_tag("edit.png", class: "room-edit"), edit_room_path(@room.public_uid) %>
-    <%= link_to image_tag("delete.png", class: "room-delete"), room_path(@room.public_uid), method: :delete %>
   </div>
 </div>
 <div id="main-message">
@@ -15,8 +14,9 @@
       <div class="information">
         <div class="message-info">
           <p class="info-user"><%= link_to message.user.username, user_path(message.user.public_uid), class: "info-username" %></p>
-          <p class="info-date"><%= l message.created_at, format: :short %></p>
         </div>
+        <%# <%= 以下コメントアウト中 %>
+        <% if false %>
         <% if message.user.id == current_user.id %>
           <ul class="navigation">
             <li>
@@ -27,9 +27,16 @@
             </li>
           </ul>
         <% end %>
+        <% end %>
+        <%# <%= 以上コメントアウト中 %>
       </div>
-      <div class="message-content">
-        <%= safe_join(message.content.split("\n"), tag(:br)) %>
+      <div class="message-contents">
+        <div class="message-content">
+          <%= safe_join(message.content.split("\n"), tag(:br)) %>
+        </div>
+        <div class="message-date">
+          <p class="info-date"><%= l message.created_at, format: :short %></p>
+        </div>
       </div>
     </div>
   <% end %>

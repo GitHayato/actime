@@ -1,0 +1,9 @@
+<div class="users-index">
+  <h1>ユーザー一覧</h1>
+  <% @current_room_users.each do |user| %>
+    <div class="each-user-index">
+      <%= link_to "#{user.username}", user_path(user.public_uid), class: "each-user" %>
+    </div>
+  <% end %>
+  <p>計 <%= @current_room_users.count %>人</p>
+</div>
