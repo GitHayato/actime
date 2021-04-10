@@ -87,7 +87,7 @@ class WatchesController < ApplicationController
           distance = watch.distance.distance
         end
         column_values = [
-          watch.created_at,
+          watch.created_at.strftime('%Y/%m/%d'),
           watch.watch,
           username,
           event,
