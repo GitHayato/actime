@@ -71,12 +71,27 @@ class WatchesController < ApplicationController
       column_names = %w(日付 タイム 名前 種目 距離)
       csv << column_names
       watches.each do |watch|
+        if watch.user == nil
+          username = ""
+        else
+          username = watch.user.username
+        end
+        if watch.event == nil
+          event = ""
+        else
+          event = watch.event.event
+        end
+        if watch.distance == nil
+          distance = ""
+        else
+          distance = watch.distance.distance
+        end
         column_values = [
           watch.created_at,
           watch.watch,
-          watch.user.username,
-          watch.event.event,
-          watch.distance.distance
+          username,
+          event,
+          distance
         ]
         csv << column_values
       end
