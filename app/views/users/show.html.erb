@@ -1,67 +1,72 @@
 <%= render 'shared/second_header.html.erb' %>
 
-<div class="user-infomation">
-  <div class="infomation-user">
-    <h1>ユーザー情報</h1>
+<div class="wrap">
+  <div class="left-side">
+    <%= render "shared/side_bar.html.erb" %>
+  </div>
+  <div>
+    <div class="user-infomation">
+      <div class="infomation-user">
+        <h1>ユーザー情報</h1>
 
-    <div class="user-identification-info">
-      <h3>ID</h3>
-       <%= @user.public_uid %>
+        <div class="user-identification-info">
+          <h3>ID</h3>
+           <%= @user.public_uid %>
+        </div>
+
+        <div class="user-identification-info">
+          <h3>ユーザー名</h3>
+          <%= @user.username %>
+        </div>
+
+        <div class="follow-follower-lists">
+          <%= link_to "#{@following}フォロー", following_user_path(@user.public_uid), class: "follow-follower users-link" %>
+          <%= link_to "#{@follower}フォロワー", follower_user_path(@user.public_uid), class: "follow-follower users-link" %>
+        </div>
+
+        <%= render 'relationships/follow_button.html.erb' %>
+        <div class="flash-message">
+          <%= flash[:success] %>
+          <%= flash[:alert] %>
+        </div>
+      </div>
     </div>
-
-    <div class="user-identification-info">
-      <h3>ユーザー名</h3>
-      <%= @user.username %>
-    </div>
-
-    <div class="follow-follower-lists">
-      <%= link_to "#{@following}フォロー", following_user_path(@user.public_uid), class: "follow-follower users-link" %>
-      <%= link_to "#{@follower}フォロワー", follower_user_path(@user.public_uid), class: "follow-follower users-link" %>
-    </div>
-
-    <%= render 'relationships/follow_button.html.erb' %>
-    <div class="flash-message">
-      <%= flash[:success] %>
-      <%= flash[:alert] %>
+    <div class="users-table">
+      <table>
+        <thead>
+          <tr>
+            <th class="date">日付</th>
+            <th class="time">タイム</th>
+            <th class="event">種目</th>
+            <th class="distance">距離</th>
+          </tr>
+        </thead>
+        <tbody id="time-table">
+          <% if @watches %>
+            <% @watches.reverse_each do |watch| %>
+              <tr id=<%= watch.id %>>
+                <td class="date">
+                  <%= watch.created_at.strftime('%Y/%m/%d') %>
+                </td>
+                <td class="time">
+                  <%= watch.watch %>
+                </td>
+                <td class="event">
+                  <% if watch.event_id %>
+                    <%= watch.event.event %>
+                  <% end %>
+                </td>
+                <td class="distance">
+                  <% if watch.distance_id %>
+                    <%= watch.distance.distance %>
+                  <% end %>
+                </td> 
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-
-<div class="users-table">
-  <table>
-    <thead>
-      <tr>
-        <th class="date">日付</th>
-        <th class="time">タイム</th>
-        <th class="event">種目</th>
-        <th class="distance">距離</th>
-      </tr>
-    </thead>
-    <tbody id="time-table">
-      <% if @watches %>
-        <% @watches.reverse_each do |watch| %>
-          <tr id=<%= watch.id %>>
-            <td class="date">
-              <%= watch.created_at.strftime('%Y/%m/%d') %>
-            </td>
-            <td class="time">
-              <%= watch.watch %>
-            </td>
-            <td class="event">
-              <% if watch.event_id %>
-                <%= watch.event.event %>
-              <% end %>
-            </td>
-            <td class="distance">
-              <% if watch.distance_id %>
-                <%= watch.distance.distance %>
-              <% end %>
-            </td> 
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
 <%= render 'shared/footer.html.erb' %>
