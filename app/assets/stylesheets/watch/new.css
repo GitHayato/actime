@@ -63,8 +63,10 @@ table th {
 }
 
 table td {
+  height: 33px;
   font-size: 14px;
   text-align: center;
+  vertical-align: middle;
   border-top: solid 1px #000000;
   border-bottom: solid 1px #000000;
 }

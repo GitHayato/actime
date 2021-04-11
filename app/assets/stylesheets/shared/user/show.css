@@ -1,27 +1,28 @@
+.users-show {
+  margin: 0 auto;
+}
+
 .user-infomation {
   width: 100%; 
 }
 
 .infomation-user {
-  width: 500px;
-  background-color: #dde1ec;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 60px;
+  width: 450px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
   margin: 55px auto 0;
 }
 
 .infomation-user h1 {
   font-size: 24px;
-  color: #4b4b4b;
   text-align: center;
   padding: 50px 0 20px;
 }
 
 .user-identification-info {
   display: flex;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 16px;
-  color: #4b4b4b;
 }
 
 .user-identification-info h3 {
@@ -34,12 +35,12 @@
 .follow-follower-lists {
   display: flex;
   justify-content: center;
-  margin: 30px 0 10px;
+  margin: 40px 0 10px;
   font-size: 16px;
 }
 
 .users-link {
-  color: #4b4b4b;
+  color: #000000;
   font-size: 16px;
 }
 
@@ -54,14 +55,14 @@
 }
 
 .follow-btn {
-  width: 140px;
-  height: 50px;
-  font-size: 16px;
+  width: 120px;
+  height: 44px;
+  font-size: 14px;
   border: none;
   color: #ffffff;
-  border-radius: 80px;
+  border-radius: 5px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 .btn-danger {
@@ -69,7 +70,7 @@
 }
 
 .btn-primary {
-  background-color: #6d61fa;
+  background-color: #4A3094;
 }
 
 .flash-message {
@@ -78,11 +79,15 @@
 }
 
 .user-destroy {
-  padding: 15px 10px;
-  font-size: 16px;
+  padding: 15px 11px;
+  font-size: 14px;
   color: #ffffff;
   background-color: #DC3445;
-  border-radius: 30px;
+  border-radius: 5px;
   text-decoration: none;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+}
+
+.users-table {
+  margin: 55px auto;
 }
