@@ -3,7 +3,7 @@ class WatchesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_room, only: [:index, :new, :create, :update]
   before_action :common_data, only: [:index, :new, :create]
-  before_action :side_menu, only: [:indexm ,new]
+  before_action :side_menu, only: [:index , :new]
   require 'csv'
 
   def index
