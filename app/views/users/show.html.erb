@@ -25,10 +25,9 @@
       <%= flash[:alert] %>
     </div>
   </div>
-
 </div>
 
-<div class="table">
+<div class="users-table">
   <table>
     <thead>
       <tr>
@@ -40,7 +39,7 @@
     </thead>
     <tbody id="time-table">
       <% if @watches %>
-        <% @watches.each do |watch| %>
+        <% @watches.reverse_each do |watch| %>
           <tr id=<%= watch.id %>>
             <td class="date">
               <%= watch.created_at.strftime('%Y/%m/%d') %>
