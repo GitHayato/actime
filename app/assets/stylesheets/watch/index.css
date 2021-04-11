@@ -1,7 +1,3 @@
-.overall {
-  width: 100%;
-}
-
 .time-flash {
   text-align: center;
   margin-top: 15px;
@@ -15,30 +11,19 @@
   color: #DC3445;
 }
 
-.time-registration {
-  width: 500px;
-  background-color: #dde1ec;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 60px;
-  margin: 55px auto 0;
-}
-
 .registration-field {
   height: 35px;
-  border: none;
+  border: 1px solid #EAEAEA;
   border-radius: 5px;
-  float: right;
   padding: 0 10px;
 }
 
 .time-field {
-  width: 280px;
-  margin-right: 50px;
+  width: 250px;
 }
 
 .pulldown-registration {
-  width: 200px;
-  margin-right: 130px;
+  width: 270px;
 }
 
 .jump-to-new-watch-path {
