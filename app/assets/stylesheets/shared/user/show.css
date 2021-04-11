@@ -51,8 +51,8 @@
 }
 
 .follow-btn {
-  width: 140px;
-  height: 50px;
+  width: 120px;
+  height: 44px;
   font-size: 14px;
   border: none;
   color: #ffffff;
@@ -75,11 +75,11 @@
 }
 
 .user-destroy {
-  padding: 15px 10px;
-  font-size: 16px;
+  padding: 15px 11px;
+  font-size: 14px;
   color: #ffffff;
   background-color: #DC3445;
-  border-radius: 30px;
+  border-radius: 5px;
   text-decoration: none;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
 }
