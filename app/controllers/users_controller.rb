@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :destroy, :following, :follower]
+  before_action :side_menu, only: :show
   def show
     @following = Relationship.where(user_id: @user.id).count
     @follower = Relationship.where(follow_id: @user.id).count
@@ -40,5 +41,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(public_uid: params[:id])
+  end
+
+  def side_menu
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
   end
 end
