@@ -19,6 +19,15 @@
           <%= @user.username %>
         </div>
 
+        <div class="user-identification-introduction">
+          <h3>自己紹介：</h3>
+          <% if @user.introduction %>
+            <p><%= @user.introduction %></p>
+          <% else %>
+            <p>No introduction</p>
+          <% end %>
+        </div>
+
         <div class="follow-follower-lists">
           <%= link_to "#{@following}フォロー", following_user_path(@user.public_uid), class: "follow-follower users-link" %>
           <%= link_to "#{@follower}フォロワー", follower_user_path(@user.public_uid), class: "follow-follower users-link" %>
