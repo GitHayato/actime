@@ -32,6 +32,22 @@
   margin-right: 30px;
 }
 
+.user-identification-introduction {
+  width: 400px;
+  margin: 30px auto 10px;
+}
+
+.user-identification-introduction h3 {
+  margin-bottom: 10px;
+}
+
+.user-identification-introduction p {
+  font-size: 14px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  padding: 12px 5px;
+}
+
 .follow-follower-lists {
   display: flex;
   justify-content: center;
