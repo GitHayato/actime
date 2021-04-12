@@ -8,6 +8,12 @@ class UsersController < ApplicationController
     @watches = Watch.where(user_id: @user.id)
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
     if @user.destroy
       redirect_to new_user_registration_path

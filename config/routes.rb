@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   root to: "top_pages#index"
-  resources :users, only: [:show, :destroy] do
+  resources :users, only: [:show, :edit, :update, :destroy] do
     member do
       get 'following'
       get 'follower'
