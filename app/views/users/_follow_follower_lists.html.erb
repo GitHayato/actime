@@ -4,7 +4,17 @@
     <% unless @users == [] %>
       <% @users.each do |user| %>
         <div class="following-lists">
-          <%= link_to user.username, user_path(user.public_uid), class: "users-path" %>
+          <%= link_to user_path(user.public_uid), class: "users-path" do %>
+            <div class='users-path-info'>
+              <h3><%= user.username %></h3>
+              <p><%= user.followings.count %>フォロー/<%= user.followers.count %>フォロワー</p>
+            </div>
+            <% if user.introduction %>
+              <p><%= user.introduction %></p>
+            <% else %>
+              <p>No introduction</p>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     <% else %>
