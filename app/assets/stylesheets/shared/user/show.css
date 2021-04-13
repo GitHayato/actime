@@ -1,7 +1,3 @@
-.users-show {
-  margin: 0 auto;
-}
-
 .user-infomation {
   width: 100%; 
 }
@@ -105,5 +101,5 @@
 }
 
 .users-table {
-  margin: 55px auto;
+  margin: 55px;
 }
