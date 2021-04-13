@@ -1,6 +1,6 @@
 <% if current_user == @user %>
   <div class="follow-form">
-    <%= link_to "アカウント削除", user_path(@user.public_uid), method: :delete, class: "user-destroy" %>
+    <%= link_to "編集する", edit_user_path(@user.public_uid), class: "user-edit" %>
   </div>
 <% else %>
   <% if current_user.following?(@user) %>

@@ -90,11 +90,11 @@
   text-align: center;
 }
 
-.user-destroy {
-  padding: 15px 11px;
+.user-edit {
+  padding: 10px 11px;
   font-size: 14px;
   color: #ffffff;
-  background-color: #DC3445;
+  background-color: #4A3094;
   border-radius: 5px;
   text-decoration: none;
   margin-bottom: 10px;
