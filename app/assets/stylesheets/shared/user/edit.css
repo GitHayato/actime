@@ -1,0 +1,15 @@
+.username-edit {
+  font-size: 16px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+}
+
+.introduction-edit {
+  width: 380px;
+  font-size: 14px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  padding: 5px;
+  resize: vertical;
+  margin: 10px auto 20px;
+}
