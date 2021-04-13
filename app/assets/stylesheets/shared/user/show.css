@@ -39,9 +39,8 @@
 
 .user-identification-introduction p {
   font-size: 14px;
-  border: 1px solid #EAEAEA;
   border-radius: 5px;
-  padding: 12px 5px;
+  padding: 5px;
 }
 
 .follow-follower-lists {
