@@ -4,7 +4,7 @@
   <div class="left-side">
     <%= render "shared/side_bar.html.erb" %>
   </div>
-  <div class="users-show">
+  <div class="main">
     <div class="user-infomation">
       <div class="infomation-user">
         <h1>ユーザー情報</h1>
@@ -17,6 +17,15 @@
         <div class="user-identification-info">
           <h3>ユーザー名</h3>
           <%= @user.username %>
+        </div>
+
+        <div class="user-identification-introduction">
+          <h3>自己紹介：</h3>
+          <% if @user.introduction %>
+            <p><%= @user.introduction %></p>
+          <% else %>
+            <p>No introduction</p>
+          <% end %>
         </div>
 
         <div class="follow-follower-lists">
