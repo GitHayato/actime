@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    unless current_user.public_uid == @user.public_uid
+      redirect_to root_path
+    end
   end
 
   def update
