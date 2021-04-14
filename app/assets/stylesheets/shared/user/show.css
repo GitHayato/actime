@@ -100,5 +100,7 @@
 }
 
 .users-table {
-  margin: 55px;
+  margin: 55px 0;
+  display: flex;
+  justify-content: center;
 }
