@@ -1,0 +1,38 @@
+<%= render 'shared/second_header.html.erb' %>
+
+<div class="wrap">
+  <div class="left-side">
+    <%= render "shared/side_bar.html.erb" %>
+  </div>
+  <div class="main">
+    <div class="user-infomation">
+      <div class="infomation-user">
+        <h1>ユーザー情報</h1>
+
+        <div class="user-identification-info">
+          <h3>ID</h3>
+          <%= @user.public_uid %>
+        </div>
+
+        <%= form_with url: user_path(@user.public_uid), method: :patch, model: @user, local: true do |f| %>
+          <div class="user-identification-info">
+            <h3>ユーザー名</h3>
+            <%= f.text_field :username, class: "username-edit" %>
+          </div>
+
+          <div class="user-identification-introduction">
+            <h3>自己紹介：</h3>
+            <%= f.text_area :introduction, class: "introduction-edit" %>
+          </div>
+          <div class="user-edit-buttons">
+            <%= f.submit "更新する", class: "user-identification-btn" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="user-info-destroy">
+        <%= link_to "アカウント削除", user_path(@user.public_uid), method: :delete, class: "user-destroy btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer.html.erb' %>

@@ -1,5 +1,5 @@
 .user-infomation {
-  width: 100%; 
+  width: 100%;
 }
 
 .infomation-user {
@@ -39,9 +39,8 @@
 
 .user-identification-introduction p {
   font-size: 14px;
-  border: 1px solid #EAEAEA;
   border-radius: 5px;
-  padding: 12px 5px;
+  padding: 5px;
 }
 
 .follow-follower-lists {
@@ -101,5 +100,7 @@
 }
 
 .users-table {
-  margin: 55px;
+  margin: 55px 0;
+  display: flex;
+  justify-content: center;
 }

@@ -50,7 +50,9 @@
 }
 
 .table {
-  margin: 50px 10px 20px 0;
+  margin: 50px 0 20px;
+  display: flex;
+  justify-content: center;
   border-collapse: collapse;
 }
 
