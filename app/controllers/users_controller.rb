@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :destroy, :following, :follower]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :following, :follower]
   before_action :side_menu, only: [:show, :edit, :following, :follower]
   def show
     @following = Relationship.where(user_id: @user.id).count
@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to user_path(@user.public_uid)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -44,6 +49,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:username, :introduction)
+  end
 
   def set_user
     @user = User.find_by(public_uid: params[:id])
