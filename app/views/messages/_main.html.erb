@@ -41,8 +41,18 @@
         </div>
       </div>
     <% else %>
-      <div class="message">
-        sample
+      <div class="message-current-user">
+        <div class="message-info">
+          <p class="info-current-user"><%= link_to message.user.username, user_path(message.user.public_uid), class: "info-username" %></p>
+        </div>
+        <div class="current-user-message-contents">
+          <div class="message-date">
+            <p class="current-user-info-date"><%= l message.created_at, format: :short %></p>
+          </div>
+          <div class="current-user-message-content">
+            <%= safe_join(message.content.split("\n"), tag(:br)) %>
+          </div>
+        </div>
       </div>
     <% end %>
   <% end %>

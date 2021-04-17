@@ -122,10 +122,6 @@
   margin-left: 10px;
 }
 
-.message-info {
-  display: flex;
-}
-
 .information {
   display: flex;
   justify-content: space-between;
@@ -255,4 +251,37 @@
 
 .users-index p {
   margin-left: 50px;
+}
+
+.info-current-user {
+  font-size: 12px;
+  text-align: right;
+  margin-right: 25px;
+}
+
+.message-current-user {
+  margin: 15px 0 0 auto;
+}
+
+.current-user-message-contents {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.current-user-info-date {
+  font-size: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.current-user-message-content {
+  max-width: 39vw;
+  font-size: 16px;
+  padding: 5px 7px;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background-color: #4A3094;
+  overflow-wrap: break-word;
+  margin: 1px 21px 1px 1px;
 }
