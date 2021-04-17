@@ -10,35 +10,35 @@
   <div id="list">
   </div>
   <% @messages.each do |message| %>
-    <div class="message">
-      <div class="information">
+    <% if message.user.id != current_user.id %>
+      <div class="message">
         <div class="message-info">
           <p class="info-user"><%= link_to message.user.username, user_path(message.user.public_uid), class: "info-username" %></p>
         </div>
-        <%# <%= 以下コメントアウト中 %>
-        <% if false %>
-        <% if message.user.id == current_user.id %>
-          <ul class="navigation">
-            <li>
-              <%= image_tag "/images/three_point.png", class: "menu-tag" %>
-              <ul>
-                <li><%= link_to "削除", room_message_path(@room.public_uid, message.id), method: :delete %></li>
-              </ul>
-            </li>
-          </ul>
-        <% end %>
-        <% end %>
-        <%# <%= 以上コメントアウト中 %>
-      </div>
-      <div class="message-contents">
-        <div class="message-content">
-          <%= safe_join(message.content.split("\n"), tag(:br)) %>
-        </div>
-        <div class="message-date">
-          <p class="info-date"><%= l message.created_at, format: :short %></p>
+        <div class="message-contents">
+          <div class="message-content">
+            <%= safe_join(message.content.split("\n"), tag(:br)) %>
+          </div>
+          <div class="message-date">
+            <p class="info-date"><%= l message.created_at, format: :short %></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="message-current-user">
+        <div class="message-info">
+          <p class="info-current-user"><%= link_to message.user.username, user_path(message.user.public_uid), class: "info-username" %></p>
+        </div>
+        <div class="current-user-message-contents">
+          <div class="message-date">
+            <p class="current-user-info-date"><%= l message.created_at, format: :short %></p>
+          </div>
+          <div class="current-user-message-content">
+            <%= safe_join(message.content.split("\n"), tag(:br)) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

@@ -46,21 +46,16 @@ function sendMessage() {
         const createMoment = moment(message.created_at, 'YYYY-MM-DDTHH:mm:ssZ')
         const createTime = createMoment.format('MM/DD HH:mm');
         const HTML =`
-          <div class="message">
-            <div class="information">
-              <div class="message-info">
-                <p class="info-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
-                <p class="info-date">${createTime}</p>
-              </div>
-              <ul class="navigation">
-                <li><img src="/images/three_point.png" class="menu-tag" resize="20*20">
-                  <ul>
-                    <li><a href="${rootPath}/${message.id}" data-method="delete">削除</a></li>
-                  </ul>
-                </li>
-              </ul>
+          <div class="message-current-user">
+            <div class="message-info">
+              <p class="info-current-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
             </div>
-            <div class="message-content">
+          </div>
+          <div class="current-user-message-contents">
+          <div class="message-date">
+            <p class="current-user-info-date">${createTime}</p>
+          </div>
+            <div class="current-user-message-content">
               ${replaceHtml}
             </div>
           </div>`;
