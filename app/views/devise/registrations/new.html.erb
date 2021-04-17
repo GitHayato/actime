@@ -35,12 +35,11 @@
       </div>
     <% end %>
   </div>
-  
   <div class="jump-to-session-path">
+    <%= link_to image_tag("btn_google_signin_light_pressed_web.png"), user_google_oauth2_omniauth_authorize_path, class: "signin_with_google" %>
     アカウントお持ちの方は<%= link_to "こちら", new_user_session_path, class: "jump-session" %>
   </div>
 
-  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
 </div>
 
 <%= render "shared/footer.html.erb" %>
