@@ -50,18 +50,15 @@ function sendMessage() {
             <div class="information">
               <div class="message-info">
                 <p class="info-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
+              </div>
+            </div>
+            <div class="message-contents">
+              <div class="message-content">
+                ${replaceHtml}
+              </div>
+              <div class="message-date">
                 <p class="info-date">${createTime}</p>
               </div>
-              <ul class="navigation">
-                <li><img src="/images/three_point.png" class="menu-tag" resize="20*20">
-                  <ul>
-                    <li><a href="${rootPath}/${message.id}" data-method="delete">削除</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="message-content">
-              ${replaceHtml}
             </div>
           </div>`;
         list.insertAdjacentHTML("afterend", HTML);
