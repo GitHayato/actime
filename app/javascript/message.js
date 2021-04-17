@@ -46,19 +46,17 @@ function sendMessage() {
         const createMoment = moment(message.created_at, 'YYYY-MM-DDTHH:mm:ssZ')
         const createTime = createMoment.format('MM/DD HH:mm');
         const HTML =`
-          <div class="message">
-            <div class="information">
-              <div class="message-info">
-                <p class="info-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
-              </div>
+          <div class="message-current-user">
+            <div class="message-info">
+              <p class="info-current-user"><a href="/users/${user.public_uid}" class="info-username">${user.username}</a></p>
             </div>
-            <div class="message-contents">
-              <div class="message-content">
-                ${replaceHtml}
-              </div>
-              <div class="message-date">
-                <p class="info-date">${createTime}</p>
-              </div>
+          </div>
+          <div class="current-user-message-contents">
+          <div class="message-date">
+            <p class="current-user-info-date">${createTime}</p>
+          </div>
+            <div class="current-user-message-content">
+              ${replaceHtml}
             </div>
           </div>`;
         list.insertAdjacentHTML("afterend", HTML);
