@@ -54,7 +54,13 @@
 }
 
 .jump-to-session-path {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin_with_google {
+  margin-right: 30px;
 }
 
 .jump-session {

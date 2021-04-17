@@ -62,3 +62,7 @@ gem 'pry-rails'
 gem 'rename'
 gem 'kaminari'
 gem 'public_uid'
+
+gem 'omniauth-google-oauth2'
+gem 'omniauth', '~>1.9.1'
+gem 'dotenv-rails'

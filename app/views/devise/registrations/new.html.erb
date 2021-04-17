@@ -16,7 +16,9 @@
           <%= f.label :email, "メールアドレス", class: "label "%>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "enter" %>
       </div>
-
+      <% if @sns.present? %>
+        <%= hidden_field_tag :sns_auth, "true" %>
+      <% else %>
       <div class="field">
           <%= f.label :password, "パスワード", class: "label" %>
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上の半角英数字", class: "enter" %>
@@ -26,17 +28,18 @@
           <%= f.label :password_confirmation, "パスワード(確認用)", class: "label" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "同じパスワードを入力してください", class: "enter" %>
       </div>
+      <% end %>
 
       <div class="actions">
         <%= f.submit "登録", class: "button" %>
       </div>
     <% end %>
   </div>
-  
   <div class="jump-to-session-path">
+    <%= link_to image_tag("btn_google_signin_light_pressed_web.png"), user_google_oauth2_omniauth_authorize_path, class: "signin_with_google" %>
     アカウントお持ちの方は<%= link_to "こちら", new_user_session_path, class: "jump-session" %>
   </div>
-  
+
 </div>
 
 <%= render "shared/footer.html.erb" %>
