@@ -66,3 +66,7 @@ gem 'public_uid'
 gem 'omniauth-google-oauth2'
 gem 'omniauth', '~>1.9.1'
 gem 'dotenv-rails'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
