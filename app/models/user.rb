@@ -20,6 +20,7 @@ class User < ApplicationRecord
   
   validates :username, presence: true
   validates_format_of :email, with: EMAIL_REGEX
+  validates :public_uid, presence: true, uniqueness: true
 
   generate_public_uid
 

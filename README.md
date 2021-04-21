@@ -1,43 +1,35 @@
+# アプリケーション名
+AcTime
+
+# アプリケーション概要
+タイムスポーツをする部活生やアスリートのためのタイム管理Webアプリ。ユーザーが立てたスレッド内でタイムを管理することができ、ストップウォッチ機能も搭載。
+
+# URL
+https://actime.herokuapp.com/
+
+# 使用技術
+- Ruby 2.6.6
+- Ruby on Rails 6.0.0
+- Rspec
+- MySQL
+- AWS
+  - EC2
+- Nginx
+- Unicorn
+- Capistrano
+- Google API
+
+# 機能一覧
+- ユーザー登録、ログイン機能(Devise)
+- フォロー、フォロワー機能
+- スレッド作成機能
+- ストップウォッチ機能(Ajax)
+- メッセージ送信機能(Ajax)
+- タイム外部出力機能(csv形式)
+
+# 今後実装予定
+- Google Charts APIを用いたグラフ機能
+
+
 # DB設計
-## Userテーブル
-| Columns             | Type   | Options                    |
-| ------------------- | ------ | -------------------------- |
-| username            | string | null: false                |
-| encrypted_password  | string | null: false                |
-| email               | string | null: false, unique: true  |
-### Association
-- has_many :messages
-- has_many :rooms
-- has_many :watches
-
-
-## Messageテーブル
-| Columns             | Type       | Options                    |
-| ------------------- | ---------- | -------------------------- |
-| content             | string     | null: false                |
-| room_id             | references | foreign_key: true          |
-| user_id             | references | foreign_key: true          |
-### Association
-- belongs_to :user
-- belongs_to :room
-- has_many :watches
-
-## Watchテーブル
-| Columns             | Type       | Options                    |
-| ------------------- | ---------- | -------------------------- |
-| watch               | integer    | null: false                |
-| event               | string     |                            |
-| distance            | string     |                            |
-| user_id             | references | foreign_key: true          |
-### Association
-- belongs_to :user
-- belongs_to :message
-
-## Roomテーブル
-| Columns             | Type       | Options                    |
-| ------------------- | ---------- | -------------------------- |
-| thread_name         | string     | null: false                 |
-| user_id             | references | foreign_key: true          |
-### Association
-- belongs_to :user
-- has_many :messages
+![Image from Gyazo](https://i.gyazo.com/9d60d038e7b2047ed64bb8ebdca34387.png)
