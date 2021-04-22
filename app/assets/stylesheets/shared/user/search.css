@@ -1,57 +1,30 @@
 .select-users {
-  width: 600px;
-  background-color: #DDE1EC;
-  border-radius: 20px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   margin: auto;
 }
 
-.many-users {
+.select-users h1 {
+  font-size: 24px;
   text-align: center;
+  padding: 30px 0;
+}
+
+.many-users {
+  font-size: 18px;
   margin-bottom: 30px;
 }
 
-.result-user {
-  color: #4b4b4b;
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 10px;
-}
-
-.user-id {
-  width: 18%;
-  text-align: right;
-  float: left;
-  margin-left: 30px;
-  margin-right: 50px;
-  font-size: 16px;
-}
-
-.each-user {
-  width: 30%;
-  font-size: 16px;
-  color: #000000;
-  text-decoration: none;
-}
-
-.user-count {
-  width: 30%;
-  font-size: 16px;
-  text-align: right;
-}
-
-.jump-to-top {
-  width: 200px;
-  height: 50px;
-  text-decoration: none;
-  font-size: 16px;
-  color: #ffffff;
-  background-color: #6D61FA;
-  border-radius: 80px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 30px auto ;
+.many-users p {
+  font-size: 14px;
+  padding: 0;
   text-align: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
+}
+
+.result-user {
+  padding: 5px;
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
+  margin: 10px 30px; 
 }
