@@ -1,13 +1,12 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new, :edit, :update]
+  before_action :set_room, only: [:new, :edit]
   before_action :following_user, only: [:new, :create, :edit, :update]
   before_action :follower, only: [:new, :edit]
 
   def new
     @thread = Room.new
-    room_ids = current_user.rooms.ids
-    @rooms = Room.where(id: room_ids)
   end
 
   def create
@@ -50,6 +49,11 @@ class RoomsController < ApplicationController
 
   def set_user
     @room = Room.find_by(public_uid: params[:id])
+  end
+
+  def set_room
+    room_ids = current_user.rooms.ids
+    @rooms = Room.where(id: room_ids)
   end
 
   def following_user

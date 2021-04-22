@@ -1,47 +1,54 @@
 <%= render "shared/second_header.html.erb" %>
 
-  <div class="update-form">
-    <h1 class='thread-info'>スレッド情報</h1>
-    <%= form_with model: @room, class: "thread-form", local: true do |f| %>
-      <%= render 'shared/error_messages.html.erb', model: f.object %>
-      <div class="thread-created">
-        <h3>作成日</h3>
-        <p><%= l @room.created_at, format: :long, class: "field-box" %></p>
-      </div>
-      <div class="field-form-thread">
-        <%= f.label :thread_name, "スレッド名", class: "label-name" %>
-        <%= f.text_field :thread_name, class: "field-box" %>
-      </div>
-
-      <div class="field-form-invite">
-        <%= f.label :user_ids, "ユーザー一覧", class: "label-name" %>
-        <div class="users-lists">
-          <%= f.collection_check_boxes :user_ids, @users_in_this_room, :id, :username, include_hidden: false do |user| %>
-            <div class="users-list">
-              <%= user.label { user.check_box + user.text } %>
-            </div>
-          <% end %>
+<div class="wrap">
+  <div class="left-side">
+    <%= render "shared/side_bar.html.erb" %>
+  </div>
+  <div class="main">
+    <div class="update-form">
+      <h1 class='thread-info'>スレッド情報</h1>
+      <%= form_with model: @room, class: "thread-form", local: true do |f| %>
+        <%= render 'shared/error_messages.html.erb', model: f.object %>
+        <div class="thread-created">
+          <h3>作成日</h3>
+          <p><%= l @room.created_at, format: :long, class: "field-box" %></p>
         </div>
-      </div>
+        <div class="field-form-thread">
+          <%= f.label :thread_name, "スレッド名", class: "label-name" %>
+          <%= f.text_field :thread_name, class: "field-box" %>
+        </div>
 
-      <div class="field-form-invite">
-        <%= f.label :user_ids, "招待する", class: "label-name" %>
-        <% unless @invite_users == [] %>
+        <div class="field-form-invite">
+          <%= f.label :user_ids, "ユーザー一覧", class: "label-name" %>
           <div class="users-lists">
-            <%= f.collection_check_boxes :user_ids, @invite_users, :id, :username, include_hidden: false do |user| %>
+            <%= f.collection_check_boxes :user_ids, @users_in_this_room, :id, :username, include_hidden: false do |user| %>
               <div class="users-list">
                 <%= user.label { user.check_box + user.text } %>
               </div>
             <% end %>
           </div>
-        <% else %>
-          <p>招待できるユーザーがいません</p>
-        <% end %>
-      </div>
-      <div class="update-thread-info">
-        <%= f.submit "更新する", class: "update-btn" %>
-      </div>
-    <% end %>
+        </div>
+
+        <div class="field-form-invite">
+          <%= f.label :user_ids, "招待する", class: "label-name" %>
+          <% unless @invite_users == [] %>
+            <div class="users-lists">
+              <%= f.collection_check_boxes :user_ids, @invite_users, :id, :username, include_hidden: false do |user| %>
+                <div class="users-list">
+                  <%= user.label { user.check_box + user.text } %>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <p>招待できるユーザーがいません</p>
+          <% end %>
+        </div>
+        <div class="update-thread-info">
+          <%= f.submit "更新する", class: "update-btn" %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
 <%= render "shared/footer.html.erb" %>
