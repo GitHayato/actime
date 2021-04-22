@@ -2,14 +2,12 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new, :edit, :update]
   before_action :following_user, only: [:new, :create, :edit, :update]
+  before_action :follower, only: [:new, :edit]
 
   def new
     @thread = Room.new
     room_ids = current_user.rooms.ids
     @rooms = Room.where(id: room_ids)
-    followers = User.find(current_user.id).follower_ids
-    follower_users = User.where(id: followers)
-    @mutual_follow = @users && follower_users
   end
 
   def create
@@ -23,8 +21,8 @@ class RoomsController < ApplicationController
 
   def edit
     @users_in_this_room = @room.users
-    @follow_users = @users.where.not(id: @users_in_this_room.ids)
     @room = Room.find_by(public_uid: params[:id])
+    @invite_users = @mutual_follow - @users_in_this_room
   end
   
   def update
@@ -57,5 +55,11 @@ class RoomsController < ApplicationController
   def following_user
     followings = User.find(current_user.id).following_ids
     @users = User.where(id: followings)
+  end
+
+  def follower
+    followers = User.find(current_user.id).follower_ids
+    follower_users = User.where(id: followers)
+    @mutual_follow = @users && follower_users
   end
 end
