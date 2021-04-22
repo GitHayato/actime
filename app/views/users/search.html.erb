@@ -1,28 +1,34 @@
 <%= render 'shared/second_header.html.erb' %>
 
-<div class="select-users">
-  <h1>ユーザー一覧</h1>
-  <div class="many-users">
-    <% unless @users == [] %>
-      <% @users.each do |user| %>
-        <div class="result-user">
-          <%= link_to user_path(user.public_uid), class: "users-path" do %>
-            <div class='users-path-info'>
-              <h3><%= user.username %></h3>
-              <p><%= user.followings.count %>フォロー/<%= user.followers.count %>フォロワー</p>
+<div class="wrap">
+  <div class="left-side">
+    <%= render "shared/side_bar.html.erb" %>
+  </div>
+  <div class="main">
+    <div class="select-users">
+      <h1>ユーザー一覧</h1>
+      <div class="many-users">
+        <% unless @users == [] %>
+          <% @users.each do |user| %>
+            <div class="result-user">
+              <%= link_to user_path(user.public_uid), class: "users-path" do %>
+                <div class='users-path-info'>
+                  <h3><%= user.username %></h3>
+                  <p><%= user.followings.count %>フォロー/<%= user.followers.count %>フォロワー</p>
+                </div>
+                <% if user.introduction %>
+                  <p><%= user.introduction %></p>
+                <% else %>
+                  <p>No introduction</p>
+                <% end %>
+              <% end %>
             </div>
-            <% if user.introduction %>
-              <p><%= user.introduction %></p>
-            <% else %>
-              <p>No introduction</p>
-            <% end %>
           <% end %>
-        </div>
-      <% end %>
-    <% else %>
-      <p>ユーザーはいません</p>
-    <% end %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
 <%= render 'shared/footer.html.erb' %>
