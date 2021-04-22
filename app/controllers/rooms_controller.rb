@@ -7,6 +7,9 @@ class RoomsController < ApplicationController
     @thread = Room.new
     room_ids = current_user.rooms.ids
     @rooms = Room.where(id: room_ids)
+    followers = User.find(current_user.id).follower_ids
+    follower_users = User.where(id: followers)
+    @mutual_follow = @users && follower_users
   end
 
   def create
