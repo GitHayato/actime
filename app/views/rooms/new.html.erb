@@ -16,7 +16,7 @@
         <%= f.label :user_ids, "招待する", class: "label-name" %>
         <% unless @users == [] %>
           <div class="users-lists">
-            <%= f.collection_check_boxes :user_ids, @users, :id, :username, include_hidden: false do |user| %>
+            <%= f.collection_check_boxes :user_ids, @mutual_follow, :id, :username, include_hidden: false do |user| %>
               <span class="users-list">
                 <%= user.label { user.check_box + user.text } %>
               </span>

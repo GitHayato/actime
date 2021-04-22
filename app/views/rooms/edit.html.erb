@@ -24,14 +24,14 @@
 
       <div class="field-form-invite">
         <%= f.label :user_ids, "招待する", class: "label-name" %>
-        <% unless @follow_users == [] %>
-          <%= f.collection_check_boxes :user_ids, @follow_users, :id, :username, include_hidden: false do |user| %>
+        <% unless @invite_users == [] %>
+          <%= f.collection_check_boxes :user_ids, @invite_users, :id, :username, include_hidden: false do |user| %>
             <div class="users-list">
               <%= user.label { user.check_box + user.text } %>
             </div>
           <% end %>
         <% else %>
-          <p>ユーザーをフォローしてください</p>
+          <p>招待できるユーザーがいません</p>
         <% end %>
       </div>
       <div class="update-thread-info">
