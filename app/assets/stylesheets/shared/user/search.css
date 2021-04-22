@@ -2,7 +2,8 @@
   width: 500px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-  margin: auto;
+  margin: 50px auto;
+  padding-bottom: 20px;
 }
 
 .select-users h1 {
@@ -17,6 +18,11 @@
 }
 
 .many-users p {
+  font-size: 14px;
+  padding: 0;
+}
+
+.no-user {
   font-size: 14px;
   padding: 0;
   text-align: center;
