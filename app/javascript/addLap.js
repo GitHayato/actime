@@ -47,7 +47,9 @@ export function addLap() {
             </select>
           </td>
           <td class="table-edit">
-            <img src="/images/three_point.png" id="watch-edit">
+            <a data-confirm="本当に削除しますか？\n削除するとストップウォッチも止まります" rel="nofollow" data-method="delete" href="/rooms/${pathParameter[2]}/watches/${content.id}">
+              <img src="/images/delete.png" class="watch-delete">
+            </a>
           </td>
         </tr>`;
       table.insertAdjacentHTML("afterbegin", HTML);
