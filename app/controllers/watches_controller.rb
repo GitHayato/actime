@@ -1,7 +1,7 @@
 class WatchesController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
-  before_action :set_room, only: [:index, :new, :create, :update]
+  before_action :set_room, only: [:index, :new, :create, :update, :destroy]
   before_action :common_data, only: [:index, :new, :create]
   before_action :side_menu, only: [:index , :new]
   require 'csv'
@@ -45,6 +45,15 @@ class WatchesController < ApplicationController
     watch = Watch.find(params[:id])
     watch.update(watch_params)
     render json:{ watch: watch }
+  end
+
+  def destroy
+    watch = Watch.find(params[:id])
+    if watch.destroy
+      redirect_to new_room_watch_path(@room.public_uid)
+    else
+      render :new
+    end
   end
 
   private

@@ -64,7 +64,7 @@
                   </td> 
                 <% end %>
                 <td class="table-edit">
-                  <%= image_tag "/images/three_point.png", id: "watch-edit" %>
+                  <%= link_to image_tag("/images/delete.png", class: "watch-delete"), room_watch_path(@room.public_uid, watch.id), method: :delete, data: {confirm: "本当に削除しますか？\n削除するとストップウォッチも止まります"} %>
                 </td>
               </tr>
             <% end %>
