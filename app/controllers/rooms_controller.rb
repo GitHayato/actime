@@ -53,13 +53,11 @@ class RoomsController < ApplicationController
   end
 
   def following_user
-    followings = User.find(current_user.id).following_ids
-    @users = User.where(id: followings)
+    @users = User.find(current_user.id).followings
   end
 
   def follower
-    followers = User.find(current_user.id).follower_ids
-    follower_users = User.where(id: followers)
-    @mutual_follow = @users && follower_users
+    follower_users = User.find(current_user.id).followers
+    @mutual_follow = @users & follower_users
   end
 end
