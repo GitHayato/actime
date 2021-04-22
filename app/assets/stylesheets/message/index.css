@@ -204,6 +204,10 @@
   background-color: #EEEEEE;
 }
 
+.each-user {
+  color: #000000;
+}
+
 .users-index p {
   margin-left: 50px;
 }
