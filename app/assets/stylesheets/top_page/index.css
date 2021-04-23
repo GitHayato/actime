@@ -154,13 +154,14 @@
 
 .actime{
   height: calc(100vh - 80px);
+  min-width: 800px;
   background: url("/images/background.png")no-repeat;
   background-size: 100%;
 }
 
 .about-actime {
   width: 40vw;
-  margin: 35vh 0 0 60%;
+  margin: 25% 0 0 60%;
 }
 
 .explanation h1 {
@@ -170,31 +171,44 @@
 }
 
 .session-registration-btn {
-  margin-left: 5vw;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
 }
 
 .top-sign-up {
   width: 150px;
   height: 50px;
   color: #ffffff;
-  background-color: #6D61FA;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 40px 0 20px;
+  background-color: #4A3094;
+}
+
+.top-sign-up:hover {
+  background-color: #A653C2;
 }
 
 .up-in-btn {
   text-decoration: none;
   font-size: 16px;
-  border-radius: 80px;
+  border-radius: 5px;
   justify-content: center;
   display: flex;
   align-items: center;
+  margin: 30px 5px 0;
 }
 
 .top-sign-in {
   width: 140px;
-  height: 40px;
+  height: 46px;
   color: #000000;
   border: 2px solid rgb(0, 0, 0);
   margin-left: 5px;
+}
+
+.top-sign-in:hover {
+  width: 144px;
+  height: 50px;
+  border: none;
+  color: #FFFFFF;
+  background-color: #000000;
 }
