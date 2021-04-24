@@ -81,6 +81,18 @@
       </div>
     </div>
   </div>
+  <div class="register-actime">
+    <div class="register">
+      <h1>AcTimeに登録する</h1>
+      <div class="register-btn">
+        <%= link_to "新規登録", new_user_registration_path, class: "registration-btn up-in-btn" %>
+        <%= link_to "ログイン", new_user_session_path, class: "session-btn up-in-btn" %>
+      </div>
+    </div>
+    <div class="mockup-images">
+      <%= image_tag("mockup.png", class: "mockup-image") %>
+    </div>
+  </div>
   
 <% end %>
 
