@@ -216,7 +216,8 @@
 .details-actime h1 {
   font-size: 24px;
   text-align: center;
-  margin: 30px 0;
+  margin: 70px 0;
+  font-weight: bold;
 }
 
 .detail-cards {
@@ -226,7 +227,30 @@
 
 .detail-card {
   width: 25vw;
-  margin: 0 20px 30px;
+  margin: 0 20px 70px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.toppage-images {
+  display: flex;
+  justify-content: center;
+}
+
+.toppage-image {
+  width: 120px;
+  margin: 30px 0;
+}
+
+.detail-card h3 {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.detail-card p {
+  margin: 0 30px 30px;
+  line-height: 25px;
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
