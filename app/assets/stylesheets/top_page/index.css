@@ -161,7 +161,7 @@
 
 .about-actime {
   width: 40vw;
-  margin: 25% 0 0 60%;
+  margin: 25% 0 100px 58vw;
 }
 
 .explanation h1 {
@@ -287,7 +287,6 @@
 }
 
 .registration-btn:hover {
-  /* border: 1px solid #000000; */
   color: #FFFFFF;
   background-color: #000000;
 }
