@@ -55,6 +55,44 @@
       </div>
     </div>
   </div>
+  <div class="details-actime">
+    <h1>AcTimeのできること</h1>
+    <div class="detail-cards">
+      <div class="left-detail-card detail-card">
+        <div class="toppage-images">
+          <%= image_tag("stopwatch.png", class:"toppage-image") %>
+        </div>
+        <h3>アプリ上でタイム管理</h3>
+        <p>アプリにストップウォッチを搭載しています。タイムには名前、種目、距離を紐付けることができ、スレッドを立てることでスレッドごとに管理することができます。大会ごとにスレッドを立ててみてください。</p>
+      </div>
+      <div class="middle-detail-card detail-card">
+        <div class="toppage-images">
+          <%= image_tag("pc.png", class: "toppage-image") %>
+        </div>
+        <h3>外部タイムを登録</h3>
+        <p>お持ちのストップウォッチで測ったタイムを登録することもできます。いままで管理が難しかったタイムもこのアプリに登録することで様々な分析が行えます。</p>
+      </div>
+      <div class="right-detail-card detail-card">
+        <div class="toppage-images">
+          <%= image_tag("share.png", class: "toppage-image") %>
+        </div>
+        <h3>csv形式で出力</h3>
+        <p>アプリに登録したタイムはcsv形式で出力することができます。より詳細な分析を行うために表計算ソフトなどと連携させて使えます。</p>
+      </div>
+    </div>
+  </div>
+  <div class="register-actime">
+    <div class="register">
+      <h1>AcTimeに登録する</h1>
+      <div class="register-btn">
+        <%= link_to "新規登録", new_user_registration_path, class: "registration-btn up-in-btn" %>
+        <%= link_to "ログイン", new_user_session_path, class: "session-btn up-in-btn" %>
+      </div>
+    </div>
+    <div class="mockup-images">
+      <%= image_tag("mockup.png", class: "mockup-image") %>
+    </div>
+  </div>
   
 <% end %>
 
