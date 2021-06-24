@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_094732) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "public_uid", null: false
     t.text "introduction"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "watches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
