@@ -1,6 +1,4 @@
 <% if user_signed_in? %>
-  <%= render "shared/second_header.html.erb" %>
-
   <div class="search-users">
     <%= form_with url: search_users_path, local: true, method: :get, class: "search-form" do |f| %>
       <%= f.text_field :keyword, placeholder: "ユーザーを検索する", class: "search-input" %>
@@ -41,8 +39,6 @@
     </div>
   </div>
 <% else %>
-  <%= render "shared/header.html.erb" %>
-
   <div class="actime">
     <div class="about-actime">
       <div class="explanation">
@@ -93,7 +89,4 @@
       <%= image_tag("mockup.png", class: "mockup-image") %>
     </div>
   </div>
-  
 <% end %>
-
-<%= render "shared/footer.html.erb" %>
