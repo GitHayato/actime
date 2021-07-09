@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   root to: "top_pages#index"
   resources :users, only: [:show, :edit, :update, :destroy] do
     member do
@@ -21,4 +21,7 @@ Rails.application.routes.draw do
     resources :events, only: [:create]
   end
   resources :relationships, only: [:create, :destroy]
+
+  get '*not_found' => 'application#routing_error'
+  post '*not_found' => 'application#routing_error'
 end
