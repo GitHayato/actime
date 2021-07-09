@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
-  unless Rails.env.production?
+  unless Rails.env.development?
     rescue_from Exception,                        with: :_render_500
     rescue_from ActiveRecord::RecordNotFound,     with: :_render_404
     rescue_from ActionController::RoutingError,   with: :_render_404
